@@ -1,0 +1,15 @@
+.wrapper {
+  height: 100vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.mainHeader {
+  height: auto;
+  width: 100%;
+  position: fixed;
+  margin-bottom: 100px !important;
+}
+
+.container {
+  margin-top: 150px;
+}

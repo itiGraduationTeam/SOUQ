@@ -1,0 +1,22 @@
+.navclass {
+  height: 40px;
+  width: 100%;
+  display: block;
+  text-align: center;
+  /* flex-direction: row;
+  align-items: center;
+  justify-content: space-around; */
+  padding-right: 100px;
+  padding-left: 100px;
+}
+.nav.hide-nav {
+  display: none;
+}
+
+.leftBlock {
+  display: inline-block;
+}
+
+.nopadding {
+  padding: 0px 100px 0px 10px;
+}

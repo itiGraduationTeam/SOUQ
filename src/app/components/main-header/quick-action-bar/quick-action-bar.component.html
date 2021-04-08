@@ -1,0 +1,19 @@
+<nav class="nav navbar navbar-expand navclass">
+  <!-- <a href="#" class="navbar-brand">Techiediaries</a> -->
+  <div class="navbar-nav float-right">
+    <li *ngFor="let item of navRightItem; let i = index" class="nav-item">
+      <a routerLink="products" class="nav-link nopadding"
+        >{{ item.name }} &nbsp;
+        <span *ngIf="i !== navRightItem.length - 1">|</span>
+      </a>
+    </li>
+  </div>
+
+  <div class="navbar-nav float-left">
+    <li *ngFor="let item of navRightItem; let i = index" class="nav-item">
+      <a routerLink="products" class="nav-link nopadding">
+        <i class="bi bi-archive iconColor"></i> &nbsp; {{ item.name }}
+      </a>
+    </li>
+  </div>
+</nav>
