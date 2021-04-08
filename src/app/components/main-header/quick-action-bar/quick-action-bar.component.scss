@@ -6,6 +6,7 @@
   display: block;
   padding-right: 40px;
   padding-left: 40px;
+  transition: all 0.5s linear;
 }
 
 .leftBlock {
@@ -13,10 +14,18 @@
 }
 
 .nopadding {
-  padding: 0px 10px 0px 10px;
+  padding: 0px i !important;
 }
 
-li {
+button {
+  background-color: transparent;
+  border: none !important;
+  padding-right: 2px;
+  padding-left: 2px;
+  :hover {
+    color: white !important;
+  }
+
   a {
     color: #fff;
     font-size: 12px;
@@ -24,11 +33,14 @@ li {
 }
 span {
   height: 12px;
-  width: 1px;
   color: #666;
-  top: 3px;
-  right: -3px;
 }
 .iconColor {
   color: white;
+}
+
+.hide-nav {
+  padding: 0 !important;
+  height: 0px;
+  opacity: 0;
 }

@@ -1,6 +1,5 @@
 <div>
-  <app-quick-action-bar [ngClass]="{ 'hide-nav': visible }">
-  </app-quick-action-bar>
+  <app-quick-action-bar [isVisible]="isVisible"> </app-quick-action-bar>
   <app-header> </app-header>
-  <app-nav-bar [ngClass]="{ 'hide-nav': visible }"> </app-nav-bar>
+  <app-nav-bar [isVisible]="isVisible"> </app-nav-bar>
 </div>

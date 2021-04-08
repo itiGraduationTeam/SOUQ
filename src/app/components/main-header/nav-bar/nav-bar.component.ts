@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-nav-bar',
@@ -6,7 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nav-bar.component.scss'],
 })
 export class NavBarComponent implements OnInit {
+  @Input()
+  isVisible = false;
   constructor() {}
 
   ngOnInit(): void {}
+
+  ngOnChanges(changes: any) {
+    this.isVisible = changes.isVisible.currentValue;
+  }
 }

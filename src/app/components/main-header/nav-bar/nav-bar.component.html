@@ -1,4 +1,7 @@
-<nav class="nav navbar navbar-expand navbar-dark bg-dark navclass">
+<nav
+  [ngClass]="{ 'hide-nav': isVisible }"
+  class="nav navbar navbar-expand navbar-dark bg-dark navclass"
+>
   <!-- <a href="#" class="navbar-brand">Techiediaries</a> -->
   <div class="navbar-nav float-right">
     <li class="nav-item">

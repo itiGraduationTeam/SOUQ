@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -7,8 +7,9 @@ import { faCoffee } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./quick-action-bar.component.scss'],
 })
 export class QuickActionBarComponent implements OnInit {
-  faCoffee = faCoffee;
-  visible = false;
+  @Input()
+  isVisible = false;
+
   navRightItem = [
     {
       name: 'Create an Account',
@@ -27,9 +28,25 @@ export class QuickActionBarComponent implements OnInit {
     },
   ];
 
+  navLeftItems = [
+    {
+      name: 'Free Shipping',
+      icon: 'bi bi-archive',
+    },
+    {
+      name: 'Free Returns',
+      icon: 'bi bi-archive',
+    },
+    {
+      name: ' Cash on Delivery',
+      icon: 'bi bi-archive',
+    },
+  ];
   constructor() {}
-  change() {
-    this.visible = !this.visible;
-  }
+
   ngOnInit(): void {}
+
+  ngOnChanges(changes: any) {
+    this.isVisible = changes.isVisible.currentValue;
+  }
 }

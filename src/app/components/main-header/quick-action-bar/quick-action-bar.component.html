@@ -1,19 +1,20 @@
-<nav class="nav navbar navbar-expand navclass">
+<nav
+  [ngClass]="{ 'hide-nav': isVisible }"
+  class="nav navbar navbar-expand navclass"
+>
   <!-- <a href="#" class="navbar-brand">Techiediaries</a> -->
   <div class="navbar-nav float-right">
-    <li *ngFor="let item of navRightItem; let i = index" class="nav-item">
-      <a routerLink="products" class="nav-link nopadding"
-        >{{ item.name }} &nbsp;
+    <button *ngFor="let item of navRightItem; let i = index">
+      <a
+        >{{ item.name }}
         <span *ngIf="i !== navRightItem.length - 1">|</span>
       </a>
-    </li>
+    </button>
   </div>
 
   <div class="navbar-nav float-left">
-    <li *ngFor="let item of navRightItem; let i = index" class="nav-item">
-      <a routerLink="products" class="nav-link nopadding">
-        <i class="bi bi-archive iconColor"></i> &nbsp; {{ item.name }}
-      </a>
-    </li>
+    <button *ngFor="let item of navLeftItems; let i = index">
+      <a> <i class="{{ item.icon }} iconColor"></i>&nbsp; {{ item.name }} </a>
+    </button>
   </div>
 </nav>

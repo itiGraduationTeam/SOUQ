@@ -7,22 +7,12 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class MainHeaderComponent implements OnInit {
   constructor() {}
-  // @Output() messageEvent = new EventEmitter<boolean>();
-  message: boolean = true;
 
   @Input()
   isVisible = false;
-  visible = false;
-  ngOnInit(): void {
-    // console.log('this.isVisible>>>>>>>>>', this.messageEvent);
-    // this.scroll.emit(this.messageEvent);
-  }
+  ngOnInit(): void {}
 
   ngOnChanges(changes: any) {
-    console.log('>>>>>>>>>>', changes.isVisible.currentValue);
-    this.visible = changes.isVisible.currentValue;
+    this.isVisible = changes.isVisible.currentValue;
   }
-  // sendMessage() {
-  //   this.messageEvent.emit(this.message);
-  // }
 }
