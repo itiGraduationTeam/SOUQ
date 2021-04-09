@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ProductDetailsComponent } from './components/+product/product-details/product-details.component';
 const routes: Routes = [
   {
     path: 'main-header',
@@ -8,10 +9,14 @@ const routes: Routes = [
         (m) => m.MainHeaderModule
       ),
   },
+  {
+    path: 'product_details', component: ProductDetailsComponent
+  },
+
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
