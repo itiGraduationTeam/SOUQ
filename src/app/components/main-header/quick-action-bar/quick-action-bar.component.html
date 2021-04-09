@@ -13,8 +13,10 @@
   </div>
 
   <div class="navbar-nav float-left">
-    <button *ngFor="let item of navLeftItems; let i = index">
-      <a> <i class="{{ item.icon }} iconColor"></i>&nbsp; {{ item.name }} </a>
+    <button class="iconButton" *ngFor="let item of navLeftItems; let i = index">
+      <label class="iconLabel">
+        <i class="{{ item.icon }} icon"></i> {{ item.name }}
+      </label>
     </button>
   </div>
 </nav>
