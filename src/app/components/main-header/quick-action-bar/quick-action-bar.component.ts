@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-quick-action-bar',
@@ -9,7 +8,6 @@ import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 export class QuickActionBarComponent implements OnInit {
   @Input()
   isVisible = false;
-
   navRightItem = [
     {
       name: 'Create an Account',
@@ -31,15 +29,15 @@ export class QuickActionBarComponent implements OnInit {
   navLeftItems = [
     {
       name: 'Free Shipping',
-      icon: 'bi bi-archive',
+      icon: 'fas fa-truck',
     },
     {
       name: 'Free Returns',
-      icon: 'bi bi-archive',
+      icon: 'fas fa-sync',
     },
     {
       name: ' Cash on Delivery',
-      icon: 'bi bi-archive',
+      icon: 'fas fa-dollar-sign',
     },
   ];
   constructor() {}

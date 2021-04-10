@@ -17,7 +17,17 @@ import { ProductsSummaryComponent } from './components/+product/product-details/
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [AppComponent, AllCategoryComponent, AllSubCategoryComponent, FooterComponent, FilterComponent, ProductDetailsComponent, ProductsSpecificationComponent, ProductsSliderComponent, ProductsSummaryComponent],
+  declarations: [
+    AppComponent,
+    AllCategoryComponent,
+    AllSubCategoryComponent,
+    FooterComponent,
+    FilterComponent,
+    ProductDetailsComponent,
+    ProductsSpecificationComponent,
+    ProductsSliderComponent,
+    ProductsSummaryComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
