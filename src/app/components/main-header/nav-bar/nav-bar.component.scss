@@ -1,12 +1,13 @@
 .navclass {
-  height: 30px;
+  height: 40px;
   width: 100%;
-  line-height: 1;
-  background-color: #22303e;
+  background: #e8ebee;
+  position: relative;
   display: block;
   padding-right: 40px;
   padding-left: 40px;
-  transition: all 0.5s linear;
+  transition: all 0.4s linear;
+  padding: 0 !important;
 }
 .hide-nav {
   padding: 0 !important;
@@ -14,10 +15,35 @@
   opacity: 0;
 }
 
-.leftBlock {
-  display: inline-block;
+.row {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+.small-12 {
+  width: 100%;
+}
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  height: 40px;
+  overflow: hidden;
+  margin-left: 3px;
+  line-height: 1;
+  flex-wrap: nowrap;
+  text-align: center;
+  align-items: center;
 }
 
-.nopadding {
-  padding: 0px 100px 0px 10px;
+button {
+  background-color: transparent;
+  border: none !important;
+  padding: 10px;
+  color: #252933;
+  position: relative;
+  font-size: 13px;
+  font-weight: 700;
+  display: block;
+  white-space: nowrap;
 }

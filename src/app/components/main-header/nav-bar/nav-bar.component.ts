@@ -8,6 +8,51 @@ import { Component, OnInit, Input } from '@angular/core';
 export class NavBarComponent implements OnInit {
   @Input()
   isVisible = false;
+
+  navBarItems = [
+    {
+      label: 'All Categories',
+    },
+    {
+      label: 'SOUQ Fashion',
+    },
+    {
+      label: 'Supermarket',
+    },
+    {
+      label: 'Mobiles & Tablets',
+    },
+    {
+      label: 'TVs',
+    },
+    {
+      label: 'Home & Kitchen',
+    },
+    {
+      label: 'Appliances',
+    },
+    {
+      label: 'Health & Beauty',
+    },
+    {
+      label: 'Moms & Babies',
+    },
+    {
+      label: 'Toys',
+    },
+
+    {
+      label: 'Sports',
+    },
+
+    {
+      label: 'Automotive',
+    },
+
+    {
+      label: 'Office',
+    },
+  ];
   constructor() {}
 
   ngOnInit(): void {}

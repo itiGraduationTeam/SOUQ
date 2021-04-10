@@ -1,23 +1,12 @@
 <nav
   [ngClass]="{ 'hide-nav': isVisible }"
-  class="nav navbar navbar-expand navbar-dark bg-dark navclass"
+  class="nav navbar navbar-expand navclass"
 >
-  <!-- <a href="#" class="navbar-brand">Techiediaries</a> -->
-  <div class="navbar-nav float-right">
-    <li class="nav-item">
-      <a routerLink="products" class="nav-link nopadding">Products</a>
-    </li>
-    <li class="nav-item">
-      <a routerLink="create" class="nav-link nopadding">Create</a>
-    </li>
-  </div>
-
-  <div class="navbar-nav float-left">
-    <li class="nav-item">
-      <a routerLink="products" class="nav-link nopadding">Products</a>
-    </li>
-    <li class="nav-item nopadding">
-      <a routerLink="create" class="nav-link nopadding">Create</a>
-    </li>
+  <div class="row">
+    <ul class="small-12 row">
+      <button *ngFor="let item of navBarItems; let i = index">
+        {{ item.label }}
+      </button>
+    </ul>
   </div>
 </nav>

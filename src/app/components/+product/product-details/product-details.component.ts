@@ -9,7 +9,7 @@ import {ProductService} from '../../../../Shared/Services/product.service'
 })
 export class ProductDetailsComponent implements OnInit {
 
-  product: any;
+  product:any;
   loading: Boolean = false
   errorMessage = ""
   productID:any;
@@ -39,10 +39,12 @@ export class ProductDetailsComponent implements OnInit {
   }
   getProductById(id:any) {
     this.loading = true
-    this.productServ.getProductByID(id).subscribe(
+    this.productServ.getProductByID(2).subscribe(
       data => {
         this.loading = false
-        this.product = data
+        this.product= data
+        console.log("product:",this.product);
+        
       },
       err => {
         this.errorMessage = err;

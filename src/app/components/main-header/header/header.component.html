@@ -1,4 +1,82 @@
-<header>
-  <div class="jumbotron color-grey-light header">Header</div>
+<header class="header">
+  <!-- Logo -->
+  <div [className]="isVisible ? 'row container ' : 'row rowContainer '">
+    <div class="logo_col col-3">
+      <div class="logo_container">
+        <i class="fas fa-bars icon"></i>
+        <img class="logo" src="assets/logo2.png" />
+      </div>
+    </div>
+    <div class="col-5">
+      <div class="header_search_form_container">
+        <form>
+          <input
+            type="search"
+            required="required"
+            class="header_search_input"
+            placeholder="What are you looking for?"
+          />
+
+          <button
+            type="submit"
+            class="header_search_button trans_300"
+            value="Submit"
+          >
+            <img
+              src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1560918770/search.png"
+              alt=""
+            />
+          </button>
+        </form>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="loginCart">
+        <div class="btn-group dropdown">
+          <button
+            type="button"
+            class="btn dv dropdown-toggle toogle"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Hello. Log In
+          </button>
+          <div class="dropdown-menu dropdown-content">
+            <div class="menu_btn_container">
+              <button>Log In</button>
+              <div>
+                <button class="signUp_noAccount no_account">
+                  Don't have an account?
+                </button>
+              </div>
+              <div>
+                <button class="signUp_noAccount sign_up">Sign Up</button>
+              </div>
+            </div>
+            <div class="dropdown-divider"></div>
+
+            <a
+              *ngFor="let item of menuLisItems; let i = index"
+              class="dropdown-item"
+              href="https://google.com/"
+              >{{ item.label }}
+              <div
+                *ngIf="i !== menuLisItems.length - 1"
+                class="dropdown-divider"
+              ></div>
+            </a>
+          </div>
+        </div>
+
+        <div class="cart">
+          <button class="cart_icon">
+            <div class="cart_count"><span>0</span></div>
+            <i class="fas fa-shopping-cart icon"></i>
+          </button>
+          <div class="cart_label">Cart</div>
+        </div>
+      </div>
+    </div>
+  </div>
 </header>
-<h1></h1>
