@@ -15,6 +15,9 @@ import { ProductsSpecificationComponent } from './components/+product/product-de
 import { ProductsSliderComponent } from './components/+product/product-details/products-slider/products-slider.component';
 import { ProductsSummaryComponent } from './components/+product/product-details/products-summary/products-summary.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './components/+auth/login/login.component';
+import { SignupComponent } from './components/+auth/signup/signup.component';
+import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,6 +30,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     ProductsSpecificationComponent,
     ProductsSliderComponent,
     ProductsSummaryComponent,
+    LoginComponent,
+    SignupComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,6 +40,9 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     NgbModule,
     FontAwesomeModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+   
   ],
   providers: [],
   bootstrap: [AppComponent],
