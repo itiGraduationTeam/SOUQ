@@ -6,6 +6,7 @@ import { QuickActionBarComponent } from './quick-action-bar/quick-action-bar.com
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { HeaderComponent } from './header/header.component';
 import { MainHeaderComponent } from './main-header/main-header.component';
+import { SideMenuComponent } from './side-menu/side-menu.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { MainHeaderComponent } from './main-header/main-header.component';
     NavBarComponent,
     HeaderComponent,
     MainHeaderComponent,
+    SideMenuComponent,
   ],
   imports: [CommonModule],
   exports: [MainHeaderComponent],

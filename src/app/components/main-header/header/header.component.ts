@@ -9,6 +9,7 @@ export class HeaderComponent implements OnInit {
   constructor() {}
   @Input()
   isVisible = false;
+  isOpen = false;
   ngOnInit(): void {}
   menuLisItems = [
     {
@@ -30,5 +31,13 @@ export class HeaderComponent implements OnInit {
 
   ngOnChanges(changes: any) {
     this.isVisible = changes.isVisible.currentValue;
+  }
+  openNav() {
+    this.isOpen = !this.isOpen;
+    // let body = document.getElementsByTagName('body')[0];
+    // body.classList.add('body-landing');
+  }
+  closeNav() {
+    this.isOpen = false;
   }
 }

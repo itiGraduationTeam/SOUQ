@@ -1,0 +1,34 @@
+<div id="mySidenav" class="sidenav" [style.width]="isOpen ? '250px' : '0px'">
+  <a href="#" class="closebtn" (click)="closeSlideMenu()">&times;</a>
+  <div *ngFor="let item of sideMenuItems; let i = index">
+    <button *ngIf="!item.subCategories" href="#">
+      {{ item.parentName }}
+    </button>
+
+    <div *ngIf="item.subCategories">
+      <label class="accordionContainer" href="#">
+        {{ item.parentName }}
+      </label>
+      <div *ngFor="let subItem of item.subCategories; let j = index">
+        <button
+          [className]="
+            subItem.childProperties.length > 0
+              ? 'accordion'
+              : 'accordionWithoutArrow'
+          "
+          (click)="toggleAccordian($event, i)"
+        >
+          {{ subItem.parentName }}
+        </button>
+        <div class="panel" hide="!item.isActive">
+          <p
+            (click)="childClick(subItem, child)"
+            *ngFor="let child of subItem.childProperties"
+          >
+            {{ child.propertyName }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

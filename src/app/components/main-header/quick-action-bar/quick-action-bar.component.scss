@@ -22,6 +22,7 @@ button {
   border: none !important;
   padding-right: 2px;
   padding-left: 2px;
+  white-space: nowrap;
   :hover {
     color: white !important;
   }
@@ -40,6 +41,7 @@ span {
   padding: 0 !important;
   height: 0px;
   opacity: 0;
+  display: none;
 }
 .icon {
   color: #fff;
@@ -63,5 +65,11 @@ span {
   height: 100%;
   :hover {
     color: white !important;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .leftItems {
+    display: none;
   }
 }

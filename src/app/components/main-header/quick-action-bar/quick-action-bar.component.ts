@@ -8,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class QuickActionBarComponent implements OnInit {
   @Input()
   isVisible = false;
+  removeNav = false;
   navRightItem = [
     {
       name: 'Create an Account',
@@ -46,5 +47,12 @@ export class QuickActionBarComponent implements OnInit {
 
   ngOnChanges(changes: any) {
     this.isVisible = changes.isVisible.currentValue;
+    if (!this.isVisible) {
+      this.removeNav = false;
+    } else {
+      setTimeout(() => {
+        this.removeNav = this.isVisible;
+      }, 500);
+    }
   }
 }

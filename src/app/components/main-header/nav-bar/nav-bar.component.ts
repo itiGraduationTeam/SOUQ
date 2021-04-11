@@ -8,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class NavBarComponent implements OnInit {
   @Input()
   isVisible = false;
+  removeNav = false;
 
   navBarItems = [
     {
@@ -59,5 +60,12 @@ export class NavBarComponent implements OnInit {
 
   ngOnChanges(changes: any) {
     this.isVisible = changes.isVisible.currentValue;
+    if (!this.isVisible) {
+      this.removeNav = false;
+    } else {
+      setTimeout(() => {
+        this.removeNav = this.isVisible;
+      }, 500);
+    }
   }
 }

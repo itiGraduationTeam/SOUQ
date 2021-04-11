@@ -1,5 +1,6 @@
 <nav
   [ngClass]="{ 'hide-nav': isVisible }"
+  [hidden]="removeNav"
   class="nav navbar navbar-expand navclass"
 >
   <!-- <a href="#" class="navbar-brand">Techiediaries</a> -->
@@ -12,7 +13,7 @@
     </button>
   </div>
 
-  <div class="navbar-nav float-left">
+  <div class="navbar-nav float-left leftItems">
     <button class="iconButton" *ngFor="let item of navLeftItems; let i = index">
       <label class="iconLabel">
         <i class="{{ item.icon }} icon"></i> {{ item.name }}

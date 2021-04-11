@@ -1,9 +1,13 @@
 <header class="header">
   <!-- Logo -->
-  <div [className]="isVisible ? 'row container ' : 'row rowContainer '">
+  <!-- [className]="isVisible ? 'row container ' : 'row rowContainer '" -->
+
+  <div class="row">
     <div class="logo_col col-3">
       <div class="logo_container">
-        <i class="fas fa-bars icon"></i>
+        <button (click)="openNav()">
+          <i class="fas fa-bars icon"></i>
+        </button>
         <img class="logo" src="assets/logo2.png" />
       </div>
     </div>
@@ -79,4 +83,5 @@
       </div>
     </div>
   </div>
+  <app-side-menu [isOpen]="isOpen"> </app-side-menu>
 </header>
