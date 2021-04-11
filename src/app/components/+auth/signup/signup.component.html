@@ -1,0 +1,66 @@
+<div class="row pt-5">
+    <div class="col-sm-6 mx-auto">
+        <div class="card">
+            <div class="card-header">
+                <h3>Create an account</h3><br>
+            </div>
+            <div class="card-body">
+                <form #signUpForm="ngForm" novalidate (ngSubmit)="signUp(signUpData)">
+
+                    <!-- email -->
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" #email="ngModel" name="email" [(ngModel)]="signUpData.email"
+                            class="form-control"
+                            pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" required>
+                    </div>
+                    <div *ngIf="email.errors && (email.invalid || email.touched)">
+                        <small class="text-danger" *ngIf="email.errors.required && email.touched">email is
+                            requered</small>
+                        <small class="text-danger" *ngIf="email.errors.pattern">email must be in format</small>
+                    </div>
+
+                    <!-- password -->
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" #password="ngModel" [(ngModel)]="signUpData.password" required
+                            class="form-control" name="password">
+                    </div>
+                    <small class="text-danger" *ngIf="password.invalid && password.touched">password is requered</small>
+
+                    <!-- first name -->
+                    <div class="form-group">
+                        <label for="firstName" style="float: left;">First Name</label>
+                        <input type="text" #firstName="ngModel" [(ngModel)]="signUpData.firstName" class="form-control"
+                            id="firstName" name="firstName" required pattern="^[_a-zA-Z]{1}\w+$">
+                    </div>
+                    <div *ngIf="firstName.errors && (firstName.invalid || firstName.touched)">
+                        <small class="text-danger" *ngIf="firstName.errors.required && firstName.touched">name is
+                            requered</small>
+                        <small class="text-danger" *ngIf="firstName.errors.pattern">name must start with only charcter
+                            or
+                            underscore
+                        </small>
+                    </div>
+
+                    <!-- last name -->
+                    <div class="form-group">
+                        <label for="lastName" style="float: left;">Last Name</label>
+                        <input type="text" #lastName="ngModel" [(ngModel)]="signUpData.lastName" class="form-control"
+                            id="lastName" name="lastName" required pattern="^[_a-zA-Z]{1}\w+$">
+                    </div>
+                    <div *ngIf="lastName.errors && (lastName.invalid || lastName.touched)">
+                        <small class="text-danger" *ngIf="lastName.errors.required && lastName.touched">name is
+                            requered</small>
+                        <small class="text-danger" *ngIf="lastName.errors.pattern">name must start with only charcter
+                        </small>
+                    </div>
+                    <button [disabled]="firstName.invalid || email.invalid || lastName.invalid || password.invalid"
+                        type="submit" class="btn btn-primary">
+                        <h4>Create an account</h4>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

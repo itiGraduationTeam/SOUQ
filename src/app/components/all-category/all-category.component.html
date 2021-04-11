@@ -1,1 +1,15 @@
-<p>all-category works!</p>
+<div class="container">
+    <div class="col-md-9 mr-auto">
+        <h1>Shop All Categories</h1>
+        <div class="row">
+            <div class="col-md-3" *ngFor="let cat of allCategory">
+                <h4>{{cat.name}}</h4>
+                <div class="card">
+                    <div class="card-body">
+                        <a href="#"> {{cat.name}} </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

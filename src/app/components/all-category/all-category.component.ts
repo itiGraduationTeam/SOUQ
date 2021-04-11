@@ -6,7 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./all-category.component.scss']
 })
 export class AllCategoryComponent implements OnInit {
-
+allCategory=[
+  {name:"fashone"},
+  {name:"fashone"},
+  {name:"fashone"},
+  {name:"fashone"}
+]
   constructor() { }
 
   ngOnInit(): void {
