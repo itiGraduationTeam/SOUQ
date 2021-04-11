@@ -18,6 +18,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './components/+auth/login/login.component';
 import { SignupComponent } from './components/+auth/signup/signup.component';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CardComponent } from './components/+shared_UI/card/card.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
     ProductsSummaryComponent,
     LoginComponent,
     SignupComponent,
+    CardComponent,
   ],
   imports: [
     BrowserModule,
