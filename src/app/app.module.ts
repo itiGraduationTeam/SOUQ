@@ -19,6 +19,8 @@ import { LoginComponent } from './components/+auth/login/login.component';
 import { SignupComponent } from './components/+auth/signup/signup.component';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CardComponent } from './components/+shared_UI/card/card.component';
+import { HomepageComponent } from './components/homepage/homepage.component';
+import { SlideshowComponent } from './components/homepage/slideshow/slideshow.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,8 @@ import { CardComponent } from './components/+shared_UI/card/card.component';
     LoginComponent,
     SignupComponent,
     CardComponent,
+    HomepageComponent,
+    SlideshowComponent,
   ],
   imports: [
     BrowserModule,
