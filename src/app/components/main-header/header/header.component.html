@@ -62,8 +62,8 @@
 
             <a
               *ngFor="let item of menuLisItems; let i = index"
+              (click)="itemPress(item)"
               class="dropdown-item"
-              href="https://google.com/"
               >{{ item.label }}
               <div
                 *ngIf="i !== menuLisItems.length - 1"
