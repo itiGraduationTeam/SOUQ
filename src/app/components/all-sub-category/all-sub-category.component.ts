@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AllSubCategoriesService } from 'src/Shared/Services/all-sub-categories.service';
+import { FilterService } from 'src/Shared/Services/filter.service';
 
 @Component({
   selector: 'app-all-sub-category',
@@ -7,10 +8,18 @@ import { AllSubCategoriesService } from 'src/Shared/Services/all-sub-categories.
   styleUrls: ['./all-sub-category.component.scss']
 })
 export class AllSubCategoryComponent implements OnInit {
- @Input() categoryName:any;
-  constructor(private subCategoryServe:AllSubCategoriesService) { }
+ @Input() cateID: any;
+ allSubCategory:any;
+ constructor(private filterService:FilterService) { }
 
-  ngOnInit(): void {
-  }
+ ngOnInit(): void {
+   this.filterService.getAllSubcategoryByCateId(this.cateID).subscribe( (data)=>{
+     console.log(data);
+     this.allSubCategory=data;
+    
+ 
+   })
 
+   
+ }
 }
