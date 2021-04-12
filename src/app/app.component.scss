@@ -8,11 +8,30 @@
   width: 100%;
   position: fixed;
   margin-bottom: 100px !important;
+  z-index: 10000;
 }
 
 .container {
   margin-top: 150px;
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+
   // margin-left: 200px;
   // padding: 1px 16px;
   // height: 1000px;
+}
+
+.footer {
+  width: 100%;
+}
+
+//
+.blanket {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.6);
 }
