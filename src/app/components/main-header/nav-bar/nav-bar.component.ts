@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav-bar',
@@ -12,49 +13,64 @@ export class NavBarComponent implements OnInit {
 
   navBarItems = [
     {
+      // id:'AllCategories',
       label: 'All Categories',
+      routerLink: '/allcategory',
     },
     {
+      // id:"SOUQFashion",
       label: 'SOUQ Fashion',
+      routerLink: '/Fashion',
     },
     {
       label: 'Supermarket',
+      routerLink: '/Supermarket',
     },
     {
       label: 'Mobiles & Tablets',
+      routerLink: '/Mobiles',
     },
     {
       label: 'TVs',
+      routerLink: '/TVs',
     },
     {
       label: 'Home & Kitchen',
+      routerLink: '/Kitchen',
     },
     {
       label: 'Appliances',
+      routerLink: '/Appliances',
     },
     {
       label: 'Health & Beauty',
+      routerLink: '/Beauty',
     },
     {
       label: 'Moms & Babies',
+      routerLink: '/Babies',
     },
     {
       label: 'Toys',
+      routerLink: '/Toys',
     },
 
     {
       label: 'Sports',
+      routerLink: '/Sports',
     },
 
     {
       label: 'Automotive',
+      routerLink: '/Automotive',
     },
 
     {
       label: 'Office',
+      routerLink: '/Office',
     },
   ];
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
 
@@ -67,5 +83,9 @@ export class NavBarComponent implements OnInit {
         this.removeNav = this.isVisible;
       }, 500);
     }
+  }
+  navBarItemPress(item: any) {
+    alert(item.routerLink);
+    this.router.navigate([item.routerLink]);
   }
 }
