@@ -23,6 +23,7 @@ import { HomepageComponent } from './components/homepage/homepage.component';
 import { SlideshowComponent } from './components/homepage/slideshow/slideshow.component';
 import { ProductCardDesignComponent } from './components/+shared_UI/product-card-design/product-card-design.component';
 import { ShowcategoryComponent } from './components/showcategory/showcategory.component';
+import { NgxUsefulSwiperModule } from 'ngx-useful-swiper';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,7 @@ import { ShowcategoryComponent } from './components/showcategory/showcategory.co
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-   
+    NgxUsefulSwiperModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,4 +1,4 @@
-
+<!--
 <div id="demo" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
     <div class="carousel-item active">
@@ -22,4 +22,18 @@
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
-</div>
+</div> -->
+
+<swiper [config]="config">
+  <div class="swiper-wrapper">
+    <img
+      class="swiper-slide"
+      *ngFor="let img of Images"
+      src="{{ img.src }}"
+      alt="{{ img.alt }}"
+    />
+  </div>
+  <div class="swiper-pagination"></div>
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+</swiper>
