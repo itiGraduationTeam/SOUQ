@@ -31,10 +31,6 @@ export class PopularComponent implements OnInit {
   loading: boolean = false;
 
   ngOnInit(): void {
-    console.log('data>>>>>>>>>>>>>>>??');
-    $(document).ready(function () {
-      alert('we call alert from JQuery');
-    });
     this.loading = true;
     this.productServ.getFashionProduct().subscribe(
       (data) => {

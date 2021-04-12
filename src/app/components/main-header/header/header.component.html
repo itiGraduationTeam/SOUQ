@@ -59,17 +59,18 @@
               </div>
             </div>
             <div class="dropdown-divider"></div>
-
-            <a
+            <div
+              class="item_container"
               *ngFor="let item of menuLisItems; let i = index"
-              (click)="itemPress(item)"
-              class="dropdown-item"
-              >{{ item.label }}
+            >
+              <a (click)="itemPress(item)" class="dropdown-item"
+                >{{ item.label }}
+              </a>
               <div
                 *ngIf="i !== menuLisItems.length - 1"
                 class="dropdown-divider"
               ></div>
-            </a>
+            </div>
           </div>
         </div>
 
