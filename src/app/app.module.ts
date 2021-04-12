@@ -23,6 +23,8 @@ import { HomepageComponent } from './components/homepage/homepage.component';
 import { SlideshowComponent } from './components/homepage/slideshow/slideshow.component';
 import { ProductCardDesignComponent } from './components/+shared_UI/product-card-design/product-card-design.component';
 import { ShowcategoryComponent } from './components/showcategory/showcategory.component';
+import { RatingComponent } from './components/+shared_UI/rating/rating.component';
+import { PopularComponent } from './components/homepage/popular/popular.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +45,8 @@ import { ShowcategoryComponent } from './components/showcategory/showcategory.co
     ProductCardDesignComponent,
     ShowcategoryComponent,
     
+    RatingComponent,
+    PopularComponent,
   ],
   imports: [
     BrowserModule,
