@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FilterService } from 'src/Shared/Services/filter.service';
 
 @Component({
   selector: 'app-all-category',
@@ -6,15 +7,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./all-category.component.scss']
 })
 export class AllCategoryComponent implements OnInit {
-allCategory=[
-  {name:"fashone"},
-  {name:"fashone"},
-  {name:"fashone"},
-  {name:"fashone"}
-]
-  constructor() { }
 
-  ngOnInit(): void {
-  }
+  allCategory:any;
+  categoryName:any;
+  
+    constructor(private filterService: FilterService ) { }
+  
+    ngOnInit(): void {
+      this.filterService.getAllCategory().subscribe(
+        (data)=>{
+          console.log(data);
+          this.allCategory=data;
+         this.categoryName="salma";
+         
+      
+        }
+      );
+    }
 
 }
