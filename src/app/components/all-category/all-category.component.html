@@ -1,7 +1,8 @@
 <div class="container">
+    <span style="font-size: 3rem;">Shop All Categories</span>
     <div class="row">
         <div class="col-sm-3" *ngFor="let cat of allCategory">
-            <h5>{{cat.name}}</h5>
+            <span>{{cat.name}}</span>
             <div class="card">
                 <div class="card-body">
                   <app-all-sub-category [(cateID)]="cat.cateid"></app-all-sub-category>

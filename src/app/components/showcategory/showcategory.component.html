@@ -1,6 +1,9 @@
-<div class="container"> 
+<div class="container-fluid">
     <div class="row">
-        <div class="col-md-3 " *ngFor="let item of categoriesNameList">
+        <img class="col-sm-12" [src]="categoryImg" alt="">
+    </div> 
+    <div class="row">
+        <div class="col-sm-3 " *ngFor="let item of categoriesNameList">
             <div class="card" style="width: 18rem;">
                 <div class="card-header bg-dark">
                     <h5 class="card-title">{{item.name}}</h5>

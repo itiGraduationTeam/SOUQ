@@ -9,6 +9,7 @@ import { FilterService } from 'src/Shared/Services/filter.service';
 })
 export class ShowcategoryComponent implements OnInit {
   categoryId: any;
+  categoryImg:any;
   categoriesNameList: any;
   constructor(private filterServe: FilterService, private activatedRoute: ActivatedRoute) { }
 
@@ -16,17 +17,26 @@ export class ShowcategoryComponent implements OnInit {
     this.activatedRoute.paramMap.subscribe((params: ParamMap) => {
       this.categoryId = params.get('cateID');
     })
-    this.filterServe.getAllSubcategoryByCateId(1).subscribe(
+    this.filterServe.getAllSubcategoryByCateId(this.categoryId).subscribe(
       data=>{
       this.categoriesNameList=data;
       console.warn("subcategories: ",this.categoriesNameList);
-      
       },
       err=>{
         console.log(err);
         
       }
     )
+     this.filterServe.getAllCategory().subscribe(
+       data=>{
+        this.categoryImg=data[this.categoryId].cateImg
+        console.log("cateImg: ",this.categoryImg);
+        
+       },
+       err=>{
+
+       }
+     )
 
   }
 }
