@@ -42,6 +42,7 @@ import { ShowcategoryComponent } from './components/showcategory/showcategory.co
     SlideshowComponent,
     ProductCardDesignComponent,
     ShowcategoryComponent,
+    
   ],
   imports: [
     BrowserModule,
