@@ -1,7 +1,13 @@
-<div class="row">
-    <div class="col-sm-3" *ngFor="let cat of allCategory">
-        <h5>{{cat.name}}</h5>
-        <app-all-sub-category [(cateID)]="cat.cateid"></app-all-sub-category>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3" *ngFor="let cat of allCategory">
+            <h5>{{cat.name}}</h5>
+            <div class="card">
+                <div class="card-body">
+                  <app-all-sub-category [(cateID)]="cat.cateid"></app-all-sub-category>
+                </div>
+            </div>
+         </div>
     </div>
 </div>
-<app-showcategory></app-showcategory>
+
