@@ -19,9 +19,10 @@ const routes: Routes = [
   {
     path: 'allcategory', component: AllCategoryComponent
   },
-  {
-    path: 'showcategory', component: ShowcategoryComponent
-  },
+  // {
+  //   path: 'showcategory/:id', component: ShowcategoryComponent
+  // }
+  
 
 ];
 

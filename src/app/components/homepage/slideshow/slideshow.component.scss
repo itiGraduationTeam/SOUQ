@@ -1,0 +1,24 @@
+img {
+  max-height: 340px;
+  max-width: 100%;
+  margin: auto;
+}
+
+.swiper {
+  height: 100%;
+  width: 100%;
+}
+.swiper-button-next,
+.swiper-container-rtl .swiper-button-prev {
+  right: 10px;
+  left: auto;
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+  color: #555 !important;
+  line-height: 1.5;
+  font-weight: 700;
+  font-size: 22px;
+  opacity: 0.85;
+}

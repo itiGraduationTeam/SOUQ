@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'souq';
-  scrollTop = 10;
+  scrollTop = 200;
   isVisible: boolean = false;
 
   onScroll(event: any) {

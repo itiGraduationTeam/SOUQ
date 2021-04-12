@@ -23,6 +23,7 @@ import { HomepageComponent } from './components/homepage/homepage.component';
 import { SlideshowComponent } from './components/homepage/slideshow/slideshow.component';
 import { ProductCardDesignComponent } from './components/+shared_UI/product-card-design/product-card-design.component';
 import { ShowcategoryComponent } from './components/showcategory/showcategory.component';
+import { NgxUsefulSwiperModule } from 'ngx-useful-swiper';
 import { RatingComponent } from './components/+shared_UI/rating/rating.component';
 import { PopularComponent } from './components/homepage/popular/popular.component';
 
@@ -44,6 +45,7 @@ import { PopularComponent } from './components/homepage/popular/popular.componen
     SlideshowComponent,
     ProductCardDesignComponent,
     ShowcategoryComponent,
+
     RatingComponent,
     PopularComponent,
   ],
@@ -56,7 +58,7 @@ import { PopularComponent } from './components/homepage/popular/popular.componen
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-   
+    NgxUsefulSwiperModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
