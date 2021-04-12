@@ -1,5 +1,14 @@
 <div class="container-fluid">
-    <div class="row p-4">
-        <app-slideshow></app-slideshow>
+    
+    <div class="row">
+        <div class="col-md-3 " *ngFor="let item of categoriesNameList">
+            <div class="card" style="width: 18rem;">
+                <img [src]="item.cateImg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{item.name}}</h5>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>

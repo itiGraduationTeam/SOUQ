@@ -24,6 +24,8 @@ import { SlideshowComponent } from './components/homepage/slideshow/slideshow.co
 import { ProductCardDesignComponent } from './components/+shared_UI/product-card-design/product-card-design.component';
 import { ShowcategoryComponent } from './components/showcategory/showcategory.component';
 import { NgxUsefulSwiperModule } from 'ngx-useful-swiper';
+import { RatingComponent } from './components/+shared_UI/rating/rating.component';
+import { PopularComponent } from './components/homepage/popular/popular.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +45,9 @@ import { NgxUsefulSwiperModule } from 'ngx-useful-swiper';
     SlideshowComponent,
     ProductCardDesignComponent,
     ShowcategoryComponent,
+
+    RatingComponent,
+    PopularComponent,
   ],
   imports: [
     BrowserModule,
