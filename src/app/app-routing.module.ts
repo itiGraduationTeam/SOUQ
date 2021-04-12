@@ -4,6 +4,7 @@ import { LoginComponent } from './components/+auth/login/login.component';
 import { SignupComponent } from './components/+auth/signup/signup.component';
 import { ProductDetailsComponent } from './components/+product/product-details/product-details.component';
 import { AllCategoryComponent } from './components/all-category/all-category.component';
+import { ShowcategoryComponent } from './components/showcategory/showcategory.component';
 const routes: Routes = [
   {
     path: 'main-header',
@@ -17,6 +18,9 @@ const routes: Routes = [
   },
   {
     path: 'allcategory', component: AllCategoryComponent
+  },
+  {
+    path: 'showcategory', component: ShowcategoryComponent
   },
 
 ];

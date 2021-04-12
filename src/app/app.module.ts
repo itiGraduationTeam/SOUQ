@@ -21,6 +21,8 @@ import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CardComponent } from './components/+shared_UI/card/card.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { SlideshowComponent } from './components/homepage/slideshow/slideshow.component';
+import { ProductCardDesignComponent } from './components/+shared_UI/product-card-design/product-card-design.component';
+import { ShowcategoryComponent } from './components/showcategory/showcategory.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,8 @@ import { SlideshowComponent } from './components/homepage/slideshow/slideshow.co
     CardComponent,
     HomepageComponent,
     SlideshowComponent,
+    ProductCardDesignComponent,
+    ShowcategoryComponent,
   ],
   imports: [
     BrowserModule,
