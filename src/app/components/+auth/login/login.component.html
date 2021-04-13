@@ -1,83 +1,41 @@
 <div class="row">
-    <div class="col-sm-4 mx-auto ">
-        <img src="../../../../assets/logo.png" alt="">
-    </div>
-</div>
-<div class="row pt-1">
-    <div class="col-sm-4 mx-auto">
-        <div class="card rounded-0">
-            <div class="card-body">
-                <h3 class="card-title">Sign-In</h3>
-                <form (ngSubmit)="login()" [formGroup]="loginForm" >
-                    <div class="form-group">
-                        <label for="email" style="float: left;">Email</label>
-                        <input type="text" class="form-control" id="email" formControlName="email">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="password" style="float: left;">Password</label>
-                        <input type="password" class="form-control" id="password" formControlName="password">
-                    </div>
-
-                    <button type="submit" class=" btn-block">
-                        continue
-                    </button>
-                    <p class="p-2">
-                        By signing in, you agree to our Conditions of Use and Privacy Policy.
-                    </p>
-                </form>
-                <a href="#">Need help?</a><br><br>
-<div class="container-fluid">
-  <div class="row justify-content-center align-items-center pt-4">
-    <a href="https://egypt.souq.com/eg-en/"
-      ><img
-        src="https://cf1.s3.souqcdn.com/public/style/img/en/souqAmazon-logo-v2-X2.png"
-        class="logo"
-        alt="Souq.com Logo"
-        title="Souq.com"
-    /></a>
+  <div class="col-sm-4 d-flex justify-content-center align-items-center mx-auto pt-4">
+    <a href="https://egypt.souq.com/eg-en/">
+      <img src="https://cf1.s3.souqcdn.com/public/style/img/en/souqAmazon-logo-v2-X2.png" class="logo"
+        alt="Souq.com Logo" title="Souq.com">
+    </a>
   </div>
-  <div class="row pt-4">
-    <div class="col-sm-6 mx-auto">
-      <div class="card rounded-0">
-        <div class="card-header">
-          <h3 class="mb-0">LOGIN</h3>
-        </div>
-        <div class="card-body">
-          <form (ngSubmit)="login()" [formGroup]="loginForm">
-            <div class="form-group">
-              <label for="email" style="float: left">Email</label>
-              <input
-                type="text"
-                class="form-control"
-                id="email"
-                formControlName="email"
-              />
-            </div>
 
-            <div class="form-group">
-              <label for="password" style="float: left">Password</label>
-              <input
-                type="password"
-                class="form-control"
-                id="password"
-                formControlName="password"
-              />
-            </div>
+</div>
+<div class="row pt-4">
+  <div class="col-sm-4 mx-auto">
+    <div class="card rounded-0">
+      <div class="card-body">
+        <h3 class="card-title">Sign-In</h3>
+        <form (ngSubmit)="login()" [formGroup]="loginForm">
+          <div class="form-group">
+            <label for="email" style="float: left;">Email</label>
+            <input type="text" class="form-control" id="email" formControlName="email">
+          </div>
 
-            <a href="#">Forget Your Password?</a><br /><br />
-            <button type="submit" class="btn btn-primary">Login</button>
-          </form>
-          <button (click)="logOut()" class="btn btn-primary">LogOut</button>
-        </div>
+          <div class="form-group">
+            <label for="password" style="float: left;">Password</label>
+            <input type="password" class="form-control" id="password" formControlName="password">
+          </div>
+
+          <button type="submit" class=" btn-block">
+            continue
+          </button>
+          <p class="p-2">
+            By signing in, you agree to our Conditions of Use and Privacy Policy.
+          </p>
+        </form>
+        <a href="#">Need help?</a><br><br>
+
       </div>
     </div>
-</div>
-<div class="row">
-    <div class="col-sm-4 mx-auto">
-        <p class="text-center mt-2 text-black-50">New customer?</p>
-        <button (click)="navigateToSignUp()" class="btn btn-block" style="background-color: rgb(211, 209, 209);">Create account</button>
-    </div>
-</div>
+    <p class="text-black-50 text-center mt-2">New ustomer?</p>
+    <button class="btn btn-block" (click)="navigateToSignUp()"
+    style="background-color: gray;">Create Your Account</button>
   </div>
 </div>
