@@ -7,11 +7,12 @@
     <app-rating  [value]="product.rating" [color]="'#FEEE00'"></app-rating>
 </div>
 <div class="discount">
-  <span  style="text-decoration: line-through;font-size: 14px;color: #aeaeae;" class="price-was">{{product.price - (product.price * product.discount/100)}}</span>
- 
+  <div  class="product-price dis"> {{ product.price }}</div>
+
 </div>
     <b>
-      <div style="color: #4d9adb;" class="product-price">EGY {{ product.price }}</div>
+  <span   class="price-was price">EGY {{product.price - (product.price * product.discount/100)}}</span>
+
     </b>
    
    
