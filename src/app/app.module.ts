@@ -26,7 +26,8 @@ import { ShowcategoryComponent } from './components/showcategory/showcategory.co
 import { NgxUsefulSwiperModule } from 'ngx-useful-swiper';
 import { RatingComponent } from './components/+shared_UI/rating/rating.component';
 import { PopularComponent } from './components/homepage/popular/popular.component';
-
+import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { SpinnerComponent } from './components/+shared_UI/spinner/spinner.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,6 +49,7 @@ import { PopularComponent } from './components/homepage/popular/popular.componen
 
     RatingComponent,
     PopularComponent,
+    SpinnerComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,6 +61,7 @@ import { PopularComponent } from './components/homepage/popular/popular.componen
     FormsModule,
     ReactiveFormsModule,
     NgxUsefulSwiperModule,
+    SlickCarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent],

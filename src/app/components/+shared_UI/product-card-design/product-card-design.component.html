@@ -2,16 +2,20 @@
  <!-- <a class="product-link" [routerLink]="'/productdetails/'+product._id"> -->
     <img [src]="product.image[0]" alt="" class="w-100 d-block">
     <div class="product-body">
-      <p class="brand">{{ product.brand }}</p>
-    <p class="product-name">{{ product.name }}</p>
+      <p class="brand" style="color: #929292;font-size: 14px;">{{ product.brand }} , {{ product.name }} , {{product.description}} </p>
+   <div class="my-3">
+    <app-rating  [value]="product.rating" [color]="'#FEEE00'"></app-rating>
+</div>
+<div class="discount">
+  <div  class="product-price dis"> {{ product.price }}</div>
+
+</div>
     <b>
-      <div class="product-price">EGY {{ product.price }}</div>
+  <span   class="price-was price">EGY {{product.price - (product.price * product.discount/100)}}</span>
+
     </b>
-    <div class="discount">
-      <span class="price-was">{{product.price - (product.price * product.discount/100)}}</span>
-      <span class="discount">{{product.discount}}%</span>
-    </div>
-    <app-rating [value]="product.rating" [color]="'#FEEE00'"></app-rating>
+   
+   
   </div>
   <!-- </a> -->
 </div>

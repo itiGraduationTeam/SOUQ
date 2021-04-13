@@ -1,19 +1,20 @@
+<div class="container-fluid bg">
+  <ng-template #spinner>
+   <app-spinner></app-spinner>
+  
+  </ng-template>
+  <ng-template #wrapper>
+    <h5>Popular Products</h5>
 
-<div class="container-fluid">
-    <!-- <ng-template #spinner>
-      <app-spinner></app-spinner>
-    </ng-template> -->
-    <!-- <ng-template #wrapper> -->
-      <h5>Fashion Picks</h5>
-  
-      <!-- <app-product-card [productList]='fashionProductList'></app-product-card> -->
-      <div class="fashion-slider" >
-        <app-product-card-design *ngFor="let ele of fashionProductList" [product]="ele" ></app-product-card-design>
-      </div>
-  
-    <!-- </ng-template> -->
-    <!-- <ng-container  *ngIf="loading; then spinner; else wrapper">
-    </ng-container> -->
-    
-  </div>
+    <!-- <app-product-card [productList]='fashionProductList'></app-product-card> -->
+   
+    <div class="fashion-slider"   >
+      <app-product-card-design  *ngFor="let ele of fashionProductList" [product]="ele" ></app-product-card-design>
+    </div>
+
+  </ng-template>
+  <ng-container  *ngIf="loading; then spinner; else wrapper">
+  </ng-container>
+    <!-- <app-product-carousel  [productList]='fashionProductList'></app-product-carousel> -->
+</div>
  
