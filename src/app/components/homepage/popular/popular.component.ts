@@ -31,8 +31,11 @@ export class PopularComponent implements OnInit {
   loading: boolean = false;
 
   ngOnInit(): void {
+<<<<<<< HEAD
     console.log('data>>>>>>>>>>>>>>>??');
   
+=======
+>>>>>>> cc99a042527d2891adbc33519a02f0ca59810c49
     this.loading = true;
     this.productServ.getProduct().subscribe(
       (data) => {

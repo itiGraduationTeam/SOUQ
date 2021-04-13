@@ -1,11 +1,15 @@
 <div class="container-fluid">
-    
     <div class="row">
-        <div class="col-md-3 " *ngFor="let item of categoriesNameList">
+        <img class="col-sm-12" [src]="categoryImg" alt="">
+    </div> 
+    <div class="row">
+        <div class="col-sm-3 " *ngFor="let item of categoriesNameList">
             <div class="card" style="width: 18rem;">
-                <img [src]="item.cateImg" class="card-img-top" alt="...">
-                <div class="card-body">
+                <div class="card-header bg-dark">
                     <h5 class="card-title">{{item.name}}</h5>
+                </div>
+                <div class="card-body">
+                    <img [src]="item.img" class="card-img-top" alt="..." width="50" height="50">
                 </div>
             </div>
         </div>

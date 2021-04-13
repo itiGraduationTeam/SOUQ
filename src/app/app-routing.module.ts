@@ -21,14 +21,61 @@ const routes: Routes = [
     path: 'login', component: LoginComponent
   },
   {
+    path: 'signUp', component: SignupComponent
+  },
+  {
     path: 'allcategory', component: AllCategoryComponent
   },
+<<<<<<< HEAD
   {path:'t',component:PopularComponent}
   // {
   //   path: 'showcategory/:id', component: ShowcategoryComponent
   // }
+=======
+  {path:'teat',component:PopularComponent},
+  {
+    path: 'Fashion/:cateID', component: ShowcategoryComponent
+  },
+  {
+    path: 'Supermarket/:cateID', component: ShowcategoryComponent
+  },
+  {
+    path: 'Mobiles/:cateID', component: ShowcategoryComponent
+  },
+  {
+    path: 'TVs/:cateID', component: ShowcategoryComponent
+  },
   
-
+  {
+    path: 'Kitchen/:cateID', component: ShowcategoryComponent
+  }
+  ,
+  {
+    path: 'Appliance/:cateID', component: ShowcategoryComponent
+  }
+  ,
+  {
+    path: 'Beauty/:cateID', component: ShowcategoryComponent
+  }
+  ,
+  {
+    path: 'Babies/:cateID', component: ShowcategoryComponent
+  },
+  {
+    path: 'Toys/:cateID', component: ShowcategoryComponent
+  },
+  {
+    path: 'Sports/:cateID', component: ShowcategoryComponent
+  },
+  {
+    path: 'Automotive/:cateID', component: ShowcategoryComponent
+  },
+  
+  {
+    path: 'Office/:cateID', component: ShowcategoryComponent
+  },
+>>>>>>> cc99a042527d2891adbc33519a02f0ca59810c49
+  
 ];
 
 @NgModule({

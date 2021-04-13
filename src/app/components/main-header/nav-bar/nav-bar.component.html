@@ -5,7 +5,10 @@
 >
   <div class="row">
     <ul class="small-12 row">
-      <button *ngFor="let item of navBarItems; let i = index">
+      <button
+        (click)="navBarItemPress(item)"
+        *ngFor="let item of navBarItems; let i = index"
+      >
         {{ item.label }}
       </button>
     </ul>
