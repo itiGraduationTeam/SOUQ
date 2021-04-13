@@ -7,11 +7,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
   @Input()
   isVisible = false;
   isOpen = false;
-  ngOnInit(): void {}
+  ngOnInit(): void { }
   menuLisItems = [
     {
       id: 'Orders',
@@ -54,5 +54,16 @@ export class HeaderComponent implements OnInit {
 
   itemPress(item: any) {
     this.router.navigate([item.routerLink]);
+  }
+  navigateToForm(index: any) {
+    switch (index) {
+      case 1:
+        this.router.navigate(['/signUp']);
+        break;
+      case 2:
+        this.router.navigate(['/login']);
+        break;
+
+    }
   }
 }

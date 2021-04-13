@@ -1,10 +1,13 @@
-<div class="row pt-5">
-    <div class="col-sm-6 mx-auto">
+<div class="row">
+    <div class="col-sm-4 mx-auto ">
+        <img src="../../../../assets/logo.png" alt="">
+    </div>
+</div>
+<div class="row pt-1">
+    <div class="col-sm-4 mx-auto">
         <div class="card">
-            <div class="card-header">
-                <h3>Create an account</h3><br>
-            </div>
             <div class="card-body">
+                <h3 class="card-title">Create  account</h3><br>
                 <form #signUpForm="ngForm" novalidate (ngSubmit)="signUp(signUpData)">
 
                     <!-- email -->
@@ -56,10 +59,14 @@
                         </small>
                     </div>
                     <button [disabled]="firstName.invalid || email.invalid || lastName.invalid || password.invalid"
-                        type="submit" class="btn btn-primary">
+                        type="submit" class=" btn-block">
                         <h4>Create an account</h4>
                     </button>
+                    <p class="p-3" >
+                        By creating an account, you agree to our Conditions of Use and Privacy Policy.
+                    </p>
                 </form>
+                <p>Already have an account? <a routerLink="/login">Sign in</a></p>
             </div>
         </div>
     </div>
