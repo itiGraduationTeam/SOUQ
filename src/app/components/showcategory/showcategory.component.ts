@@ -10,33 +10,60 @@ import { FilterService } from 'src/Shared/Services/filter.service';
 export class ShowcategoryComponent implements OnInit {
   categoryId: any;
   categoryImg:any;
-  categoriesNameList: any;
+  subCategoriesNameList: any;
+  subcateProductList:any;
   constructor(private filterServe: FilterService, private activatedRoute: ActivatedRoute) { }
 
-  ngOnInit(): void {
-    this.activatedRoute.paramMap.subscribe((params: ParamMap) => {
-      this.categoryId = params.get('cateID');
-    })
+
+  getAllSubCategories(){
     this.filterServe.getAllSubcategoryByCateId(this.categoryId).subscribe(
       data=>{
-      this.categoriesNameList=data;
-      console.warn("subcategories: ",this.categoriesNameList);
+      this.subCategoriesNameList=data;
+      console.warn("subcategories name list: ",this.subCategoriesNameList[0].name);
       },
       err=>{
         console.log(err);
         
       }
     )
-     this.filterServe.getAllCategory().subscribe(
-       data=>{
-        this.categoryImg=data[this.categoryId].cateImg
-        console.log("cateImg: ",this.categoryImg);
+  }
+  getSubCategoryImg(){
+    this.filterServe.getAllCategory().subscribe(
+      data=>{
+       this.categoryImg=data[this.categoryId].cateImg
+      //  console.log("cateImg: ",this.categoryImg);
+       
+      },
+      err=>{
+        console.log(err);
         
-       },
-       err=>{
 
-       }
-     )
+      }
+    )
+  }
+  //get list of product from subcategory
+  getlistOfProduct(subCateName:any){
+    this.filterServe.getProductBySubcategory(subCateName).subscribe(
+      data=>{
+        this.subcateProductList=data;
+        console.warn("productList: ",this.subcateProductList);
+        
+
+      },
+      err=>{
+        console.log(err);
+        
+      }
+    )
+  }
+  ngOnInit(): void {
+    this.activatedRoute.paramMap.subscribe((params: ParamMap) => {
+      this.categoryId = params.get('cateID');
+    })
+    this.getAllSubCategories();
+    this.getSubCategoryImg();
+    // this.getlistOfProduct(this.subCategoriesNameList.name[0]);
+
 
   }
 }
