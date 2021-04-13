@@ -26,13 +26,10 @@ const routes: Routes = [
   {
     path: 'allcategory', component: AllCategoryComponent
   },
-<<<<<<< HEAD
-  {path:'t',component:PopularComponent}
   // {
   //   path: 'showcategory/:id', component: ShowcategoryComponent
   // }
-=======
-  {path:'teat',component:PopularComponent},
+  {path:'t',component:PopularComponent},
   {
     path: 'Fashion/:cateID', component: ShowcategoryComponent
   },
@@ -74,7 +71,6 @@ const routes: Routes = [
   {
     path: 'Office/:cateID', component: ShowcategoryComponent
   },
->>>>>>> cc99a042527d2891adbc33519a02f0ca59810c49
   
 ];
 
