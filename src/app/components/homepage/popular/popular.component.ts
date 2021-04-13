@@ -32,14 +32,14 @@ export class PopularComponent implements OnInit {
 
   ngOnInit(): void {
     console.log('data>>>>>>>>>>>>>>>??');
-    $(document).ready(function () {
-      alert('we call alert from JQuery');
-    });
+  
     this.loading = true;
-    this.productServ.getFashionProduct().subscribe(
+    this.productServ.getProduct().subscribe(
       (data) => {
-        console.log('data>>>>>>>>>>>>>>>', data);
+        
         this.fashionProductList = data;
+        this.fashionProductList= this.fashionProductList.filter((item)=>item.rating>=4)
+        console.log('rating>>>>>>>>>>>>>>>', this.fashionProductList);
         console.log('popular', this.fashionProductList);
         $(document).ready(function () {
           return $('.fashion-slider').slick({

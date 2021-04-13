@@ -4,6 +4,7 @@ import { LoginComponent } from './components/+auth/login/login.component';
 import { SignupComponent } from './components/+auth/signup/signup.component';
 import { ProductDetailsComponent } from './components/+product/product-details/product-details.component';
 import { AllCategoryComponent } from './components/all-category/all-category.component';
+import { HomepageComponent } from './components/homepage/homepage.component';
 import { PopularComponent } from './components/homepage/popular/popular.component';
 import { ShowcategoryComponent } from './components/showcategory/showcategory.component';
 const routes: Routes = [
@@ -14,13 +15,15 @@ const routes: Routes = [
         (m) => m.MainHeaderModule
       ),
   },
+  {path:"",component:HomepageComponent}
+  ,
   {
     path: 'login', component: LoginComponent
   },
   {
     path: 'allcategory', component: AllCategoryComponent
   },
-  {path:'teat',component:PopularComponent}
+  {path:'t',component:PopularComponent}
   // {
   //   path: 'showcategory/:id', component: ShowcategoryComponent
   // }
