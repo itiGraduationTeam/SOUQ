@@ -28,6 +28,7 @@ import { RatingComponent } from './components/+shared_UI/rating/rating.component
 import { PopularComponent } from './components/homepage/popular/popular.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { SpinnerComponent } from './components/+shared_UI/spinner/spinner.component';
+import { CategoryDetailsComponent } from './components/showcategory/category-details/category-details.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,6 +51,7 @@ import { SpinnerComponent } from './components/+shared_UI/spinner/spinner.compon
     RatingComponent,
     PopularComponent,
     SpinnerComponent,
+    CategoryDetailsComponent,
   ],
   imports: [
     BrowserModule,
