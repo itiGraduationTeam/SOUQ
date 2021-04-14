@@ -1,0 +1,23 @@
+.image-slide{
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    &:hover{
+      transform: scale(1.1,1.1);
+  
+    }
+  }
+  
+  .image-slide img{
+    border-radius: 10px;
+    border:1px solid #ccc;
+  }
+  .product-img{
+    height:60vh;
+  }
+  .carousel-indicators{
+  li{
+    background-color: #FEEE00;
+  }
+  }

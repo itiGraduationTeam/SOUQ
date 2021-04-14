@@ -10,10 +10,7 @@ import { AllCategoryComponent } from './components/all-category/all-category.com
 import { AllSubCategoryComponent } from './components/all-sub-category/all-sub-category.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { FilterComponent } from './components/filter/filter.component';
-import { ProductDetailsComponent } from './components/+product/product-details/product-details.component';
-import { ProductsSpecificationComponent } from './components/+product/product-details/products-specification/products-specification.component';
-import { ProductsSliderComponent } from './components/+product/product-details/products-slider/products-slider.component';
-import { ProductsSummaryComponent } from './components/+product/product-details/products-summary/products-summary.component';
+
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './components/+auth/login/login.component';
 import { SignupComponent } from './components/+auth/signup/signup.component';
@@ -29,6 +26,9 @@ import { PopularComponent } from './components/homepage/popular/popular.componen
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { SpinnerComponent } from './components/+shared_UI/spinner/spinner.component';
 import { CategoryDetailsComponent } from './components/showcategory/category-details/category-details.component';
+import { ProductSliderComponent } from './components/product-details/product-slider/product-slider.component';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,10 +36,7 @@ import { CategoryDetailsComponent } from './components/showcategory/category-det
     AllSubCategoryComponent,
     FooterComponent,
     FilterComponent,
-    ProductDetailsComponent,
-    ProductsSpecificationComponent,
-    ProductsSliderComponent,
-    ProductsSummaryComponent,
+   
     LoginComponent,
     SignupComponent,
     CardComponent,
@@ -52,6 +49,9 @@ import { CategoryDetailsComponent } from './components/showcategory/category-det
     PopularComponent,
     SpinnerComponent,
     CategoryDetailsComponent,
+    ProductSliderComponent,
+    ProductDetailsComponent
+   
   ],
   imports: [
     BrowserModule,
