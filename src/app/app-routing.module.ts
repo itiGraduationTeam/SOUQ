@@ -2,11 +2,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/+auth/login/login.component';
 import { SignupComponent } from './components/+auth/signup/signup.component';
-import { ProductDetailsComponent } from './components/+product/product-details/product-details.component';
+//import { ProductDetailsComponent } from './components/+product/product-details/product-details.component';
 import { AllCategoryComponent } from './components/all-category/all-category.component';
 import { FilterComponent } from './components/filter/filter.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { PopularComponent } from './components/homepage/popular/popular.component';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { ShowcategoryComponent } from './components/showcategory/showcategory.component';
 import { AddressComponent } from './components/user-properties/address/address.component';
 import { OrdersComponent } from './components/user-properties/orders/orders.component';
@@ -31,11 +32,10 @@ const routes: Routes = [
   {
     path: 'allcategory', component: AllCategoryComponent
   },
-  {
-    path: 'category products/:id', component: ProductDetailsComponent
-  },
+ 
   {path:'t',component:PopularComponent},
   {path:'filter/:subcateName',component:FilterComponent},
+  {path:'productdetails/:id',component:ProductDetailsComponent},
   {
     path: 'Fashion/:cateID', component: ShowcategoryComponent
   },

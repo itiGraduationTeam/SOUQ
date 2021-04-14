@@ -10,10 +10,7 @@ import { AllCategoryComponent } from './components/all-category/all-category.com
 import { AllSubCategoryComponent } from './components/all-sub-category/all-sub-category.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { FilterComponent } from './components/filter/filter.component';
-import { ProductDetailsComponent } from './components/+product/product-details/product-details.component';
-import { ProductsSpecificationComponent } from './components/+product/product-details/products-specification/products-specification.component';
-import { ProductsSliderComponent } from './components/+product/product-details/products-slider/products-slider.component';
-import { ProductsSummaryComponent } from './components/+product/product-details/products-summary/products-summary.component';
+
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './components/+auth/login/login.component';
 import { SignupComponent } from './components/+auth/signup/signup.component';
@@ -29,10 +26,16 @@ import { PopularComponent } from './components/homepage/popular/popular.componen
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { SpinnerComponent } from './components/+shared_UI/spinner/spinner.component';
 import { CategoryDetailsComponent } from './components/showcategory/category-details/category-details.component';
+<<<<<<< HEAD
 import { UserPropertiesComponent } from './components/user-properties/user-properties.component';
 import { WishListsComponent } from './components/user-properties/wish-lists/wish-lists.component';
 import { AddressComponent } from './components/user-properties/address/address.component';
 import { OrdersComponent } from './components/user-properties/orders/orders.component';
+=======
+import { ProductSliderComponent } from './components/product-details/product-slider/product-slider.component';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
+
+>>>>>>> f413969a5af545f232ede5362849099bcaaba49a
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,10 +43,7 @@ import { OrdersComponent } from './components/user-properties/orders/orders.comp
     AllSubCategoryComponent,
     FooterComponent,
     FilterComponent,
-    ProductDetailsComponent,
-    ProductsSpecificationComponent,
-    ProductsSliderComponent,
-    ProductsSummaryComponent,
+   
     LoginComponent,
     SignupComponent,
     CardComponent,
@@ -60,6 +60,9 @@ import { OrdersComponent } from './components/user-properties/orders/orders.comp
     WishListsComponent,
     AddressComponent,
     OrdersComponent,
+    ProductSliderComponent,
+    ProductDetailsComponent
+   
   ],
   imports: [
     BrowserModule,
