@@ -29,6 +29,10 @@ import { PopularComponent } from './components/homepage/popular/popular.componen
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { SpinnerComponent } from './components/+shared_UI/spinner/spinner.component';
 import { CategoryDetailsComponent } from './components/showcategory/category-details/category-details.component';
+import { UserPropertiesComponent } from './components/user-properties/user-properties.component';
+import { WishListsComponent } from './components/user-properties/wish-lists/wish-lists.component';
+import { AddressComponent } from './components/user-properties/address/address.component';
+import { OrdersComponent } from './components/user-properties/orders/orders.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,6 +56,10 @@ import { CategoryDetailsComponent } from './components/showcategory/category-det
     PopularComponent,
     SpinnerComponent,
     CategoryDetailsComponent,
+    UserPropertiesComponent,
+    WishListsComponent,
+    AddressComponent,
+    OrdersComponent,
   ],
   imports: [
     BrowserModule,

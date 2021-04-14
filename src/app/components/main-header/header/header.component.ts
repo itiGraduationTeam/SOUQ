@@ -14,27 +14,27 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void { }
   menuLisItems = [
     {
-      id: 'Orders',
+      id: 1,
       label: 'My Orders',
-      routerLink: '/allcategory',
+      routerLink: '/user-properties',
     },
     {
-      id: 'Addresses',
+      id: 2,
       label: 'My Addresses',
-      routerLink: '/Addresses',
+      routerLink: '/user-properties',
     },
     {
-      id: 'WishLists',
+      id: 3,
       label: 'Wish Lists',
-      routerLink: '/WishLists',
+      routerLink: '/user-properties',
     },
     {
-      id: 'Settings',
+      id: 4,
       label: 'Account Settings',
       routerLink: '/Settings',
     },
     {
-      id: 'Summary',
+      id: 5,
       label: 'Account Summary',
       routerLink: '/Summary',
     },
@@ -53,7 +53,7 @@ export class HeaderComponent implements OnInit {
   }
 
   itemPress(item: any) {
-    this.router.navigate([item.routerLink]);
+      this.router.navigate([item.routerLink]);
   }
   navigateToForm(index: any) {
     switch (index) {

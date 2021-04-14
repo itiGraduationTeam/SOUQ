@@ -8,6 +8,10 @@ import { FilterComponent } from './components/filter/filter.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { PopularComponent } from './components/homepage/popular/popular.component';
 import { ShowcategoryComponent } from './components/showcategory/showcategory.component';
+import { AddressComponent } from './components/user-properties/address/address.component';
+import { OrdersComponent } from './components/user-properties/orders/orders.component';
+import { UserPropertiesComponent } from './components/user-properties/user-properties.component';
+import { WishListsComponent } from './components/user-properties/wish-lists/wish-lists.component';
 const routes: Routes = [
   {
     path: 'main-header',
@@ -67,6 +71,13 @@ const routes: Routes = [
   {
     path: 'Office/:cateID', component: ShowcategoryComponent
   },
+  {
+    path:'user-properties',component:UserPropertiesComponent,
+    children:[
+      {path:'orders/:id',component:OrdersComponent },
+      {path: 'shipping-address/:id',component: AddressComponent},
+      {path:'wish-lists/:id',component:WishListsComponent}]
+  }
   
 ];
 
