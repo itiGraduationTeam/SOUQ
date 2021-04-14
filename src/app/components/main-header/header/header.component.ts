@@ -7,11 +7,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  constructor(private router: Router) { }
+  constructor(private router: Router) {}
   @Input()
   isVisible = false;
   isOpen = false;
-  ngOnInit(): void { }
+  showSearch = false;
+  ngOnInit(): void {}
   menuLisItems = [
     {
       id: 'Orders',
@@ -63,7 +64,9 @@ export class HeaderComponent implements OnInit {
       case 2:
         this.router.navigate(['/login']);
         break;
-
     }
+  }
+  showHideSearch() {
+    this.showSearch = !this.showSearch;
   }
 }

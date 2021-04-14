@@ -1,3 +1,8 @@
-img{
-    width: 100%;
+img {
+  width: 100%;
+}
+@media screen and (max-width: 640px) {
+  .home_container {
+    margin-top: 3rem;
+  }
 }
