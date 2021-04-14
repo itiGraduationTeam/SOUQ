@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AllSubCategoriesService } from 'src/Shared/Services/all-sub-categories.service';
 import { FilterService } from 'src/Shared/Services/filter.service';
 
@@ -10,7 +11,7 @@ import { FilterService } from 'src/Shared/Services/filter.service';
 export class AllSubCategoryComponent implements OnInit {
   @Input() cateID: any;
   allSubCategory: any;
-  constructor(private filterService: FilterService) { }
+  constructor(private filterService: FilterService,private router:Router) { }
 
   ngOnInit(): void {
     this.filterService.getAllSubcategoryByCateId(this.cateID).subscribe((data) => {
@@ -21,6 +22,6 @@ export class AllSubCategoryComponent implements OnInit {
     })
   }
   navigateToProductDetails(subCateName: any) {
-    
+    this.router.navigate(['/filter', subCateName])
   }
 }

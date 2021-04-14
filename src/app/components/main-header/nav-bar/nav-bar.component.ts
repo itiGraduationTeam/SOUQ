@@ -23,60 +23,59 @@ export class NavBarComponent implements OnInit {
       routerLink: '/Fashion',
     },
     {
-      id:2,
+      id:5,
       label: 'Supermarket',
       routerLink: '/Supermarket',
     },
     {
-      id:3,
+      id:2,
       label: 'Mobiles & Tablets',
-      routerLink: '/Mobiles',
+      routerLink: '/Electronics',
     },
     {
-      id:4,
+      id:2,
       label: 'TVs',
-      routerLink: '/TVs',
+      routerLink: '/Electronics',
     },
     {
-      id:5,
+      id:2,
+      label: 'Electronics',
+      routerLink: '/Electronics',
+    },
+    {
+      id:3,
       label: 'Home & Kitchen',
       routerLink: '/Kitchen',
     },
     {
-      id:6,
+      id:8,
       label: 'Appliances',
       routerLink: '/Appliances',
     },
     {
-      id:7,
+      id:4,
       label: 'Health & Beauty',
       routerLink: '/Beauty',
     },
     {
-      id:8,
+      id:9,
       label: 'Moms & Babies',
       routerLink: '/Babies',
     },
     {
       id:9,
       label: 'Toys',
-      routerLink: '/Toys',
+      routerLink: '/Babies',
     },
 
     {
-      id:10,
+      id:11,
       label: 'Sports',
       routerLink: '/Sports',
     },
 
     {
-      id:11,
-      label: 'Automotive',
-      routerLink: '/Automotive',
-    },
-
-    {
-      id:12,
+      id:13,
       label: 'Office',
       routerLink: '/Office',
     },

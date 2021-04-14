@@ -2,10 +2,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/+auth/login/login.component';
 import { SignupComponent } from './components/+auth/signup/signup.component';
-import { ProductDetailsComponent } from './components/+product/product-details/product-details.component';
+//import { ProductDetailsComponent } from './components/+product/product-details/product-details.component';
 import { AllCategoryComponent } from './components/all-category/all-category.component';
+import { FilterComponent } from './components/filter/filter.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { PopularComponent } from './components/homepage/popular/popular.component';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { ShowcategoryComponent } from './components/showcategory/showcategory.component';
 const routes: Routes = [
   {
@@ -26,10 +28,10 @@ const routes: Routes = [
   {
     path: 'allcategory', component: AllCategoryComponent
   },
-  {
-    path: 'category products/:id', component: ProductDetailsComponent
-  },
+ 
   {path:'t',component:PopularComponent},
+  {path:'filter/:subcateName',component:FilterComponent},
+  {path:'productdetails/:id',component:ProductDetailsComponent},
   {
     path: 'Fashion/:cateID', component: ShowcategoryComponent
   },
@@ -37,10 +39,7 @@ const routes: Routes = [
     path: 'Supermarket/:cateID', component: ShowcategoryComponent
   },
   {
-    path: 'Mobiles/:cateID', component: ShowcategoryComponent
-  },
-  {
-    path: 'TVs/:cateID', component: ShowcategoryComponent
+    path: 'Electronics/:cateID', component: ShowcategoryComponent
   },
   
   {
@@ -57,9 +56,6 @@ const routes: Routes = [
   ,
   {
     path: 'Babies/:cateID', component: ShowcategoryComponent
-  },
-  {
-    path: 'Toys/:cateID', component: ShowcategoryComponent
   },
   {
     path: 'Sports/:cateID', component: ShowcategoryComponent

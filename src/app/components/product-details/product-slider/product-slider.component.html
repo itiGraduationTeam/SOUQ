@@ -1,0 +1,32 @@
+<div class="row align-items-center d-none d-md-flex">
+    <div class="col-md-3 " >
+      <div class="flex-column">
+        <div class="image-slide" *ngFor="let img of images ;let i = 'index'">
+          <img class="d-block w-100" [src]="img" alt= "pic" (click)="selectImg(img)"  />
+        </div>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div class="current-img">
+        <img class="d-block w-100 product-img" [src]="currentImg" alt="Product Image"  />
+  
+      </div>
+    </div>
+  </div>
+  <div id="productCarousel" class="carousel slide  d-block d-md-none" data-ride="carousel">
+    <ol class="carousel-indicators" >
+      <li data-target="#productCarousel" data-slide-to="0" class="active"></li>
+      <ng-container *ngFor="let images of restImages;let i = 'index'" >
+        <li data-target="#productCarousel" [attr.data-slide-to]="i+1"  ></li>
+      </ng-container>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active" >
+        <img class="d-block w-100" [src]="currentImg" alt="First slide">
+      </div>
+      <div class="carousel-item "  *ngFor="let img of restImages;let i = 'index'">
+          <img class="d-block w-100" [src]="img" alt="pic">
+        </div>
+    </div>
+  
+  </div>
