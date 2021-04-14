@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthenticateService } from 'src/Shared/Services/authenticate.service';
 
 @Component({
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit {
     password: ['', [Validators.required, Validators.minLength(6)]]
 
   });
-  constructor(private formBuilder: FormBuilder,private authLoginServ:AuthenticateService) { }
+  constructor(private router:Router, private formBuilder: FormBuilder,private authLoginServ:AuthenticateService) { }
 
   ngOnInit(): void {
     this.initForm();
@@ -25,6 +26,9 @@ export class LoginComponent implements OnInit {
   logOut(){
     alert("you are log out")
     this.authLoginServ.logOut();
+  }
+  navigateToSignUp(){
+    this.router.navigate(['/signUp'])
   }
   initForm() {
   }

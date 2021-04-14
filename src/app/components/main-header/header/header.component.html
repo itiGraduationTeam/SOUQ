@@ -48,14 +48,14 @@
           </button>
           <div class="dropdown-menu dropdown-content">
             <div class="menu_btn_container">
-              <button>Log In</button>
+              <button (click)="navigateToForm(2)">Log In</button>
               <div>
                 <button class="signUp_noAccount no_account">
                   Don't have an account?
                 </button>
               </div>
               <div>
-                <button class="signUp_noAccount sign_up">Sign Up</button>
+                <button class="signUp_noAccount sign_up" (click)="navigateToForm(1)">Sign Up</button>
               </div>
             </div>
             <div class="dropdown-divider"></div>

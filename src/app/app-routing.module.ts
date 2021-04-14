@@ -26,9 +26,9 @@ const routes: Routes = [
   {
     path: 'allcategory', component: AllCategoryComponent
   },
-  // {
-  //   path: 'showcategory/:id', component: ShowcategoryComponent
-  // }
+  {
+    path: 'category products/:id', component: ProductDetailsComponent
+  },
   {path:'t',component:PopularComponent},
   {
     path: 'Fashion/:cateID', component: ShowcategoryComponent

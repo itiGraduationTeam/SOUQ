@@ -1,9 +1,12 @@
 <div class="container">
-    <span style="font-size: 3rem;">Shop All Categories</span>
+    <div class="row ">
+        <img class="col-sm-12 mt-4 mb-4" src="https://souqcms.s3-eu-west-1.amazonaws.com/sanfronto/eg/2021/Web/L2-Banner/Apr/l2-en.jpg" alt="">
+    </div>
+    <span style="font-size: 2.5rem;">Shop All Categories</span>
     <div class="row">
         <div class="col-sm-3" *ngFor="let cat of allCategory">
             <span>{{cat.name}}</span>
-            <div class="card">
+            <div class="card shadow-sm">
                 <div class="card-body">
                   <app-all-sub-category [(cateID)]="cat.cateid"></app-all-sub-category>
                 </div>

@@ -8,18 +8,19 @@ import { FilterService } from 'src/Shared/Services/filter.service';
   styleUrls: ['./all-sub-category.component.scss']
 })
 export class AllSubCategoryComponent implements OnInit {
- @Input() cateID: any;
- allSubCategory:any;
- constructor(private filterService:FilterService) { }
+  @Input() cateID: any;
+  allSubCategory: any;
+  constructor(private filterService: FilterService) { }
 
- ngOnInit(): void {
-   this.filterService.getAllSubcategoryByCateId(this.cateID).subscribe( (data)=>{
-     console.log(data);
-     this.allSubCategory=data;
+  ngOnInit(): void {
+    this.filterService.getAllSubcategoryByCateId(this.cateID).subscribe((data) => {
+      console.log(data);
+      this.allSubCategory = data;
+
+
+    })
+  }
+  navigateToProductDetails(subCateName: any) {
     
- 
-   })
-
-   
- }
+  }
 }
