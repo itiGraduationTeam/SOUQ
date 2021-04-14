@@ -1,9 +1,14 @@
 <div class="wrapper light-gray" (scroll)="onScroll($event)">
-  <app-main-header class="mainHeader" [isVisible]="isVisible">
+  <app-main-header
+    *ngIf="!showHeader"
+    class="mainHeader"
+    [isVisible]="isVisible"
+  >
   </app-main-header>
   <div class="container">
     <router-outlet> </router-outlet>
     <!-- <app-homepage></app-homepage> -->
   </div>
-  <app-footer></app-footer>
+  <app-footer *ngIf="!showHeader"></app-footer>
 </div>
+<!-- *ngIf="router.url !== '/login' && router.url !== '/signup'" -->
