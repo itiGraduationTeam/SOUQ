@@ -11,6 +11,6 @@ export class WishListsComponent implements OnInit {
 
   ngOnInit(): void {}
   createNewWishList() {
-    this.openModal = !this.openModal;
+    this.openModal = true;
   }
 }
