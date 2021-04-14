@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { FilterService } from 'src/Shared/Services/filter.service';
 
 @Component({
@@ -11,7 +11,7 @@ export class ShowcategoryComponent implements OnInit {
   categoryId: any;
   categoryImg:any;
   subCategoriesList: any;
-  constructor(private filterServe: FilterService, private activatedRoute: ActivatedRoute) { }
+  constructor(private filterServe: FilterService, private router:Router , private activatedRoute: ActivatedRoute) { }
 
 
   getAllSubCategories(){
@@ -20,8 +20,7 @@ export class ShowcategoryComponent implements OnInit {
       this.subCategoriesList=data;
       },
       err=>{
-        console.log(err);
-        
+        console.log(err);   
       }
     )
   }
@@ -46,7 +45,8 @@ export class ShowcategoryComponent implements OnInit {
     })
     this.getAllSubCategories();
     this.getSubCategoryImg();
-
-
+  }
+  navigateToFilter(subName:any){
+    this.router.navigate(['/filter',subName]);
   }
 }

@@ -3,9 +3,9 @@
         <img class="col-sm-12 mt-4 mb-2" [src]="categoryImg" alt="">
     </div> 
    <div class="row" *ngFor="let item of subCategoriesList">
-       <h4> {{item.name|uppercase}} </h4>
+       <h4 class="p-2 text-primary">{{item.name|uppercase}}</h4>
        <div class="container mb-2" >
-        <app-category-details [(subCateName)]="item.name"></app-category-details>
+        <app-category-details (click)="navigateToFilter(item.name)" [(subCateName)]="item.name"></app-category-details>
        </div>
    </div>
 </div>
