@@ -1,176 +1,117 @@
-
- <main class="container mainbady">
-    <div class="row">
-        <!-- side bar -->
-        <div class="col-sm-3 ">
-          <div class="row my-5">
-            <div class="col-sm-12  ">
-            <h5 for="brand" >Brand</h5>
-            <div class="row">
-            <input #brand    placeholder="brand" style="height:35px;" class="myInput form-control col-sm-8" id="brand" type="text">
-            <p class="btn col-sm-4 go" (click)="goBrand(brand)">GO</p>
+<main class="container mainbady">
+  <div class="row">
+    <!-- side bar -->
+    <div class="col-md-3 col-sm-12">
+      <!-- brand -->
+      <div class="row my-5">
+        <div class="col-sm-12">
+          <h5 for="brand">Brand</h5>
+          <div class="row">
+            <input #brand placeholder="brand" style="height:35px;" class="myInput form-control col-md-8 col-sm-6"
+              id="brand" type="text">
+            <p class="btn col-md-4 col-sm-6 go" (click)="goBrand(brand)">GO</p>
           </div>
-          </div>
-           
-         
-           </div>
-           <!-- 1-brand -->
-           <div class="row my-5">
-           <div class="col-sm-12"><h5>Price (EGP)</h5></div>
+        </div>
 
 
-               <section class="row">
-           <input #input1  style="height:30px;" class="form-control col-sm-4" type="number">
-           <span class="col-sm-2"  style="color: grey; padding: auto; "> TO</span>
-           <input #input2  style="height:30px;"   class="col-sm-4 form-control"  type="number">
-           <button class="btn col-sm-2 go"  (click)="goProduct(input1.value,input2.value)">GO</button>
-              </section>
-          </div>
-           <!-- 2-price -->
-           <div class="row my-5">
-         <div class="col-sm-12">
+      </div>
+      <!-- price -->
+      <div class="row my-5">
+        <div class="col-sm-12">
+          <h5>Price (EGP)</h5>
+        </div>
+        <div class="row">
+          <input #input1 style="height:2rem;" class="form-control col-md-4 col-sm-8" type="number">
+          <span class="col-md-2 col-sm-4" style="color: grey;"> TO</span>
+          <input #input2 style="height:2rem;" class="col-md-4 col-sm-8 form-control" type="number">
+          <button class="btn col-md-2 col-sm-4 go" (click)="goProduct(input1.value,input2.value)">GO</button>
+        </div>
+      </div>
+      <!-- product rating -->
+      <div class="row my-5">
+        <div class="col-sm-12">
           <h5>Product Rating</h5>
-
-
-           <small style="color: blue;">{{rang.value}} Stars or More</small><br>
-          <input  class="form-control-range" type="range" max="5" value="1" min="1" step=".3" #rang (change)="startFilter(rang.value)">
-
-
-         </div>
-
-           </div>
-           <!-- 3-start  -->
-
-
-
-
-
-
-
-
-
-
-           
-           <!-- 5_types   -->
-           <div class="row">
-          <div class="col-12">
-      
-       
-
-
-
-            <div>
-              <div class="my-4" *ngFor="let group of optionArray| keyvalue">
-             <h4> {{group.key}}</h4>
-            
-                <div *ngIf="group.key=='color'" class="row">
-                  <!-- <li (click)="test(group.key,item)"    "
-                  [style.background]="item" style="width: 50px; height: 50px;"
-                  > </li> -->
-                  <div  class="col-4 my-1 " *ngFor="let item of group.value">
-                    <section class="row p-2"  style="background-color: white;">
-                     <span class="col-5"  (click)="test(group.key,item)" [style.background]="item" style=" height: 30px;"></span>
-                   <span class="col-5" style="font-size: x-small;">  {{item}}</span>
-                    </section>
-                  </div>
+          <small style="color: blue;">{{rang.value}} Stars or More</small><br>
+          <input class="form-control-range" type="range" max="5" value="1" min="1" step=".3" #rang
+            (change)="startFilter(rang.value)">
+        </div>
+      </div>
+      <!-- 3-start  -->
+      <!-- 5_types   -->
+      <div class="row">
+        <div class="col-12">
+          <div>
+            <div class="my-4" *ngFor="let group of optionArray| keyvalue">
+              <h4> {{group.key|uppercase}}</h4>
+              <div *ngIf="group.key=='color'" class="row">
+                <div class="col-4 my-1 " *ngFor="let item of group.value">
+                  <section class="row p-2" style="background-color: white;">
+                    <span class="col-5" (click)="test(group.key,item)" [style.background]="item"
+                      style=" height: 30px;"></span>
+                    <span class="col-5" style="font-size: x-small;"> {{item}}</span>
+                  </section>
                 </div>
-              <div   *ngIf="group.key!='color'" >
-                  <!-- <li (click)="filterWithSpical(group.key,item)"    *ngFor="let item of group.value">
+              </div>
+              <div *ngIf="group.key!='color'">
+                <!-- <li (click)="filterWithSpical(group.key,item)"    *ngFor="let item of group.value">
                 
                   
                   </li> -->
-                  <div class="form-check" *ngFor="let item of group.value">
-                  <label class="form-check-label types" for="check1" >
-                    <input (change)="test(group.key,item)" type="checkbox" class="scustom-control-input" [id]="item"  [value]="item" > 
-                    {{item}} 
+                <div class="form-check" *ngFor="let item of group.value">
+                  <label class="form-check-label types" for="check1">
+                    <input (change)="test(group.key,item)" type="checkbox" class="scustom-control-input" [id]="item"
+                      [value]="item">
+                    {{item}}
                   </label>
-                  </div>
                 </div>
               </div>
             </div>
-
-
-
-
-
-
-
-<!-- end -->
-</div>
-           </div>  
-
-
-
-
-
-
-             <!-- end side bar--> 
           </div>
-            <!-- end side bar -->
-            <div class="col-sm-9">
-         <div class="row">
-         <div class="col-sm-6">{{productSize}} Results for"{{subcategoryName}} "</div>
-          <div class="col-sm-3">
-           
-              <div class="dropdown">
-              <button class="btn dropdown-toggle" data-toggle="dropdown">RECOMENDED</button>
-              <ul class="dropdown-menu">
-                <li ><a class="dropdown-item "  (click)="highToLow()" >high to low</a> </li>
-                <li ><a class="dropdown-item "  (click)="lowToHigh()">low to high</a> </li>
-              </ul>
-            </div>
+
+          <!-- end -->
+        </div>
+      </div>
+      <!-- end side bar-->
+    </div>
+    <!-- end side bar -->
+    <div class="col-md-9 col-sm-12">
+      <div class="row">
+        <div class="col-sm-6">{{productSize}} Results for"{{subcategoryName}} "</div>
+        <div class="col-sm-3">
+
+          <div class="dropdown">
+            <button class="btn dropdown-toggle" data-toggle="dropdown">RECOMENDED</button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item " (click)="highToLow()">high to low</a> </li>
+              <li><a class="dropdown-item " (click)="lowToHigh()">low to high</a> </li>
+            </ul>
           </div>
-    <!-- ///////////////////////// -->
-    <div class="col-sm-3">
-<!--            
-        <div class="dropdown">
-        <button class="btn dropdown-toggle" data-toggle="dropdown">per page</button>
-        <ul class="dropdown-menu">
-          <li ><a class="dropdown-item "  href="#" >5 per page</a> </li>
-          <li ><a class="dropdown-item "  href="#">6 per page</a> </li>
+        </div>
+
+
+      </div>
+      <div class="row">
+        <div class="col-sm-6 col-md-3 my-3" *ngFor="let product of products">
+          <app-product-card-design [product]="product"></app-product-card-design>
+
+          <!-- card -->
+        </div>
+        <!-- end card -->
+      </div>
+      <div class="row">
+
+        <ul class="pagination mx-auto my-4">
+          <li class="page-item  " id="prev"><a (click)="prevPageFun()" class="page-link">Previous</a></li>
+          <li class="page-item"><a (click)="goToNext(0)" class="page-link">1</a></li>
+          <li class="page-item"><a (click)="goToNext(1)" class="page-link">2</a></li>
+          <li class="page-item"><a (click)="goToNext(2)" class="page-link">3</a></li>
+          <li class="page-item"><a (click)="goToNext(3)" class="page-link">4</a></li>
+          <li class="page-item" id="next"><a (click)="nextPageFun()" class="page-link">Next</a></li>
         </ul>
-      </div> -->
-    </div>
-         </div>
-    <div class="row">
-      <div class="col-sm-3 my-3" *ngFor="let product of products">
-        <app-product-card-design   [product]="product" ></app-product-card-design>
-        
-        <!-- card -->
-    </div>
-    <!-- end card -->
-    </div>
-    <div class="row">
-   
-    <ul class="pagination mx-auto my-4" >
-      <li class="page-item  " id="prev" ><a (click)="prevPageFun()" class="page-link" >Previous</a></li>
-      <li class="page-item"><a (click)="goToNext(0)" class="page-link" >1</a></li>
-      <li class="page-item" ><a (click)="goToNext(1)"  class="page-link" >2</a></li>
-      <li class="page-item"><a (click)="goToNext(2)"  class="page-link" >3</a></li>
-      <li class="page-item"><a (click)="goToNext(3)"  class="page-link" >4</a></li>
-      <li class="page-item" id="next"><a  (click)="nextPageFun()"  class="page-link" >Next</a></li>
-    </ul>
 
-   
+
+      </div>
     </div>
-            </div>
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            </div>
-            </main> 
-            
-    
+
+  </div>
+</main>
