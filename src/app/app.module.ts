@@ -26,16 +26,13 @@ import { PopularComponent } from './components/homepage/popular/popular.componen
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { SpinnerComponent } from './components/+shared_UI/spinner/spinner.component';
 import { CategoryDetailsComponent } from './components/showcategory/category-details/category-details.component';
-<<<<<<< HEAD
 import { UserPropertiesComponent } from './components/user-properties/user-properties.component';
 import { WishListsComponent } from './components/user-properties/wish-lists/wish-lists.component';
 import { AddressComponent } from './components/user-properties/address/address.component';
 import { OrdersComponent } from './components/user-properties/orders/orders.component';
-=======
-import { ProductSliderComponent } from './components/product-details/product-slider/product-slider.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { ProductSliderComponent } from './components/product-details/product-slider/product-slider.component';
 
->>>>>>> f413969a5af545f232ede5362849099bcaaba49a
 @NgModule({
   declarations: [
     AppComponent,
