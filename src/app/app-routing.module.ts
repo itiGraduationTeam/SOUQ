@@ -37,10 +37,7 @@ const routes: Routes = [
     path: 'Supermarket/:cateID', component: ShowcategoryComponent
   },
   {
-    path: 'Mobiles/:cateID', component: ShowcategoryComponent
-  },
-  {
-    path: 'TVs/:cateID', component: ShowcategoryComponent
+    path: 'Electronics/:cateID', component: ShowcategoryComponent
   },
   
   {
@@ -57,9 +54,6 @@ const routes: Routes = [
   ,
   {
     path: 'Babies/:cateID', component: ShowcategoryComponent
-  },
-  {
-    path: 'Toys/:cateID', component: ShowcategoryComponent
   },
   {
     path: 'Sports/:cateID', component: ShowcategoryComponent
