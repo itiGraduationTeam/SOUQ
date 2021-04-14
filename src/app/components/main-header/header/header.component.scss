@@ -18,7 +18,6 @@
 .row {
   width: 100%;
   height: 100%;
-
   align-items: center;
   justify-content: center;
 }
@@ -42,7 +41,9 @@
 
 .logo {
   // width: 9rem;
-  margin-top: -10px;
+  max-width: 5.5rem;
+  padding: 6px;
+  // margin-top: -10px;
 }
 
 .header_search_form_container {
@@ -144,7 +145,7 @@
 .btn-group {
   margin-right: 14px;
   .btn {
-    width: 10rem;
+    width: auto !important;
   }
 }
 .cart {
@@ -175,20 +176,48 @@
   color: #0e8ce4;
 }
 
-@media screen and (max-width: 800px) {
-  .row {
-    max-height: 70%;
+.search {
+  background-color: transparent;
+  border: none !important;
+}
+.smallContainer {
+  display: none !important;
+  margin: auto;
+  .btn-group {
+    margin-right: 4px;
+  }
+  .btn {
+    width: auto !important;
+    color: #0e8ce4;
+    padding: 4px !important;
   }
 }
-
-@media screen and (max-width: 700px) {
-  .row {
-    max-height: 60%;
-  }
+.hide-search {
+  display: none;
 }
+@media screen and (max-width: 640px) {
+  .largeContainer {
+    display: none;
+  }
 
-@media screen and (max-width: 550px) {
-  .row {
-    max-height: 40%;
+  .dropdown-menu {
+    left: -90px;
+  }
+  .smallContainer {
+    display: flex !important;
+  }
+  .header {
+    height: 60px;
+  }
+  .dropdown-toggle::after {
+    color: #0e8ce4 !important;
+  }
+  .header_search_form_container {
+    width: 92%;
+  }
+  .header_search_button {
+    top: 66px;
+    right: 10px;
+    height: 66%;
   }
 }

@@ -55,3 +55,8 @@ button:hover {
   transition-duration: 0.3s;
   transition-timing-function: ease-out;
 }
+@media screen and (max-width: 640px) {
+  .navclass {
+    display: none;
+  }
+}

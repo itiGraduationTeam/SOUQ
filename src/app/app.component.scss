@@ -7,7 +7,7 @@
   height: auto;
   width: 100%;
   position: fixed;
-  margin-bottom: 100px !important;
+  margin-bottom: 10px;
   z-index: 10000;
 }
 
@@ -34,4 +34,10 @@
   height: 100%;
   z-index: 1;
   background: rgba(0, 0, 0, 0.6);
+}
+
+@media screen and (max-width: 640px) {
+  .container {
+    margin-top: 55px !important;
+  }
 }

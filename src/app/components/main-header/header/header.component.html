@@ -1,14 +1,14 @@
 <header class="header">
-  <!-- Logo -->
-  <!-- [className]="isVisible ? 'row container ' : 'row rowContainer '" -->
-
-  <div class="row">
+  <div class="row largeContainer">
     <div class="logo_col col-3">
       <div class="logo_container">
         <button (click)="openNav()">
           <i class="fas fa-bars icon"></i>
         </button>
-        <img class="logo" src="assets/logo2.png" />
+        <img
+          class="logo"
+          src="https://cf1.s3.souqcdn.com/public/style/img/en/souqAmazon-logo-v2-X2.png"
+        />
       </div>
     </div>
     <div class="col-5">
@@ -55,7 +55,12 @@
                 </button>
               </div>
               <div>
-                <button class="signUp_noAccount sign_up" (click)="navigateToForm(1)">Sign Up</button>
+                <button
+                  class="signUp_noAccount sign_up"
+                  (click)="navigateToForm(1)"
+                >
+                  Sign Up
+                </button>
               </div>
             </div>
             <div class="dropdown-divider"></div>
@@ -81,6 +86,104 @@
           </button>
           <div class="cart_label">Cart</div>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="smallContainer row d-flex justify-content-between">
+    <div class="p-2 align-self-center">
+      <div class="logo_container align-self-start">
+        <button (click)="openNav()">
+          <i class="fas fa-bars icon"></i>
+        </button>
+        <img
+          class="logo"
+          src="https://cf1.s3.souqcdn.com/public/style/img/en/souqAmazon-logo-v2-X2.png"
+        />
+      </div>
+    </div>
+    <div class="p-2 align-self-center">
+      <div class="loginCart">
+        <div class="btn-group dropdown">
+          <button
+            type="button"
+            class="btn dropdown-toggle toogle"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Log In
+          </button>
+          <div class="dropdown-menu dropdown-content">
+            <div class="menu_btn_container">
+              <button (click)="navigateToForm(2)">Log In</button>
+              <div>
+                <button class="signUp_noAccount no_account">
+                  Don't have an account?
+                </button>
+              </div>
+              <div>
+                <button
+                  class="signUp_noAccount sign_up"
+                  (click)="navigateToForm(1)"
+                >
+                  Sign Up
+                </button>
+              </div>
+            </div>
+            <div class="dropdown-divider"></div>
+            <div
+              class="item_container"
+              *ngFor="let item of menuLisItems; let i = index"
+            >
+              <a (click)="itemPress(item)" class="dropdown-item"
+                >{{ item.label }}
+              </a>
+              <div
+                *ngIf="i !== menuLisItems.length - 1"
+                class="dropdown-divider"
+              ></div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <button (click)="showHideSearch()" class="cart_icon search">
+            <i class="fas fa-search icon"></i>
+          </button>
+        </div>
+
+        <div class="cart">
+          <button class="cart_icon">
+            <div class="cart_count"><span>0</span></div>
+            <i class="fas fa-shopping-cart icon"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="row d-flex" *ngIf="showSearch">
+      <div
+        class="header_search_form_container"
+        [ngClass]="{ 'hide-search': isVisible }"
+      >
+        <form>
+          <input
+            type="search"
+            required="required"
+            class="header_search_input"
+            placeholder="What are you looking for?"
+          />
+
+          <button
+            type="submit"
+            class="header_search_button small_search trans_300"
+            value="Submit"
+          >
+            <img
+              src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1560918770/search.png"
+              alt=""
+            />
+          </button>
+        </form>
       </div>
     </div>
   </div>

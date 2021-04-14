@@ -73,3 +73,8 @@ span {
     display: none;
   }
 }
+@media screen and (max-width: 640px) {
+  .navclass {
+    display: none;
+  }
+}
