@@ -4,6 +4,7 @@ import { LoginComponent } from './components/+auth/login/login.component';
 import { SignupComponent } from './components/+auth/signup/signup.component';
 import { ProductDetailsComponent } from './components/+product/product-details/product-details.component';
 import { AllCategoryComponent } from './components/all-category/all-category.component';
+import { FilterComponent } from './components/filter/filter.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { PopularComponent } from './components/homepage/popular/popular.component';
 import { ShowcategoryComponent } from './components/showcategory/showcategory.component';
@@ -30,6 +31,7 @@ const routes: Routes = [
     path: 'category products/:id', component: ProductDetailsComponent
   },
   {path:'t',component:PopularComponent},
+  {path:'filter/:subcateName',component:FilterComponent},
   {
     path: 'Fashion/:cateID', component: ShowcategoryComponent
   },

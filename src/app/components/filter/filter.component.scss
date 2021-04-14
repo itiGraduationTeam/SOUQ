@@ -1,0 +1,150 @@
+.mainbady{
+    background-color: rgb(247,247,250);
+}
+ul{
+    list-style: none;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+}
+li{
+    margin-top: 5px;
+    margin-bottom: 5px; 
+}
+.fa{
+    font-size: xx-large;
+  }
+  .card {
+    color:  rgb(64, 69, 83);
+    border: 0;
+  }
+  .product-body{
+    padding-top: 6px;
+  }
+  .product-link{
+    text-decoration: none;
+    color: black;
+  }
+  .product-name{
+    position: relative;
+    line-height: 1.4rem;
+    height: 20px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-size: 0.875rem;
+  }
+  .brand{
+    margin: 0 4px 0 0;
+  
+  font-weight: bolder;
+  }
+  .product-price{
+    font-size: 1.2857rem;
+    -webkit-box-align: unset;
+      align-items: unset;
+      font-weight: bold;
+  }
+  .price-was{
+    color: rgb(178, 184, 202);
+    font-size: 0.769rem;
+    margin-right: 5px;
+    text-decoration: line-through;
+  }
+  .discount{
+    color: rgb(56, 174, 4);
+    font-size: 0.75rem;
+  }
+  
+  .cart-icon{
+    position: absolute;
+    top: 6px;
+    right: 10px;
+    width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #fafafa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  }
+  .cart-icon img {
+   width: 30px;
+  }
+.fa{
+  font-size: xx-large;
+}
+.card {
+  color:  rgb(64, 69, 83);
+  border: 0;
+}
+.product-body{
+  padding-top: 6px;
+}
+.product-link{
+  text-decoration: none;
+  color: black;
+}
+.product-name{
+  position: relative;
+  line-height: 1.4rem;
+  height: 20px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-size: 0.875rem;
+}
+.brand{
+  margin: 0 4px 0 0;
+
+font-weight: bolder;
+}
+.product-price{
+  font-size: 1.2857rem;
+  -webkit-box-align: unset;
+    align-items: unset;
+    font-weight: bold;
+}
+.price-was{
+  color: rgb(178, 184, 202);
+  font-size: 0.769rem;
+  margin-right: 5px;
+  text-decoration: line-through;
+}
+.discount{
+  color: rgb(56, 174, 4);
+  font-size: 0.75rem;
+}
+
+.cart-icon{
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  width: 40px;
+height: 40px;
+border-radius: 50%;
+background-color: #fafafa;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.cart-icon img {
+ width: 30px;
+}
+.types:hover{
+    color: blue;
+}  
+.go{
+  color: blue;
+}
+.go:hover{
+  color:#ddd7f1;
+}
+.myInput {
+//   background-image: url('../../../assets/searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
