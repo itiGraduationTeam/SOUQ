@@ -11,16 +11,16 @@
         />
       </div>
     </div>
+
     <div class="col-5">
       <div class="header_search_form_container">
-        <form>
+        <form [formGroup]="SearchForm" (ngSubmit)="searchPress(SearchForm)">
           <input
             type="search"
-            required="required"
             class="header_search_input"
             placeholder="What are you looking for?"
-            #search
-            (keyup.enter)="onEnterSearch(search.value)"
+            formControlName="search"
+            (keyup.enter)="onEnterSearch(SearchForm)"
           />
 
           <button
