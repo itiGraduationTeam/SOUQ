@@ -7,6 +7,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { HeaderComponent } from './header/header.component';
 import { MainHeaderComponent } from './main-header/main-header.component';
 import { SideMenuComponent } from './side-menu/side-menu.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,7 @@ import { SideMenuComponent } from './side-menu/side-menu.component';
     MainHeaderComponent,
     SideMenuComponent,
   ],
-  imports: [CommonModule],
-  exports: [MainHeaderComponent],
+  imports: [CommonModule, ReactiveFormsModule],
+  exports: [MainHeaderComponent, FormsModule, ReactiveFormsModule],
 })
 export class MainHeaderModule {}
