@@ -58,12 +58,12 @@ export class NavBarComponent implements OnInit {
       routerLink: '/Beauty',
     },
     {
-      id:9,
+      id:6,
       label: 'Moms & Babies',
       routerLink: '/Babies',
     },
     {
-      id:9,
+      id:6,
       label: 'Toys',
       routerLink: '/Babies',
     },

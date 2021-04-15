@@ -1,4 +1,4 @@
-<main class="container mainbady">
+<main class="container-fluid mainbady pt-2">
   <div class="row">
     <!-- side bar -->
     <div class="col-md-3 col-sm-12">
@@ -91,9 +91,8 @@
 
       </div>
       <div class="row">
-        <div class="col-sm-6 col-md-3 my-3" *ngFor="let product of products">
+        <div class="col-sm-6 col-md-4 my-3" *ngFor="let product of products">
           <app-product-card-design [product]="product"></app-product-card-design>
-
           <!-- card -->
         </div>
         <!-- end card -->

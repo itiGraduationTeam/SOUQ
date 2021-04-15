@@ -28,7 +28,9 @@ export class ShowcategoryComponent implements OnInit {
     this.filterServe.getAllCategory().subscribe(
       data=>{
        this.categoryImg=data[this.categoryId].cateImg
-      //  console.log("cateImg: ",this.categoryImg);
+       console.log("cateImg: ",this.categoryImg);
+       console.log("cateName: ",data);
+
        
       },
       err=>{
