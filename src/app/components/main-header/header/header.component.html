@@ -19,6 +19,8 @@
             required="required"
             class="header_search_input"
             placeholder="What are you looking for?"
+            #search
+            (keyup.enter)="onEnterSearch(search.value)"
           />
 
           <button

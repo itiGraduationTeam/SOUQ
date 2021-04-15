@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AllSubCategoriesService } from 'src/Shared/Services/all-sub-categories.service';
 import { FilterService } from 'src/Shared/Services/filter.service';
 
 @Component({

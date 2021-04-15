@@ -34,7 +34,7 @@ const routes: Routes = [
     path: 'allcategory', component: AllCategoryComponent
   },
  
-  {path:'t',component:NotFoundComponent},
+  {path:'not-found',component:NotFoundComponent},
   {path:'filter/:subcateName',component:FilterComponent},
   {path:'productdetails/:id',component:ProductDetailsComponent},
   {

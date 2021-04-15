@@ -16,8 +16,6 @@ export class HomepageComponent implements OnInit {
     this.productServ.getHomeProduct().subscribe(
       data => {
         this.homeProductList = data;
-        console.log("data is: ", this.homeProductList);
-
       },
       err => {
         console.log("data not retreived");

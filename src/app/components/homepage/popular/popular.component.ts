@@ -38,8 +38,6 @@ export class PopularComponent implements OnInit {
         
         this.fashionProductList = data;
         this.fashionProductList= this.fashionProductList.filter((item)=>item.rating>=4)
-        // console.log('rating>>>>>>>>>>>>>>>', this.fashionProductList);
-        console.log('popular', this.fashionProductList);
         $(document).ready(function () {
           return $('.fashion-slider').slick({
             infinite: true,
