@@ -31,7 +31,6 @@ export class PopularComponent implements OnInit {
   loading: boolean = false;
 
   ngOnInit(): void {
-    console.log('data>>>>>>>>>>>>>>>??');
   
     this.loading = true;
     this.productServ.getProduct().subscribe(
@@ -39,7 +38,7 @@ export class PopularComponent implements OnInit {
         
         this.fashionProductList = data;
         this.fashionProductList= this.fashionProductList.filter((item)=>item.rating>=4)
-        console.log('rating>>>>>>>>>>>>>>>', this.fashionProductList);
+        // console.log('rating>>>>>>>>>>>>>>>', this.fashionProductList);
         console.log('popular', this.fashionProductList);
         $(document).ready(function () {
           return $('.fashion-slider').slick({

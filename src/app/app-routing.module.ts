@@ -7,6 +7,7 @@ import { AllCategoryComponent } from './components/all-category/all-category.com
 import { FilterComponent } from './components/filter/filter.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { PopularComponent } from './components/homepage/popular/popular.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { ShowcategoryComponent } from './components/showcategory/showcategory.component';
 import { AddressComponent } from './components/user-properties/address/address.component';
@@ -33,7 +34,7 @@ const routes: Routes = [
     path: 'allcategory', component: AllCategoryComponent
   },
  
-  {path:'t',component:PopularComponent},
+  {path:'t',component:NotFoundComponent},
   {path:'filter/:subcateName',component:FilterComponent},
   {path:'productdetails/:id',component:ProductDetailsComponent},
   {

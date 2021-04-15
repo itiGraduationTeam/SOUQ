@@ -32,6 +32,7 @@ import { AddressComponent } from './components/user-properties/address/address.c
 import { OrdersComponent } from './components/user-properties/orders/orders.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { ProductSliderComponent } from './components/product-details/product-slider/product-slider.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { ProductSliderComponent } from './components/product-details/product-sli
     AddressComponent,
     OrdersComponent,
     ProductSliderComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    NotFoundComponent
    
   ],
   imports: [
