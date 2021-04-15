@@ -167,12 +167,13 @@
         class="header_search_form_container"
         [ngClass]="{ 'hide-search': isVisible }"
       >
-        <form>
+        <form [formGroup]="SearchForm" (ngSubmit)="searchPress(SearchForm)">
           <input
             type="search"
-            required="required"
             class="header_search_input"
             placeholder="What are you looking for?"
+            formControlName="search"
+            (keyup.enter)="onEnterSearch(SearchForm)"
           />
 
           <button
