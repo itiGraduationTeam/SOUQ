@@ -94,6 +94,9 @@ export class HeaderComponent implements OnInit {
         break;
     }
   }
+  navigateToCart(){
+    this.router.navigate(['/shopping_cart']);
+  }
   showHideSearch() {
     this.showSearch = !this.showSearch;
   }

@@ -4,6 +4,7 @@ import { LoginComponent } from './components/+auth/login/login.component';
 import { SignupComponent } from './components/+auth/signup/signup.component';
 //import { ProductDetailsComponent } from './components/+product/product-details/product-details.component';
 import { AllCategoryComponent } from './components/all-category/all-category.component';
+import { CartComponent } from './components/cart/cart.component';
 import { FilterComponent } from './components/filter/filter.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { PopularComponent } from './components/homepage/popular/popular.component';
@@ -78,6 +79,9 @@ const routes: Routes = [
       {path:'orders/:id',component:OrdersComponent },
       {path: 'shipping-address/:id',component: AddressComponent},
       {path:'wish-lists/:id',component:WishListsComponent}]
+  },
+  {
+    path:'shopping_cart',component:CartComponent
   }
   
 ];
