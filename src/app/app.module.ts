@@ -36,6 +36,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { CartComponent } from './components/cart/cart.component';
 import { ChcekoutComponent } from './components/chcekout/chcekout.component';
 import { CartItemComponent } from './components/cart/cart-item/cart-item.component';
+import { AdminModule } from './admin/admin.module';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import { CartItemComponent } from './components/cart/cart-item/cart-item.compone
     NotFoundComponent,
     CartComponent,
     ChcekoutComponent,
-    CartItemComponent
+    CartItemComponent,
+    
    
   ],
   imports: [
@@ -79,7 +81,8 @@ import { CartItemComponent } from './components/cart/cart-item/cart-item.compone
     FormsModule,
     ReactiveFormsModule,
     NgxUsefulSwiperModule,
-    SlickCarouselModule
+    SlickCarouselModule,
+    AdminModule
   ],
   providers: [],
   bootstrap: [AppComponent],
