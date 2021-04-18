@@ -1,0 +1,27 @@
+<div class="row">
+    <div class="border border-top-0 border-right-0 border-left-0 col-12">
+<span class="text-color"> <span class="font-weight-bolder" style="font-size: 30px;">{{currentProduct.price}}  </span> EGP </span> 
+<br><span class="font-weight-normal" style="font-size: 16px;">Free Shipping </span> 
+</div> </div>
+<div class="row border border-top-0 border-right-0 border-left-0">
+    <div class=" col-12 my-1" *ngFor="let key of keyFilter">
+    <span class="font-weight-bold" >{{key}} : </span>  <br>
+    
+    <span class="option btn">{{currentProduct[key]}}</span>  
+    </div>
+</div>
+<div class="row">
+     <div class="col-12">
+        <span class="font-weight-bold" >Description:</span>  <br>
+         <ul>
+             <li>brand: {{currentProduct.brand}}</li>
+             <li *ngFor="let key of keyFilter">
+                 {{key}} : {{currentProduct[key]}}
+             </li>
+             <li>discount: {{currentProduct.discount}}%</li>
+         </ul>
+     </div>
+     <div class="col-12 btn  cart">
+         ADD TO CART
+     </div>
+</div>

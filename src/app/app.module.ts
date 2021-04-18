@@ -33,6 +33,9 @@ import { OrdersComponent } from './components/user-properties/orders/orders.comp
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { ProductSliderComponent } from './components/product-details/product-slider/product-slider.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { ProductSummaryComponent } from './components/product-details/product-summary/product-summary.component';
+import { ProductsSpecificationComponent } from './components/product-details/products-specification/products-specification.component';
+import { RelatedProductComponent } from './components/product-details/related-product/related-product.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +63,10 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     OrdersComponent,
     ProductSliderComponent,
     ProductDetailsComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ProductSummaryComponent,
+    ProductsSpecificationComponent,
+    RelatedProductComponent
    
   ],
   imports: [
