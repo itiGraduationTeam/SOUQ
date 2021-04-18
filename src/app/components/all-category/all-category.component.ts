@@ -18,9 +18,6 @@ export class AllCategoryComponent implements OnInit {
         (data)=>{
           console.log(data);
           this.allCategory=data;
-         this.categoryName="salma";
-         
-      
         }
       );
     }
