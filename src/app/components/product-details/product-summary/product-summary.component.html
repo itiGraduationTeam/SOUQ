@@ -24,4 +24,12 @@
      <div class="col-12 btn  cart" (click)="addToCart()">
          ADD TO CART
      </div>
+     <div class="col-12 " *ngIf="addedItem then added">
+       
+    </div>
+     <ng-template #added>
+        <small class="alert alert-success mt-2 mx-auto">
+         Product Added To Your Cart
+        </small>
+     </ng-template>
 </div>

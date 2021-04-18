@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { data } from 'jquery';
 import { FilterService } from 'src/Shared/Services/filter.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { CartService } from 'src/Shared/Services/cart.service';
 
 @Component({
   selector: 'app-header',
@@ -10,13 +11,17 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
+  numberOfItemsInCart=0;
   SearchForm = this.formBuilder.group({
     search: ['', Validators.required],
   });
   constructor(
     private router: Router,
     private filterServe: FilterService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private cartServe:CartService
+      
+    
   ) {}
   @Input()
   isVisible = false;
@@ -40,6 +45,10 @@ export class HeaderComponent implements OnInit {
   ];
   ngOnInit(): void {
     this.getCategories();
+    // this.getNumberOgCarts();
+  }
+  ngAfterViewChecked(): void {
+    this.getNumberOgCarts();
   }
   menuLisItems = [
     {
@@ -152,5 +161,18 @@ export class HeaderComponent implements OnInit {
     if (form.valid) {
       this.search(form.value.search);
     }
+  }
+  getNumberOgCarts(){
+    this.cartServe.getAllCarts().subscribe(
+      data=>{
+        this.numberOfItemsInCart=Object.keys(data).length;
+        console.log("number of carts:",this.numberOfItemsInCart);
+
+      },
+      err=>{
+        console.log(err);
+        
+      }
+    )
   }
 }

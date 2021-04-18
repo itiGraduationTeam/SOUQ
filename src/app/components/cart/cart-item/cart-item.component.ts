@@ -1,4 +1,4 @@
-import { Component, OnInit, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, SimpleChanges } from '@angular/core';
 import { CartService } from 'src/Shared/Services/cart.service';
 import { FormBuilder } from '@angular/forms';
 @Component({
@@ -9,7 +9,9 @@ import { FormBuilder } from '@angular/forms';
 export class CartItemComponent implements OnInit {
   cartItems: any;
   error: any;
+  numOfcartItems:any;
   totalPrice: number = 0;
+  noCart=false;
   constructor(private cartService:CartService,private fb: FormBuilder) { }
 
   cartForm = this.fb.group({
@@ -27,12 +29,11 @@ export class CartItemComponent implements OnInit {
     this.cartService.addToCart(item.productId._id, qty).subscribe(
       (data) => {
         //console.log('qty :' + this.qty.value)
-
         console.log(data)
         this.error = ""
         this.totalPrice += item.productId.price * qty;
         localStorage.setItem('totalPrice', this.totalPrice.toString())
-        console.warn(this.totalPrice);
+        console.warn("totalPrice: ",this.totalPrice);
 
       },
       err => this.error = "error"
@@ -42,13 +43,15 @@ export class CartItemComponent implements OnInit {
 
   ngOnInit(): void {
     this.getcarts(); 
+    console.log("lenght:",Object.keys(this.cartItems).length);
+    
   }
 
   getcarts() {
     this.cartService.getAllCarts().subscribe(
       (cartItems) => {
         this.cartItems = cartItems;
-        console.log("array of cart: ",this.cartItems)
+        this.numOfcartItems=Object.keys(this.cartItems).length;
       },
       (error) => this.error = error
     )
@@ -63,14 +66,19 @@ export class CartItemComponent implements OnInit {
     console.log("we try to delete")
     this.cartService.deleteCart(item).subscribe(
       (data) => {
-        
-        console.log("data")
         this.error = ""
       },
       err => this.error = "error"
-
     )
   this.cartItems=  this.cartItems.filter((ele:any)=>ele.productId._id!=item);
+  this.numOfcartItems=Object.keys(this.cartItems).length;
+  if(this.numOfcartItems===0)
+  {
+    this.noCart=true;
+  }
+  else{
+    this.noCart=false;
+  }
 
   }
 }

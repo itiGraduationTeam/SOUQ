@@ -14,7 +14,11 @@ export class LoginComponent implements OnInit {
     password: ['', [Validators.required, Validators.minLength(6)]]
 
   });
-  constructor(private router:Router, private formBuilder: FormBuilder,private authLoginServ:AuthenticateService) { }
+  constructor(
+    private router: Router,
+    private formBuilder: FormBuilder,
+    private authLoginServ: AuthenticateService
+  ) { }
 
   ngOnInit(): void {
     this.initForm();
@@ -22,12 +26,13 @@ export class LoginComponent implements OnInit {
   login() {
     this.authLoginServ.logIn(this.loginForm.value)
     console.log(this.loginForm.value)
+
   }
-  logOut(){
+  logOut() {
     alert("you are log out")
     this.authLoginServ.logOut();
   }
-  navigateToSignUp(){
+  navigateToSignUp() {
     this.router.navigate(['/signUp'])
   }
   initForm() {

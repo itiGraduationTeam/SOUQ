@@ -1,4 +1,7 @@
+import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit,Input } from '@angular/core';
+import { Router } from '@angular/router';
+import { faGalacticSenate } from '@fortawesome/free-brands-svg-icons';
 import { IOptions } from 'src/Shared/Interfaces/IOptions';
 import { CartService } from 'src/Shared/Services/cart.service';
 import { FilterService } from 'src/Shared/Services/filter.service';
@@ -11,7 +14,12 @@ import { FilterService } from 'src/Shared/Services/filter.service';
 export class ProductSummaryComponent implements OnInit {
   @Input() currentProduct:any;
   error:any;
-  constructor(private filterService:FilterService,private cartService:CartService) { }
+  addedItem=false;
+  constructor(
+    private filterService:FilterService,
+    private cartService:CartService,
+    private router:Router
+    ) { }
   option:IOptions[]=[{
     options:[],
     cateid:0,
@@ -41,14 +49,10 @@ export class ProductSummaryComponent implements OnInit {
     this.cartService.addToCart(this.currentProduct._id,1).subscribe(
       (data) => {
         console.log('_id :'+this.currentProduct._id)
-
-        // console.log(data)
-        // this.error = ""
+        this.addedItem=true;
       },
       err => {
-        alert("please login first")
-        
-        // console.warn("error : ",err);
+       this.router.navigate(['/signUp']);
         
       }
 

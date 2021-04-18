@@ -11,6 +11,7 @@ export class ShowcategoryComponent implements OnInit {
   categoryId: any;
   categoryImg:any;
   subCategoriesList: any;
+  loading=true;
   constructor(private filterServe: FilterService, private router:Router , private activatedRoute: ActivatedRoute) { }
 
 
@@ -29,9 +30,7 @@ export class ShowcategoryComponent implements OnInit {
       data=>{
        this.categoryImg=data[this.categoryId].cateImg
        console.log("cateImg: ",this.categoryImg);
-       console.log("cateName: ",data);
-
-       
+       console.log("cateName: ",data);    
       },
       err=>{
         console.log(err);
@@ -47,6 +46,7 @@ export class ShowcategoryComponent implements OnInit {
     })
     this.getAllSubCategories();
     this.getSubCategoryImg();
+    this.loading=false;
   }
   navigateToFilter(subName:any){
     this.router.navigate(['/filter',subName]);
