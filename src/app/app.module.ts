@@ -40,6 +40,7 @@ import { CartComponent } from './components/cart/cart.component';
 import { ChcekoutComponent } from './components/chcekout/chcekout.component';
 import { CartItemComponent } from './components/cart/cart-item/cart-item.component';
 import { AdminModule } from './admin/admin.module';
+import { NumberToArrayPipe } from './pipes/number-to-array.pipe';
 
 @NgModule({
   declarations: [
@@ -74,6 +75,7 @@ import { AdminModule } from './admin/admin.module';
     CartComponent,
     ChcekoutComponent,
     CartItemComponent,
+    NumberToArrayPipe,
     
    
   ],

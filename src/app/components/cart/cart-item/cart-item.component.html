@@ -11,14 +11,19 @@
                 <div class="col-9">
                     <p class="text-primary">{{item.productId.price}}</p>
                 </div>
-                <!-- <form class="col-3"> 
-                    <select id="qty" class="form-control" formControlName="qty" name="qty" >
-                       
-                        <option>
-                             count 
-                        </option>
+                <form  [formGroup]="cartForm">
+                    <select
+                        class="form-control"
+                        formControlName="qty"
+                        name="qty"
+
+                        (ngModelChange)="changeQty(qty,item)"
+                        >
+                      <option  *ngFor="let count of item.productId.countInStock | numberToArray" [ngValue]="count">
+                        {{ count }}
+                      </option>
                     </select>
-                </form> -->
+                  </form>
                </div>
                 <div class="row">
                     <div class="col-6">
