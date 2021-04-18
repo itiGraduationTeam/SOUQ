@@ -27,6 +27,7 @@ export class CartService {
     )
   }
   deleteCart(productId:string){
+    alert("deleting");
     const options = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
