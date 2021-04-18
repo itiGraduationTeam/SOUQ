@@ -29,7 +29,7 @@ export class CartItemComponent implements OnInit {
     console.log("we try to delete")
     this.cartService.deleteCart(item).subscribe(
       (data) => {
-      
+        
         console.log("data")
         this.error = ""
       },
