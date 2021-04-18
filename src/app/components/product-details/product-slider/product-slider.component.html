@@ -1,3 +1,11 @@
+<div class="row">
+<h4>{{currentProduct.description}}
+</h4>
+<br>
+<small>by <span class="text-color" > {{currentProduct.brand}} </span>
+ , <span class="text-color"> {{currentProduct.subcategory}} </span> </small>
+<app-rating  [value]="currentProduct.rating" [color]="'#FEEE00'"></app-rating>
+</div>
 <div class="row align-items-center d-none d-md-flex">
     <div class="col-md-3 " >
       <div class="flex-column">
