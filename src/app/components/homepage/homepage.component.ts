@@ -8,13 +8,14 @@ import { ProductService } from 'src/Shared/Services/product.service';
   styleUrls: ['./homepage.component.scss']
 })
 export class HomepageComponent implements OnInit {
-
+  loading=true;
   homeProductList: IProduct[] = [];
   constructor(private productServ: ProductService) { }
 
   ngOnInit(): void {
     this.productServ.getHomeProduct().subscribe(
       data => {
+        this.loading=false;
         this.homeProductList = data;
       },
       err => {
