@@ -45,10 +45,10 @@ export class HeaderComponent implements OnInit {
   ];
   ngOnInit(): void {
     this.getCategories();
-    // this.getNumberOgCarts();
+    this.getNumberOgCarts();
   }
   ngAfterViewChecked(): void {
-    this.getNumberOgCarts();
+    // this.getNumberOgCarts();
   }
   menuLisItems = [
     {

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
 import { LoginComponent } from './components/+auth/login/login.component';
 import { SignupComponent } from './components/+auth/signup/signup.component';
 //import { ProductDetailsComponent } from './components/+product/product-details/product-details.component';
@@ -86,6 +87,10 @@ const routes: Routes = [
   },
   {
     path:'checkout',component:CheckoutComponent
+  },
+
+  {
+    path:'admin',component:AdminDashboardComponent
   }
   
 ];

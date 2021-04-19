@@ -222,3 +222,26 @@ export const sideMenuListItems: any = [
     ],
   },
 ];
+export const sideMenuAdminList: any = [
+  {
+    parentName: 'Dashboard',
+    
+  },
+  {
+    parentName: 'Products',
+    subItems: [
+          { propertyName: 'Add' },
+          { propertyName: 'Delete' },
+          { propertyName: 'Update' },
+    ],
+  },
+  {
+    parentName: 'Users',
+    subItems: [
+          { propertyName: 'All Users' },
+          { propertyName: 'Delete' },
+    ],
+  },
+ 
+ 
+];
