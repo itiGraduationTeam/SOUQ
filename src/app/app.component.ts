@@ -15,7 +15,7 @@ export class AppComponent {
     this.router.events.subscribe((event: any) => {
       if (event instanceof NavigationEnd) {
         console.log('this.router.url', this.router.url);
-        this.showHeader = ['/login', '/signUp'].includes(this.router.url);
+        this.showHeader = ['/login', '/signUp','/checkout'].includes(this.router.url);
       }
     });
   } // note you have to use Public because you are using it in html file too.

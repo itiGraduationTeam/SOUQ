@@ -166,8 +166,6 @@ export class HeaderComponent implements OnInit {
     this.cartServe.getAllCarts().subscribe(
       data=>{
         this.numberOfItemsInCart=Object.keys(data).length;
-        console.log("number of carts:",this.numberOfItemsInCart);
-
       },
       err=>{
         console.log(err);

@@ -154,9 +154,9 @@
           </button>
         </div>
 
-        <div class="cart">
+        <div class="cart" (click)="navigateToCart()">
           <button class="cart_icon">
-            <div class="cart_count"><span>0</span></div>
+            <div class="cart_count"><span> {{numberOfItemsInCart}} </span></div>
             <i class="fas fa-shopping-cart icon"></i>
           </button>
         </div>

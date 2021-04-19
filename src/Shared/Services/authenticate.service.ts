@@ -16,6 +16,7 @@ user:any;
    return this._http.post<UserData>(this.signUpUrl,user).subscribe(
      data=>{
        console.warn(data);
+       localStorage.setItem("userData",user);
        
      },
      err=>{
@@ -28,9 +29,9 @@ user:any;
     this._http.post<UserData>(this.loginUrl,user).subscribe(
       data=>{
         this.user=data
-        console.warn(data);
         alert("you are login your token is: "+this.user.token)
         localStorage.setItem('userToken', this.user.token);
+        localStorage.setItem('userData',this.user);
       },
       err=>{
         console.log(err);
@@ -43,6 +44,7 @@ user:any;
     console.log("deleted")
     localStorage.removeItem("userToken");
     // this.loginListner.next(false)
+    localStorage.removeItem("userData")
   }
 
   signInCheckout(user: UserData) {

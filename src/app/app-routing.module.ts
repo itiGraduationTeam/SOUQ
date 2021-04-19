@@ -5,6 +5,7 @@ import { SignupComponent } from './components/+auth/signup/signup.component';
 //import { ProductDetailsComponent } from './components/+product/product-details/product-details.component';
 import { AllCategoryComponent } from './components/all-category/all-category.component';
 import { CartComponent } from './components/cart/cart.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
 import { FilterComponent } from './components/filter/filter.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { PopularComponent } from './components/homepage/popular/popular.component';
@@ -82,6 +83,9 @@ const routes: Routes = [
   },
   {
     path:'shopping_cart',component:CartComponent
+  },
+  {
+    path:'checkout',component:CheckoutComponent
   }
   
 ];
