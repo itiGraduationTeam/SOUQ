@@ -1,7 +1,7 @@
 <div class="container pt-4">
     <div class="row">
-        <div class="col-sm-4">
-            <div class="card" style="width: 18rem;">
+        <div class="col-md-4 col-sm-12">
+            <div class="card" class="w-100">
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item " *ngFor="let item of list" (click)="navigate(item)">
                         <i [class]="item.icon" class="text-primary"></i>
@@ -11,7 +11,7 @@
                 </ul>
             </div>
         </div>
-        <div class="col-sm-8">
+        <div class="col-md-8 col-sm-12">
             <router-outlet> </router-outlet>
         </div>
     </div>
