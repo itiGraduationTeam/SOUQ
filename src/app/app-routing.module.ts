@@ -6,6 +6,8 @@ import { SignupComponent } from './components/+auth/signup/signup.component';
 //import { ProductDetailsComponent } from './components/+product/product-details/product-details.component';
 import { AllCategoryComponent } from './components/all-category/all-category.component';
 import { CartComponent } from './components/cart/cart.component';
+import { CheckoutPaymentComponent } from './components/checkout/checkout-content/checkout-payment/checkout-payment.component';
+import { CheckoutShippingAddressComponent } from './components/checkout/checkout-content/checkout-shipping-address/checkout-shipping-address.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { FilterComponent } from './components/filter/filter.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
@@ -25,7 +27,7 @@ const routes: Routes = [
         (m) => m.MainHeaderModule
       ),
   },
-  {path:"",component:HomepageComponent}
+  { path: "", component: HomepageComponent }
   ,
   {
     path: 'login', component: LoginComponent
@@ -36,10 +38,10 @@ const routes: Routes = [
   {
     path: 'allcategory', component: AllCategoryComponent
   },
- 
-  {path:'not-found',component:NotFoundComponent},
-  {path:'filter/:subcateName',component:FilterComponent},
-  {path:'productdetails/:id',component:ProductDetailsComponent},
+
+  { path: 'not-found', component: NotFoundComponent },
+  { path: 'filter/:subcateName', component: FilterComponent },
+  { path: 'productdetails/:id', component: ProductDetailsComponent },
   {
     path: 'Fashion/:cateID', component: ShowcategoryComponent
   },
@@ -49,7 +51,7 @@ const routes: Routes = [
   {
     path: 'Electronics/:cateID', component: ShowcategoryComponent
   },
-  
+
   {
     path: 'Kitchen/:cateID', component: ShowcategoryComponent
   }
@@ -71,28 +73,30 @@ const routes: Routes = [
   {
     path: 'Automotive/:cateID', component: ShowcategoryComponent
   },
-  
+
   {
     path: 'Office/:cateID', component: ShowcategoryComponent
   },
   {
-    path:'user-properties',component:UserPropertiesComponent,
-    children:[
-      {path:'orders/:id',component:OrdersComponent },
-      {path: 'shipping-address/:id',component: AddressComponent},
-      {path:'wish-lists/:id',component:WishListsComponent}]
+    path: 'user-properties', component: UserPropertiesComponent,
+    children: [
+      { path: 'orders/:id', component: OrdersComponent },
+      { path: 'shipping-address/:id', component: AddressComponent },
+      { path: 'wish-lists/:id', component: WishListsComponent }]
   },
   {
-    path:'shopping_cart',component:CartComponent
+    path: 'shopping_cart', component: CartComponent
   },
   {
-    path:'checkout',component:CheckoutComponent
+    path: 'checkout', component: CheckoutComponent,
+    children: [
+      { path: 'shipping-address', component: CheckoutShippingAddressComponent },
+      { path: 'payment', component: CheckoutPaymentComponent }]
   },
-
   {
-    path:'admin',component:AdminDashboardComponent
+    path: 'admin', component: AdminDashboardComponent
   }
-  
+
 ];
 
 @NgModule({

@@ -5,6 +5,7 @@ import { faGalacticSenate } from '@fortawesome/free-brands-svg-icons';
 import { IOptions } from 'src/Shared/Interfaces/IOptions';
 import { CartService } from 'src/Shared/Services/cart.service';
 import { FilterService } from 'src/Shared/Services/filter.service';
+import { LocalStorageService } from 'src/Shared/Services/local-storage.service';
 
 @Component({
   selector: 'app-product-summary',
@@ -18,7 +19,8 @@ export class ProductSummaryComponent implements OnInit {
   constructor(
     private filterService:FilterService,
     private cartService:CartService,
-    private router:Router
+    private router:Router,
+    private localStorage:LocalStorageService
     ) { }
   option:IOptions[]=[{
     options:[],
@@ -44,11 +46,26 @@ export class ProductSummaryComponent implements OnInit {
       }
     );
   }
+  increasePriceValue(price: any) {
+    var temp = this.localStorage.get("totalPrice");
 
+    if (temp) {
+      temp+=price;
+      console.log("temp: ",temp);
+      this.localStorage.set("totalPrice",temp);
+      
+    }
+     else {
+
+      this.localStorage.set("totalPrice",price);
+    }
+
+}
   addToCart() {
     this.cartService.addToCart(this.currentProduct._id,1).subscribe(
       (data) => {
-        console.log('_id :'+this.currentProduct._id)
+        console.log('price :'+this.currentProduct.price)
+        this.increasePriceValue(this.currentProduct.price);
         this.addedItem=true;
       },
       err => {
