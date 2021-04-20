@@ -43,7 +43,6 @@ import { NumberToArrayPipe } from './pipes/number-to-array.pipe';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { CheckoutHeaderComponent } from './components/checkout/checkout-header/checkout-header.component';
 import { CheckoutFooterComponent } from './components/checkout/checkout-footer/checkout-footer.component';
-import {MaterialDesignModule} from './components/checkout/material-design.module'
 @NgModule({
   declarations: [
     AppComponent,

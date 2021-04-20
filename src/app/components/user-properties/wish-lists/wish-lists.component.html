@@ -3,21 +3,33 @@
     <h4>Wish Lists</h4>
   </div>
   <div class="col">
-    <button
-      type="button"
-      class="btn btn-block btn-secondary"
-      data-toggle="modal"
-      (click)="createNewWishList()"
-    >
+    <button type="button" class="btn btn-block btn-secondary" data-toggle="modal" (click)="createNewWishList()">
       CREATE A NEW WISH LIST
     </button>
   </div>
 </div>
-<div class="card">
-  <div class="card-body shadow-lg">
-    <a href="">sub category name</a>
+
+<div class="card shadow mb-2" *ngFor="let item of wishList">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-2">
+        <img [src]="item.productId.image[0]" alt="" data-toggle="popover" title="{{item.productId.name}}" data-content=""
+          class="card-img-bottom w-100 d-block">
+      </div>
+      <div class="col-10">
+        <div class="row">
+          <a >{{item.productId.name}}</a>
+        </div>
+        <div class="row">
+          <p class="text-primary">{{item.productId.price}}EGP</p>
+        </div>
+
+      </div>
+    </div>
+    <a class="card-link text-primary">Remove</a>
   </div>
 </div>
+
 
 <!-- Button to Open the Modal -->
 <!-- The Modal -->
@@ -39,11 +51,7 @@
 
       <!-- Modal footer -->
       <div class="modal-footer">
-        <button
-          type="button"
-          class="btn btn-primary btn-block"
-          data-dismiss="modal"
-        >
+        <button type="button" class="btn btn-primary btn-block" data-dismiss="modal">
           Save Change
         </button>
       </div>

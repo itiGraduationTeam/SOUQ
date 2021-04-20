@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LocalStorageService } from 'src/Shared/Services/local-storage.service';
 
 @Component({
   selector: 'app-wish-lists',
@@ -7,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WishListsComponent implements OnInit {
   openModal: boolean = false;
-  constructor() {}
+  wishList:any=[];
+  constructor(private localStorage:LocalStorageService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.wishList=this.localStorage.get("wishListItems");
+    
+  }
   createNewWishList() {
     this.openModal = true;
   }
+
 }
