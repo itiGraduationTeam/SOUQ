@@ -7,36 +7,31 @@ import {sideMenuAdminList} from '../../../../Shared/sideMenuListItems'
 })
 export class SideNavComponent implements OnInit {
   
-
-  sideMenuItems =sideMenuAdminList;
+  openProductMenu=false;
+ sideNavWidth='250px';
   constructor() { }
 
   ngOnInit(): void {
-    console.log("items:",this.sideMenuItems);
+    
     
   }
   
-
-  toggleAccordian(event: any, index: number) {
-    let element = event.target;
-    element.classList.toggle('active');
-    if (this.sideMenuItems[index].isActive) {
-      this.sideMenuItems[index].isActive = false;
-    } else {
-      this.sideMenuItems[index].isActive = true;
+  openDropDownProduct(){
+    if(this.openProductMenu)
+    {
+      this.openProductMenu=false;
     }
-    var panel = element.nextElementSibling;
-    console.log(panel);
-    if (panel.style.maxHeight) {
-      panel.style.maxHeight = null;
-    } else {
-      panel.style.maxHeight = 100 + '%';
+    else
+    {
+      this.openProductMenu=true;
     }
   }
-  childClick(items: any, item: any) {
-    console.log(items, item);
+   openNav() {
+    this.sideNavWidth = "250px";
+    console.log("side nav");
+    
   }
-
+  
  
 
 }

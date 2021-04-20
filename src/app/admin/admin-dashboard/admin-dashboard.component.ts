@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class AdminDashboardComponent implements OnInit {
 openProductMenu=false;
 openUsers=false;
+pageConntainer="250px";
 
   constructor() { }
 
@@ -22,6 +23,8 @@ openUsers=false;
     {
       this.openProductMenu=true;
     }
+  console.log("menu flag:",this.openDropDownProduct);
+  
   }
   openDropDownUsers(){
     if(this.openUsers)

@@ -1,155 +1,161 @@
 <p>admin-dashboard works!</p>
 
-
 //admin design
 
-<div class="container-fluid">
+<div class="container-fluid" >
     <div class="row">
-        <div class="col-4">
-            <nav class="col-12 d-none d-md-block bg-light sidebar">
-                <div class="sidebar-sticky">
-                    <ul class="nav flex-column">
-
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="feather feather-home">
-                                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                                </svg>
-                                Dashboard <span class="sr-only">(current)</span>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-
-                            <a class="nav-link dropdown-toggle"  data-toggle="collapse"
-                                aria-expanded="false" (click)="openDropDownUsers()">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="feather feather-users">
-                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                                    <circle cx="9" cy="7" r="4"></circle>
-                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                                </svg>
-                                Users
-                            </a>
-
-                            <ul *ngIf="openUsers" class=" list-unstyled" id="userSubmenu">
-                                <li>
-                                    <a href="#">Add</a>
-                                </li>
-                                <li>
-                                    <a href="#">Delete</a>
-                                </li>
-                                <li>
-                                    <a href="#">Update</a>
-                                </li>
-                            </ul>
-
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link dropdown-toggle"  data-toggle="productSubmenu"
-                                aria-expanded="false" (click)="openDropDownProduct()">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="feather feather-shopping-cart">
-                                    <circle cx="9" cy="21" r="1"></circle>
-                                    <circle cx="20" cy="21" r="1"></circle>
-                                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                                </svg>
-                                Products
-                            </a>
-
-                            <ul *ngIf="openProductMenu" class=" list-unstyled" id="productSubmenu">
-                                <li>
-                                    <a href="#">Add</a>
-                                </li>
-                                <li>
-                                    <a href="#">Delete</a>
-                                </li>
-                                <li>
-                                    <a href="#">Update</a>
-                                </li>
-                            </ul>
-
-                        </li>
-
-                    </ul>
-
-                </div>
-            </nav>
-
+        <div class="col-md-3">
+            <app-side-nav></app-side-nav>
         </div>
-
-        <div class="col-8">
-
-            <h4>Dashboard</h4>
-
+        <div class="col-md-9" [style.marginLeft]="pageConntainer">
             <div class="row">
-
                 <div class="col-4">
-
-                    <div class="card" style="">
-                        <div class="row">
-
-                            <div class="col-4"><img class="card-img-top" src="..." alt="Card image "></div>
-                            <div class="col-6">
-                                <div class="card-body">
-                                    <h5 class="card-title">Users</h5>
-                                    <p class="card-text">Users num</p>
+                    <nav class="col-12 d-none d-md-block bg-light sidebar">
+                        <div class="sidebar-sticky">
+                            <ul class="nav flex-column">
+        
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" class="feather feather-home">
+                                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                                        </svg>
+                                        Dashboard <span class="sr-only">(current)</span>
+                                    </a>
+                                </li>
+        
+                                <li class="nav-item">
+        
+                                    <a class="nav-link dropdown-toggle"  data-toggle="collapse"
+                                        aria-expanded="false" (click)="openDropDownUsers()">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" class="feather feather-users">
+                                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                            <circle cx="9" cy="7" r="4"></circle>
+                                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                        </svg>
+                                        Users
+                                    </a>
+        
+                                    <ul *ngIf="openUsers" class=" list-unstyled" id="userSubmenu">
+                                        <li>
+                                            <a href="#">Add</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Delete</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Update</a>
+                                        </li>
+                                    </ul>
+        
+                                </li>
+        
+                                <li class="nav-item">
+                                    <a class="nav-link dropdown-toggle"  data-toggle="productSubmenu"
+                                        aria-expanded="false" (click)="openDropDownProduct()">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" class="feather feather-shopping-cart">
+                                            <circle cx="9" cy="21" r="1"></circle>
+                                            <circle cx="20" cy="21" r="1"></circle>
+                                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                                        </svg>
+                                        Products
+                                    </a>
+        
+                                    <ul *ngIf="openProductMenu" class=" list-unstyled" id="productSubmenu">
+                                        <li>
+                                            <a href="#">Add</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Delete</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Update</a>
+                                        </li>
+                                    </ul>
+        
+                                </li>
+        
+                            </ul>
+        
+                        </div>
+                    </nav>
+        
+                </div>
+        
+                <div class="col-8">
+        
+                    <h4>Dashboard</h4>
+        
+                    <div class="row">
+        
+                        <div class="col-4">
+        
+                            <div class="card" style="">
+                                <div class="row">
+        
+                                    <div class="col-4"><img class="card-img-top" src="..." alt="Card image "></div>
+                                    <div class="col-6">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Users</h5>
+                                            <p class="card-text">Users num</p>
+                                        </div>
+                                    </div>
+        
                                 </div>
                             </div>
-
                         </div>
-                    </div>
-                </div>
-
-                <div class="col-4">
-
-                    <div class="card" style="">
-                        <div class="row">
-
-                            <div class="col-4"><img class="card-img-top" src="..." alt="Card image "></div>
-                            <div class="col-6">
-                                <div class="card-body">
-                                    <h5 class="card-title">Products</h5>
-                                    <p class="card-text">Products num</p>
+        
+                        <div class="col-4">
+        
+                            <div class="card" style="">
+                                <div class="row">
+        
+                                    <div class="col-4"><img class="card-img-top" src="..." alt="Card image "></div>
+                                    <div class="col-6">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Products</h5>
+                                            <p class="card-text">Products num</p>
+                                        </div>
+                                    </div>
+        
                                 </div>
                             </div>
-
                         </div>
-                    </div>
-                </div>
-
-                <div class="col-4">
-
-                    <div class="card" style="">
-                        <div class="row">
-
-                            <div class="col-4"><img class="card-img-top" src="..." alt="Card image "></div>
-                            <div class="col-6">
-                                <div class="card-body">
-                                    <h5 class="card-title">sales</h5>
-                                    <p class="card-text">sales num</p>
+        
+                        <div class="col-4">
+        
+                            <div class="card" style="">
+                                <div class="row">
+        
+                                    <div class="col-4"><img class="card-img-top" src="..." alt="Card image "></div>
+                                    <div class="col-6">
+                                        <div class="card-body">
+                                            <h5 class="card-title">sales</h5>
+                                            <p class="card-text">sales num</p>
+                                        </div>
+                                    </div>
+        
                                 </div>
                             </div>
-
                         </div>
+        
                     </div>
+        
+                    <div class="row">
+        
+        
+                    </div>
+        
                 </div>
-
+        
             </div>
-
-            <div class="row">
-
-
-            </div>
-
         </div>
-
     </div>
 </div>

@@ -1,21 +1,11 @@
-<div id="mySidenav" class="sidenav" style="width:250px">
-  <div *ngFor="let parentItem of sideMenuItems; let i = index">
-    <button *ngIf="!parentItem.subItems" href="#">
-      {{ parentItem.parentName }}
-    </button>
-    <div *ngIf="parentItem.subItems">
-      <label class="accordionContainer" href="#">
-        {{ parentItem.parentName }}
-      </label>
-      <div *ngFor="let item of parentItem.subItems; let j = index">
-        <div class="panel" hide="!item.isActive">
-          <p>
-            {{ item.propertyName }}
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
+<div id="mySidenav" class="sidenav" [style.width]="sideNavWidth" >
+  <a href="javascript:void(0)" class="closebtn" >&times;</a>
+  <a href="#">Dashboard</a>
+  <div class="dropdown-divider"></div>
+  <a href="#">Products</a>
+  <div class="dropdown-divider"></div>
+  <a href="#">Users</a>
+  <div class="dropdown-divider"></div>
+  <a href="#">Contact</a>
 </div>
+<!-- <span style="font-size:30px;cursor:pointer" (click)="openNav()">&#9776; open</span> -->
