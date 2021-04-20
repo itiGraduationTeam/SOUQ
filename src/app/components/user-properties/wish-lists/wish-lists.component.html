@@ -2,21 +2,16 @@
   <div class="col">
     <h4>Wish Lists</h4>
   </div>
-  <div class="col">
-    <button type="button" class="btn btn-block btn-secondary" data-toggle="modal" (click)="createNewWishList()">
-      CREATE A NEW WISH LIST
-    </button>
-  </div>
 </div>
 
 <div class="card shadow mb-2" *ngFor="let item of wishList">
   <div class="card-body">
     <div class="row">
-      <div class="col-2">
+      <div class="col-sm-2">
         <img [src]="item.productId.image[0]" alt="" data-toggle="popover" title="{{item.productId.name}}" data-content=""
           class="card-img-bottom w-100 d-block">
       </div>
-      <div class="col-10">
+      <div class="col-sm-8">
         <div class="row">
           <a >{{item.productId.name}}</a>
         </div>

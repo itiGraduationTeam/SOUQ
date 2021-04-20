@@ -1,0 +1,19 @@
+<div class="container-fluid">
+    <div class="row" style="justify-content: center; padding:2% 0;background-color: white;">
+        <ng-container *ngFor="let ele of tags">
+            <div class="col-3" style="text-align: center;">
+                <button class="btn" (click)=" showSection(ele.number)">
+                <p>{{ele.number}}</p>&nbsp;&nbsp;
+                <p>{{ele.name}}</p>&nbsp;&nbsp;
+                </button>
+                <div class="progress">
+                    <div class="progress-bar" style="display: inline-block;" role="progressbar" aria-valuemax="100">
+                    </div>
+                </div>
+
+            </div>
+        </ng-container>
+        
+    </div>
+    <router-outlet></router-outlet>
+</div>
