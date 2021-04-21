@@ -99,7 +99,7 @@ const routes: Routes = [
   {
     path: 'admin', component: AdminPanelComponent,
     children: [
-      { path: 'dashboard', component: AdminDashboardComponent },
+      { path: '', component: AdminDashboardComponent },
       { path: 'products', component: AdminProductsComponent },
       { path: 'users', component: AdminUsersComponent }]
   }
