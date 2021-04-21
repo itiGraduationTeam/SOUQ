@@ -13,24 +13,23 @@ export class SideNavComponent implements OnInit {
 
   ngOnInit(): void {
     
-    
   }
   
   openDropDownProduct(){
     if(this.openProductMenu)
     {
+      console.log("if");
+      
       this.openProductMenu=false;
     }
     else
     {
+      console.log("else");
+      
       this.openProductMenu=true;
     }
   }
-   openNav() {
-    this.sideNavWidth = "250px";
-    console.log("side nav");
-    
-  }
+  
   
  
 

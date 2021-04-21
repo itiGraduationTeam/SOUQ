@@ -30,20 +30,8 @@ export class CartComponent implements OnInit {
   navigate(event:any){
     if(event==='checkout')
     {
-      // let token=this.localStorage.get("userToken")+"";
-      // console.log("token is: ",token);
-
-      // if(token){
-      //   console.log("token found");
-        
-        this.router.navigate(['/checkout'])
-      // }
-      // else{
-      //   console.log("token not found");
-
-      //   this.router.navigate(['/signUp'])
-
-      // }
+        this.router.navigate(['/checkout/shipping'])
+     
     }
     else if(event==='signin'){
       this.router.navigate(['/login'])

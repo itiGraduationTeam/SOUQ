@@ -90,7 +90,7 @@ const routes: Routes = [
   {
     path: 'checkout', component: CheckoutComponent,
     children: [
-      { path: 'shipping-address', component: CheckoutShippingAddressComponent },
+      { path: 'shipping', component: CheckoutShippingAddressComponent },
       { path: 'payment', component: CheckoutPaymentComponent }]
   },
   {
