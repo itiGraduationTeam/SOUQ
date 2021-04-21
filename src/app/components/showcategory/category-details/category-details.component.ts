@@ -14,7 +14,7 @@ productList:any;
     this.filterServe.getProductBySubcategory(subName).subscribe(
       data=>{
         this.productList=data;
-        console.warn("productList: ",this.productList[1].name);
+        console.log("productList: ",this.productList);
       },
       err=>{
         console.log(err);

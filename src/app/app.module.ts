@@ -43,6 +43,9 @@ import { NumberToArrayPipe } from './pipes/number-to-array.pipe';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { CheckoutHeaderComponent } from './components/checkout/checkout-header/checkout-header.component';
 import { CheckoutFooterComponent } from './components/checkout/checkout-footer/checkout-footer.component';
+import { CheckoutShippingAddressComponent } from './components/checkout/checkout-content/checkout-shipping-address/checkout-shipping-address.component';
+import { CheckoutPaymentComponent } from './components/checkout/checkout-content/checkout-payment/checkout-payment.component';
+import { CheckoutContentComponent } from './components/checkout/checkout-content/checkout-content.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -79,6 +82,9 @@ import { CheckoutFooterComponent } from './components/checkout/checkout-footer/c
     CheckoutComponent,
     CheckoutHeaderComponent,
     CheckoutFooterComponent,
+    CheckoutShippingAddressComponent,
+    CheckoutPaymentComponent,
+    CheckoutContentComponent,
     
    
   ],

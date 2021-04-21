@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-checkout-header',
@@ -8,21 +8,22 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class CheckoutHeaderComponent implements OnInit {
 
-  isLinear = false;
   firstFormGroup: any;
   secondFormGroup: any;
 
-  constructor(private _formBuilder: FormBuilder) {}
-
   ngOnInit() {
-    this.firstFormGroup = this._formBuilder.group({
-      firstCtrl: ['', Validators.required]
+    this.firstFormGroup = new FormGroup({
+      email: new FormControl('', [Validators.required, Validators.email])
     });
-    this.secondFormGroup = this._formBuilder.group({
-      secondCtrl: ['', Validators.required]
+    this.secondFormGroup = new FormGroup({
+      password: new FormControl('', Validators.required)
     });
   }
 
-  
+  get email() { return this.firstFormGroup.get('email'); }
+  get password() { return this.secondFormGroup.get('password'); }
 
+  onSubmit() {
+    // do something here
+  }
 }
