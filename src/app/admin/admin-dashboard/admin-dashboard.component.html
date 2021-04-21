@@ -106,7 +106,7 @@
                     <div class="card" style="">
                         <div class="row">
 
-                            <div class="col-3"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50"
+                            <div class="col-3 leftCard"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50"
                                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                     stroke-linecap="round" stroke-linejoin="round" class="feather feather-users h-100">
                                     <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
@@ -130,7 +130,7 @@
                     <div class="card" style="">
                         <div class="row">
 
-                            <div class="col-3"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50"
+                            <div class="col-3 midCard"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50"
                                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                     stroke-linecap="round" stroke-linejoin="round"
                                     class="feather feather-shopping-cart h-100">
@@ -142,7 +142,7 @@
                             <div class="col-7">
                                 <div class="card-body">
                                     <h5 class="card-title">Products</h5>
-                                    <p class="card-text">Products num</p>
+                                    <p class="card-text">Prod num</p>
                                 </div>
                             </div>
 
@@ -155,7 +155,7 @@
                     <div class="card" style="">
                         <div class="row">
 
-                            <div class="col-3"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50"
+                            <div class="col-3 rightCard"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50"
                                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                     stroke-linecap="round" stroke-linejoin="round"
                                     class="feather feather-file-text h-100">
@@ -173,8 +173,223 @@
                             </div>
 
                         </div>
+
                     </div>
                 </div>
+
+                <div class="col-12">
+
+                    <div class="card">
+                        <div class="row">
+
+                            <div class="col-9">
+
+                                <!-- <div class="card"> -->
+                                <div class="header">
+                                    <p>Mounthly Recap Reports</p>
+                                </div>
+
+                                <div class="content">
+                                    <div id="chartHours" class="ct-chart"><svg
+                                            xmlns:ct="http://gionkunz.github.com/chartist-js/ct" width="100%"
+                                            height="250px" class="ct-chart-line" style="width: 100%; height: 250px;">
+                                            <g class="ct-grids">
+                                                <line y1="210" y2="210" x1="50" x2="634" class="ct-grid ct-vertical">
+                                                </line>
+                                                <line y1="171" y2="171" x1="50" x2="634" class="ct-grid ct-vertical">
+                                                </line>
+                                                <line y1="132" y2="132" x1="50" x2="634" class="ct-grid ct-vertical">
+                                                </line>
+                                                <line y1="93" y2="93" x1="50" x2="634" class="ct-grid ct-vertical">
+                                                </line>
+                                                <line y1="54" y2="54" x1="50" x2="634" class="ct-grid ct-vertical">
+                                                </line>
+                                                <line y1="15" y2="15" x1="50" x2="634" class="ct-grid ct-vertical">
+                                                </line>
+                                            </g>
+                                            <g>
+
+                                                <g class="ct-series ct-series-b">
+                                                    <path
+                                                        d="M50,210L50,196.935C71.63,196.935,93.259,180.36,114.889,180.36C136.519,180.36,158.148,172.365,179.778,172.365C201.407,172.365,223.037,163.2,244.667,163.2C266.296,163.2,287.926,134.535,309.556,134.535C331.185,134.535,352.815,125.175,374.444,125.175C396.074,125.175,417.704,105.675,439.333,105.675C460.963,105.675,482.593,84.81,504.222,84.81C525.852,84.81,547.481,64.92,569.111,64.92L569.111,210Z"
+                                                        class="ct-area"></path>
+
+                                                </g>
+
+                                            </g>
+                                            <g class="ct-labels">
+                                                <foreignObject style="overflow: visible;" x="50" y="215"
+                                                    width="64.88888888888889" height="20"><span
+                                                        class="ct-label ct-horizontal ct-end"
+                                                        xmlns="http://www.w3.org/2000/xmlns/"
+                                                        style="width: 65px; height: 20px;"><small>January</small></span>
+                                                </foreignObject>
+                                                <foreignObject style="overflow: visible;" x="114.88888888888889" y="215"
+                                                    width="64.88888888888889" height="20"><span
+                                                        class="ct-label ct-horizontal ct-end"
+                                                        xmlns="http://www.w3.org/2000/xmlns/"
+                                                        style="width: 65px; height: 20px;"><small>February</small></span>
+                                                </foreignObject>
+                                                <foreignObject style="overflow: visible;" x="185.77777777777777" y="215"
+                                                    width="64.88888888888889" height="20"><span
+                                                        class="ct-label ct-horizontal ct-end"
+                                                        xmlns="http://www.w3.org/2000/xmlns/"
+                                                        style="width: 65px; height: 20px;"> <small>March</small></span></foreignObject>
+                                                <foreignObject style="overflow: visible;" x="250.66666666666666" y="215"
+                                                    width="64.88888888888889" height="20"><span
+                                                        class="ct-label ct-horizontal ct-end"
+                                                        xmlns="http://www.w3.org/2000/xmlns/"
+                                                        style="width: 65px; height: 20px;"><small>April</small></span></foreignObject>
+                                                <foreignObject style="overflow: visible;" x="313.55555555555554" y="215"
+                                                    width="64.88888888888891" height="20"><span
+                                                        class="ct-label ct-horizontal ct-end"
+                                                        xmlns="http://www.w3.org/2000/xmlns/"
+                                                        style="width: 65px; height: 20px;"><small>May</small></span></foreignObject>
+                                                <foreignObject style="overflow: visible;" x="378.44444444444446" y="215"
+                                                    width="64.88888888888886" height="20"><span
+                                                        class="ct-label ct-horizontal ct-end"
+                                                        xmlns="http://www.w3.org/2000/xmlns/"
+                                                        style="width: 65px; height: 20px;"><small>June</small></span>
+                                                </foreignObject>
+                                                <foreignObject style="overflow: visible;" x="443.3333333333333" y="215"
+                                                    width="64.88888888888886" height="20"><span
+                                                        class="ct-label ct-horizontal ct-end"
+                                                        xmlns="http://www.w3.org/2000/xmlns/"
+                                                        style="width: 65px; height: 20px;"><small>July</small></span></foreignObject>
+                                                <foreignObject style="overflow: visible;" x="508.2222222222222" y="215"
+                                                    width="64.88888888888891" height="20"><span
+                                                        class="ct-label ct-horizontal ct-end"
+                                                        xmlns="http://www.w3.org/2000/xmlns/"
+                                                        style="width: 65px; height: 20px;"><small>August</small></span></foreignObject>
+                                                <foreignObject style="overflow: visible;" x="573.1111111111111" y="215"
+                                                    width="64.88888888888891" height="20"><span
+                                                        class="ct-label ct-horizontal ct-end"
+                                                        xmlns="http://www.w3.org/2000/xmlns/"
+                                                        style="width: 65px; height: 20px;"></span></foreignObject>
+                                                <foreignObject style="overflow: visible;" y="171" x="10" height="39"
+                                                    width="30">
+                                                    <span class="ct-label ct-vertical ct-start"
+                                                        xmlns="http://www.w3.org/2000/xmlns/"
+                                                        style="height: 39px; width: 30px;"><small>0</small></span>
+                                                </foreignObject>
+                                                <foreignObject style="overflow: visible;" y="132" x="10" height="39"
+                                                    width="30">
+                                                    <span class="ct-label ct-vertical ct-start"
+                                                        xmlns="http://www.w3.org/2000/xmlns/"
+                                                        style="height: 39px; width: 30px;"><small>200</small></span>
+                                                </foreignObject>
+                                                <foreignObject style="overflow: visible;" y="93" x="10" height="39"
+                                                    width="30">
+                                                    <span class="ct-label ct-vertical ct-start"
+                                                        xmlns="http://www.w3.org/2000/xmlns/"
+                                                        style="height: 39px; width: 30px;"><small>400</small></span>
+                                                </foreignObject>
+                                                <foreignObject style="overflow: visible;" y="54" x="10" height="39"
+                                                    width="30">
+                                                    <span class="ct-label ct-vertical ct-start"
+                                                        xmlns="http://www.w3.org/2000/xmlns/"
+                                                        style="height: 39px; width: 30px;"><small>600</small></span>
+                                                </foreignObject>
+                                                <foreignObject style="overflow: visible;" y="15" x="10" height="39"
+                                                    width="30">
+                                                    <span class="ct-label ct-vertical ct-start"
+                                                        xmlns="http://www.w3.org/2000/xmlns/"
+                                                        style="height: 39px; width: 30px;"><small>800</small></span>
+                                                </foreignObject>
+
+                                            </g>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <!-- </div> -->
+                            </div>
+
+                            <div class="col-3">
+
+                                <!-- <div class="card"> -->
+                                    <div class="header">
+                                        <p>Goal Completion</p>
+                                    </div>
+
+                                <div class="widget-content-outer">
+                                    <div class="widget-content-wrapper">
+                                        <div class="widget-content-left">
+                                            <div class="widget-heading"><small>Add Product to cart</small></div>
+
+                                        </div>
+                                    </div>
+                                    <div class="widget-progress-wrapper">
+                                        <div class="progress-bar-sm progress-bar-animated-alt progress">
+                                            <div role="progressbar" aria-valuenow="100" aria-valuemin="0"
+                                                aria-valuemax="100" class="progress-bar bg-primary" style="width:100%;">
+                                            </div>
+                                        </div>
+                                        <div class="progress-sub-label">
+                                            <div class="text-right"><small>160/200</small></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="widget-content-wrapper">
+                                        <div class="widget-content-left">
+                                            <div class="widget-heading"><small>Compelete Purchase</small></div>
+
+                                        </div>
+                                    </div>
+                                    <div class="widget-progress-wrapper">
+                                        <div class="progress-bar-sm progress-bar-animated-alt progress">
+                                            <div role="progressbar" aria-valuenow="100" aria-valuemin="0"
+                                                aria-valuemax="100" class="progress-bar bg-danger" style="width:100%;">
+                                            </div>
+                                        </div>
+                                        <div class="progress-sub-label">
+                                            <div class="text-right"><small>310/400</small></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="widget-content-wrapper">
+                                        <div class="widget-content-left">
+                                            <div class="widget-heading"><small>Visit Premium Page</small></div>
+
+                                        </div>
+                                    </div>
+                                    <div class="widget-progress-wrapper">
+                                        <div class="progress-bar-sm progress-bar-animated-alt progress">
+                                            <div role="progressbar" aria-valuenow="100" aria-valuemin="0"
+                                                aria-valuemax="100" class="progress-bar bg-success" style="width:100%;">
+                                            </div>
+                                        </div>
+                                        <div class="progress-sub-label">
+                                            <div class="text-right"><small>480/800</small></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="widget-content-wrapper">
+                                        <div class="widget-content-left">
+                                            <div class="widget-heading"><small>Send Inquiries</small></div>
+
+                                        </div>
+                                    </div>
+                                    <div class="widget-progress-wrapper">
+                                        <div class="progress-bar-sm progress-bar-animated-alt progress">
+                                            <div role="progressbar" aria-valuenow="100" aria-valuemin="0"
+                                                aria-valuemax="100" class="progress-bar bg-warning" style="width:100%;">
+                                            </div>
+                                        </div>
+                                        <div class="progress-sub-label">
+                                            <div class="text-right"><small>250/500</small></div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <!-- </div> -->
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
 
             </div>
             <br><br>
@@ -396,11 +611,11 @@
 
 
             </div> -->
-        <!-- </div> -->
+            <!-- </div> -->
 
 
 
-        <!-- <div class="tab-pane fade" id="addProduct" role="tabpanel" aria-labelledby="addProduct-tab">
+            <!-- <div class="tab-pane fade" id="addProduct" role="tabpanel" aria-labelledby="addProduct-tab">
                 <div class="col-12">
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                         <h5 class="text-center">Welcome to Admin InterFace</h5>
@@ -630,11 +845,11 @@
                 </div>
             </div> -->
 
+        </div>
+
+        <!-- </div> -->
+
+        <!-- </div> -->
+
     </div>
-
-    <!-- </div> -->
-
-    <!-- </div> -->
-
-</div>
 </div>
