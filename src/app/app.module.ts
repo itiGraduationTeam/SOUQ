@@ -38,7 +38,6 @@ import { ProductsSpecificationComponent } from './components/product-details/pro
 import { RelatedProductComponent } from './components/product-details/related-product/related-product.component';
 import { CartComponent } from './components/cart/cart.component';
 import { CartItemComponent } from './components/cart/cart-item/cart-item.component';
-import { AdminModule } from './admin/admin.module';
 import { NumberToArrayPipe } from './pipes/number-to-array.pipe';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { CheckoutHeaderComponent } from './components/checkout/checkout-header/checkout-header.component';
@@ -46,6 +45,11 @@ import { CheckoutFooterComponent } from './components/checkout/checkout-footer/c
 import { CheckoutShippingAddressComponent } from './components/checkout/checkout-content/checkout-shipping-address/checkout-shipping-address.component';
 import { CheckoutPaymentComponent } from './components/checkout/checkout-content/checkout-payment/checkout-payment.component';
 import { CheckoutContentComponent } from './components/checkout/checkout-content/checkout-content.component';
+import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
+import { SideNavComponent } from './admin/side-nav/side-nav.component';
+import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
+import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
+import { AdminUsersComponent } from './admin/admin-users/admin-users.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -85,6 +89,11 @@ import { CheckoutContentComponent } from './components/checkout/checkout-content
     CheckoutShippingAddressComponent,
     CheckoutPaymentComponent,
     CheckoutContentComponent,
+    AdminDashboardComponent,
+    SideNavComponent,
+    AdminPanelComponent,
+    AdminProductsComponent,
+    AdminUsersComponent
     
    
   ],
@@ -99,7 +108,7 @@ import { CheckoutContentComponent } from './components/checkout/checkout-content
     ReactiveFormsModule,
     NgxUsefulSwiperModule,
     SlickCarouselModule,
-    AdminModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent],

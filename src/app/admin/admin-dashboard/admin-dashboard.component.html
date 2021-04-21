@@ -3,14 +3,8 @@
 
 <div class="container-fluid">
     <div class="row">
-        <!-- <div class="col-md-3">
-            <app-side-nav></app-side-nav>
-        </div> -->
-        <!-- <div class="col-md-9" [style.marginLeft]="pageConntainer"> -->
-        <!-- <div class="row"> -->
-
         <div class="col-3">
-            <nav class="col-12 d-none d-md-block bg-light sidebar">
+            <nav class="col-12 d-none d-md-block bg-light sidebar" >
                 <div class="sidebar-sticky">
                     <ul class="nav flex-column">
 
@@ -103,7 +97,7 @@
 
                 <div class="col-4">
 
-                    <div class="card" style="">
+                    <div class="card">
                         <div class="row">
 
                             <div class="col-3 leftCard"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50"
@@ -234,17 +228,20 @@
                                                     width="64.88888888888889" height="20"><span
                                                         class="ct-label ct-horizontal ct-end"
                                                         xmlns="http://www.w3.org/2000/xmlns/"
-                                                        style="width: 65px; height: 20px;"> <small>March</small></span></foreignObject>
+                                                        style="width: 65px; height: 20px;"> <small>March</small></span>
+                                                </foreignObject>
                                                 <foreignObject style="overflow: visible;" x="250.66666666666666" y="215"
                                                     width="64.88888888888889" height="20"><span
                                                         class="ct-label ct-horizontal ct-end"
                                                         xmlns="http://www.w3.org/2000/xmlns/"
-                                                        style="width: 65px; height: 20px;"><small>April</small></span></foreignObject>
+                                                        style="width: 65px; height: 20px;"><small>April</small></span>
+                                                </foreignObject>
                                                 <foreignObject style="overflow: visible;" x="313.55555555555554" y="215"
                                                     width="64.88888888888891" height="20"><span
                                                         class="ct-label ct-horizontal ct-end"
                                                         xmlns="http://www.w3.org/2000/xmlns/"
-                                                        style="width: 65px; height: 20px;"><small>May</small></span></foreignObject>
+                                                        style="width: 65px; height: 20px;"><small>May</small></span>
+                                                </foreignObject>
                                                 <foreignObject style="overflow: visible;" x="378.44444444444446" y="215"
                                                     width="64.88888888888886" height="20"><span
                                                         class="ct-label ct-horizontal ct-end"
@@ -255,12 +252,14 @@
                                                     width="64.88888888888886" height="20"><span
                                                         class="ct-label ct-horizontal ct-end"
                                                         xmlns="http://www.w3.org/2000/xmlns/"
-                                                        style="width: 65px; height: 20px;"><small>July</small></span></foreignObject>
+                                                        style="width: 65px; height: 20px;"><small>July</small></span>
+                                                </foreignObject>
                                                 <foreignObject style="overflow: visible;" x="508.2222222222222" y="215"
                                                     width="64.88888888888891" height="20"><span
                                                         class="ct-label ct-horizontal ct-end"
                                                         xmlns="http://www.w3.org/2000/xmlns/"
-                                                        style="width: 65px; height: 20px;"><small>August</small></span></foreignObject>
+                                                        style="width: 65px; height: 20px;"><small>August</small></span>
+                                                </foreignObject>
                                                 <foreignObject style="overflow: visible;" x="573.1111111111111" y="215"
                                                     width="64.88888888888891" height="20"><span
                                                         class="ct-label ct-horizontal ct-end"
@@ -307,9 +306,9 @@
                             <div class="col-3">
 
                                 <!-- <div class="card"> -->
-                                    <div class="header">
-                                        <p>Goal Completion</p>
-                                    </div>
+                                <div class="header">
+                                    <p>Goal Completion</p>
+                                </div>
 
                                 <div class="widget-content-outer">
                                     <div class="widget-content-wrapper">
@@ -382,7 +381,6 @@
 
                                 </div>
 
-                                <!-- </div> -->
                             </div>
 
                         </div>
@@ -397,459 +395,8 @@
 
 
 
-            <!-- <div class="tab-pane fade" id="editProduct" role="tabpanel" aria-labelledby="editProduct-tab">  -->
-            <!-- <div class="col-12">
-
-                <div class="card my-4">
-                    <form [formGroup]="productUpdateForm">
-                        <div class="card-header text-center">
-                            <input type="text" name="productName" formControlName="productName"
-                                value={{parentProductData.productName}} class="text-center">
-                        </div>
-
-                        <div class="card-body">
-                            <div class="form-inline">
-                                <div class="row align-center" style="width: 100%;">
-                                    <div class="col-md-4">
-                                        <label for="name">Name</label>
-                                        <input type="text" value="" formControlName="name"
-                                            class="form-inline text-center">
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <label for="image">Image</label>
-                                        <input type="text" value="" formControlName="image"
-                                            class="form-inline text-center">
-                                    </div>
-
-                                    <div class="row py-3">
-                                        <div class="col">
-                                            <label>Image</label>
-                                            <div formArrayName="images">
-                                                <ng-template *ngFor="let image of parentProductData.images index as i">
-                                                    <input type="text" value="" formControlName="i">
-                                                </ng-template>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-
-
-
-                                    <div class="col-md-4">
-                                        <label for="brand">Brand</label>
-                                        <input type="text" value="" formControlName="brand"
-                                            class="form-inline text-center">
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <label for="description">Description</label>
-                                        <input type="text" value="" formControlName="description"
-                                            class="form-inline text-center">
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <label for="countInStock">CountInStock</label>
-                                        <input type="text" value="" formControlName="countInStock"
-                                            class="form-inline text-center">
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <label for="category">Price</label>
-                                        <input type="text" value="" formControlName="price"
-                                            class="form-inline text-center px-2" style="width: 100%;">
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <label for="category">Category</label>
-                                        <input type="text" value="" formControlName="category"
-                                            class="form-inline text-center">
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <label for="subcategory">Sub Category</label>
-                                        <input type="text" value="" formControlName="subcategory"
-                                            class="form-inline text-center">
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <label for="overview">Overview</label>
-                                        <input type="text" value="" formControlName="overview"
-                                            class="form-inline text-center">
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <label for="rating">Rating</label>
-                                        <input type="text" value="" formControlName="rating"
-                                            class="form-inline text-center">
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <label for="numReviews">NumReviews</label>
-                                        <input type="text" value="" formControlName="numReviews"
-                                            class="form-inline text-center">
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <label for="discount">Discount</label>
-                                        <input type="text" value="" formControlName="discount"
-                                            class="form-inline text-center">
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <label for="size">Size</label>
-                                        <input type="text" value="" formControlName="size"
-                                            class="form-inline text-center">
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <label for="material">Material</label>
-                                        <input type="text" value="" formControlName="material"
-                                            class="form-inline text-center">
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <label for="color">Color</label>
-                                        <input type="text" value="" formControlName="color"
-                                            class="form-inline text-center">
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <label for="screenSize">ScreenSize</label>
-                                        <input type="text" value="" formControlName="screenSize"
-                                            class="form-inline text-center">
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <label for="internalMemory">Internal Memory</label>
-                                        <input type="text" value="" formControlName="internalMemory"
-                                            class="form-inline text-center">
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <label for="battery">Battery</label>
-                                        <input type="text" value="" formControlName="battery"
-                                            class="form-inline text-center">
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <label for="operatingSystem">Operating System</label>
-                                        <input type="text" value="" formControlName="operatingSystem"
-                                            class="form-inline text-center">
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <label for="memorySize">Memory Size</label>
-                                        <input type="text" value="" formControlName="memorySize"
-                                            class="form-inline text-center">
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <label for="proccessor">Proccessor</label>
-                                        <input type="text" value="" formControlName="proccessor"
-                                            class="form-inline text-center">
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <label for="tvScreenSize">tv Screen Size</label>
-                                        <input type="text" value="" formControlName="tvScreenSize"
-                                            class="form-inline text-center">
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <label for="noOfUsbPort">No Of Usb Port</label>
-                                        <input type="text" value="" formControlName="noOfUsbPort"
-                                            class="form-inline text-center">
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <label for="baseMaterial">Base Material</label>
-                                        <input type="text" value="" formControlName="baseMaterial"
-                                            class="form-inline text-center">
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <label for="foundation">Foundation</label>
-                                        <input type="text" value="" formControlName="foundation"
-                                            class="form-inline text-center">
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <label for="skinType">Skin Type</label>
-                                        <input type="text" value="" formControlName="skinType"
-                                            class="form-inline text-center">
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <label for="hairType">Hair Type</label>
-                                        <input type="text" value="" formControlName="hairType"
-                                            class="form-inline text-center">
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <label for="formulation">formulation</label>
-                                        <input type="text" value="" formControlName="formulation"
-                                            class="form-inline text-center">
-                                    </div>
-
-
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <div class="card-footer">
-                            <input type="button" class="btn btn-primary" value="Save"
-                                (click)="addFormContols(productUpdateForm)">
-                        </div>
-
-                    </form>
-                </div>
-
-
-
-
-            </div> -->
-            <!-- </div> -->
-
-
-
-            <!-- <div class="tab-pane fade" id="addProduct" role="tabpanel" aria-labelledby="addProduct-tab">
-                <div class="col-12">
-                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                        <h5 class="text-center">Welcome to Admin InterFace</h5>
-                        <div class="container">
-                            <div class="row h-50 justify-content-center align-items-center py-2">
-                                <div class="col">
-                                    <div class="card">
-                                        <div class="card-footer text-center">
-                                            <h5>Add new product</h5>
-                                        </div>
-                                        
-                                        <div class="card-body">
-                                            <form [formGroup]="addProductForm" ngNativeValidate>
-
-                                                <div class="form-group">
-                                                    <label for="name">Name</label>
-                                                    <input id="name" type="text" formControlName="name"
-                                                        class="form-control" >
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label for="image">Image</label>
-                                                    <input id="image" type="text" formControlName="image"
-                                                        class="form-control" >
-                                                </div>
-
-                                                <div class="card">
-                                                    <h5 class="card-header">Images Form </h5>
-                                                    <div class="card-body">
-
-                                                        <div class="form-group">
-                                                            <label for="images">Images</label>
-                                                            <button type="button" class="btn btn-primary float-right"
-                                                                (click)="addNewImages()">Add New
-                                                                Image</button>
-                                                        </div>
-
-                                                        <div formArrayName="images"
-                                                            *ngFor="let type of images.controls let i=index">
-                                                            <br> <br>
-                                                            <label>Images Number {{i+1}}</label>
-                                                            <br>
-                                                            <label>New Images</label>
-                                                            <input type="text" class="form-control"
-                                                                [formControlName]="i">
-
-                                                            <button type="button" class="btn btn-danger float-right"
-                                                                (click)="removeImages(i)">Remove This
-                                                                Image</button>
-                                                            <br>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label for="brand">Brand</label>
-                                                    <input id="brand" type="text" formControlName="brand"
-                                                        class="form-control" >
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label for="description">Description</label>
-                                                    <input id="description" type="text" formControlName="description"
-                                                        class="form-control" >
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label for="countInStock">CountInStock</label>
-                                                    <input id="countInStock" type="number"
-                                                        formControlName="countInStock" class="form-control" >
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label for="price">Price</label>
-                                                    <input id="price" type="number" formControlName="price"
-                                                        class="form-control" >
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label for="category">Category</label>
-                                                    <input id="category" type="text" formControlName="category"
-                                                        class="form-control" >
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label for="subcategory">Sub Category</label>
-                                                    <input id="subcategory" type="text" formControlName="subcategory"
-                                                        class="form-control" >
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label for="overview">Overview</label>
-                                                    <input id="overview" type="text" formControlName="overview"
-                                                        class="form-control" >
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label for="rating">Rating</label>
-                                                    <input id="rating" type="number" formControlName="rating"
-                                                        class="form-control" >
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label for="numReviews">NumReviews</label>
-                                                    <input id="numReviews" type="number" formControlName="numReviews"
-                                                        class="form-control" >
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label for="discount">Discount</label>
-                                                    <input id="discount" type="number" formControlName="discount"
-                                                        class="form-control" >
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label for="size">Size</label>
-                                                    <input id="size" type="text" formControlName="size"
-                                                        class="form-control" >
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label for="material">Material</label>
-                                                    <input id="material" type="text" formControlName="material"
-                                                        class="form-control" >
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label for="color">Color</label>
-                                                    <input id="color" type="text" formControlName="color"
-                                                        class="form-control" >
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label for="screenSize">ScreenSize</label>
-                                                    <input id="screenSize" type="text" formControlName="screenSize"
-                                                        class="form-control" >
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label for="internalMemory">Internal Memory</label>
-                                                    <input id="internalMemory" type="text"
-                                                        formControlName="internalMemory" class="form-control" >
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label for="battery">Battery</label>
-                                                    <input id="battery" type="text" formControlName="battery"
-                                                        class="form-control" >
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label for="operatingSystem">Operating System</label>
-                                                    <input id="operatingSystem" type="text"
-                                                        formControlName="operatingSystem" class="form-control" >
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label for="memorySize">Memory Size</label>
-                                                    <input id="memorySize" type="text" formControlName="memorySize"
-                                                        class="form-control" >
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label for="proccessor">Proccessor</label>
-                                                    <input id="proccessor" type="text" formControlName="proccessor"
-                                                        class="form-control" >
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label for="tvScreenSize">tv Screen Size</label>
-                                                    <input id="tvScreenSize" type="text" formControlName="tvScreenSize"
-                                                        class="form-control" >
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label for="noOfUsbPort">No Of Usb Port</label>
-                                                    <input id="noOfUsbPort" type="text" formControlName="noOfUsbPort"
-                                                        class="form-control" >
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label for="baseMaterial">Base Material</label>
-                                                    <input id="baseMaterial" type="text" formControlName="baseMaterial"
-                                                        class="form-control" >
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label for="foundation">Foundation</label>
-                                                    <input id="foundation" type="text" formControlName="foundation"
-                                                        class="form-control" >
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label for="skinType">Skin Type</label>
-                                                    <input id="skinType" type="text" formControlName="skinType"
-                                                        class="form-control" >
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label for="hairType">Hair Type</label>
-                                                    <input id="hairType" type="text" formControlName="hairType"
-                                                        class="form-control" >
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label for="formulation">formulation</label>
-                                                    <input id="formulation" type="text" formControlName="formulation"
-                                                        class="form-control" >
-                                                </div>
-
-
-
-                                                <div>
-                                                    <input type="submit" class="btn btn-primary" value="Add Product"
-                                                        style="width: 100%;" (click)="submitData(addProductForm.value,$event)" >
-                                                    
-                                                </div>
-
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div> -->
 
         </div>
-
-        <!-- </div> -->
-
-        <!-- </div> -->
 
     </div>
 </div>

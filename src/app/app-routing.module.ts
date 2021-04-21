@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
+import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
+import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
+import { AdminUsersComponent } from './admin/admin-users/admin-users.component';
 import { LoginComponent } from './components/+auth/login/login.component';
 import { SignupComponent } from './components/+auth/signup/signup.component';
 //import { ProductDetailsComponent } from './components/+product/product-details/product-details.component';
@@ -94,7 +97,11 @@ const routes: Routes = [
       { path: 'payment', component: CheckoutPaymentComponent }]
   },
   {
-    path: 'admin', component: AdminDashboardComponent
+    path: 'admin', component: AdminPanelComponent,
+    children: [
+      { path: 'dashboard', component: AdminDashboardComponent },
+      { path: 'products', component: AdminProductsComponent },
+      { path: 'users', component: AdminUsersComponent }]
   }
 
 ];

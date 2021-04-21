@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import {sideMenuAdminList} from '../../../../Shared/sideMenuListItems'
+import {sideMenuAdminList} from '../../../Shared/sideMenuListItems'
 @Component({
   selector: 'app-side-nav',
   templateUrl: './side-nav.component.html',
