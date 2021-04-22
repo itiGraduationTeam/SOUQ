@@ -9,6 +9,7 @@ import { ProductService } from 'src/Shared/Services/product.service';
 export class AdminProductsComponent implements OnInit {
   productList:any;
   isOpen=false;
+  loading=true;
   constructor(private productServ:ProductService) { }
 
   ngOnInit(): void {
@@ -18,6 +19,7 @@ export class AdminProductsComponent implements OnInit {
     this.productServ.getProduct().subscribe(
       data=>{
         this.productList=data;
+        this.loading=false;
         console.log("all data: ",this.productList);
         
       },
@@ -27,11 +29,22 @@ export class AdminProductsComponent implements OnInit {
       }
     )
   }
-  removeProduct(proId:any)
-  {
 
+  //remove product by name
+  removeProduct(proName:any){
+    this.productServ.removeProduct(proName).subscribe(
+      data=>{
+        console.log("result of remove product: ",data);     
+      },
+      err=>{
+        console.log("err from remove product: ",err);     
+      }
+    )
+    console.log("from admin products: ",proName); 
   }
-  openModal()
+
+  //toggle flag to open or close add product form
+  openAddForm()
   {
     // this.isOpen=!this.isOpen;
     if(this.isOpen)

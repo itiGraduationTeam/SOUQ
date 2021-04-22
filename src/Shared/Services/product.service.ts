@@ -37,6 +37,16 @@ export class ProductService {
     )
   }
 
+
+
+  //remove product by name
+  removeProduct(proName: any) {
+    let _url = `http://localhost:8000/api/products/${proName}`;
+    return this._http.delete<any>(_url).pipe(
+      catchError(err => { return throwError(err.message); })
+    )
+  }
+  
   //function to get only all electronic product
   getElectronicProduct(): Observable<IProduct[]> {
     return this._http.get<IProduct[]>(`http://localhost:8000/api/products/bycategory/electronics`).pipe(
@@ -57,6 +67,9 @@ export class ProductService {
       catchError(err => { return throwError(err.message); })
     )
   }
+
+  //delete product by name
+
   getToken() {
     return localStorage.getItem("userToken")
   }

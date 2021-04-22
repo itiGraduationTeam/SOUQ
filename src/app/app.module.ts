@@ -45,11 +45,10 @@ import { CheckoutFooterComponent } from './components/checkout/checkout-footer/c
 import { CheckoutShippingAddressComponent } from './components/checkout/checkout-content/checkout-shipping-address/checkout-shipping-address.component';
 import { CheckoutPaymentComponent } from './components/checkout/checkout-content/checkout-payment/checkout-payment.component';
 import { CheckoutContentComponent } from './components/checkout/checkout-content/checkout-content.component';
-import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
-import { SideNavComponent } from './admin/side-nav/side-nav.component';
+import { AdminDashboardComponent } from './admin/admin-panel/admin-dashboard/admin-dashboard.component';
 import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
-import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
-import { AdminUsersComponent } from './admin/admin-users/admin-users.component';
+import { AdminProductsComponent } from './admin/admin-panel/admin-products/admin-products.component';
+import { AdminUsersComponent } from './admin/admin-panel/admin-users/admin-users.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -90,7 +89,6 @@ import { AdminUsersComponent } from './admin/admin-users/admin-users.component';
     CheckoutPaymentComponent,
     CheckoutContentComponent,
     AdminDashboardComponent,
-    SideNavComponent,
     AdminPanelComponent,
     AdminProductsComponent,
     AdminUsersComponent

@@ -1,8 +1,8 @@
 <div class="container">
     <!-- table for show all products -->
     <div class="row ">
-        <div class="col" >
-            <button type="button" class="btn btn-success text-light" (click)="openModal()">
+        <div class="col">
+            <button type="button" class="btn btn-success text-light" (click)="openAddForm()">
                 <i class="fas fa-plus-circle"></i>
             </button>
         </div>
@@ -10,32 +10,41 @@
             <h4 class="row">List of Products</h4>
         </div>
     </div>
-    <div class="row tableFixHead">
-        <table class="table table-hover " style="height: 20%;">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Stock</th>
-                    <th scope="col">Discount</th>
-                    <th scope="col">image</th>
-                    <th scope="col">#</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let pro of productList">
-                    <td>{{pro.name}}</td>
-                    <td>{{pro.price}}</td>
-                    <td>{{pro.countInStock}}</td>
-                    <td>{{pro.discount}}%</td>
-                    <td scope="col"><img [src]="pro.image[0]" alt="" class="rounded" width='50' height="50"></td>
-                    <td><button type="button" class="btn btn-danger text-light"><i class="far fa-trash-alt"></i></button></td>
-                </tr>
-
-            </tbody>
-        </table>
-    </div>
+    <ng-container *ngIf="loading; then spinner; else wrapper">
+    </ng-container>
+    
+        <ng-template #spinner>
+            <app-spinner></app-spinner>
+        </ng-template>
+        <ng-template #wrapper>
+            <div class="row tableFixHead">
+            <table class="table table-hover " style="height: 20%;">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Stock</th>
+                        <th scope="col">Discount</th>
+                        <th scope="col">image</th>
+                        <th scope="col">#</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let pro of productList">
+                        <td>{{pro.name}}</td>
+                        <td>{{pro.price}}</td>
+                        <td>{{pro.countInStock}}</td>
+                        <td>{{pro.discount}}%</td>
+                        <td scope="col"><img [src]="pro.image[0]" alt="" class="rounded" width='50' height="50"></td>
+                        <td><button type="button" class="btn btn-danger text-light" (click)="removeProduct(pro.name)"><i
+                                    class="far fa-trash-alt"></i></button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        </ng-template>
+    
     <hr>
     <!-- for for add new product -->
     <ng-template #addForm>
@@ -125,32 +134,13 @@
                                     <textarea class="form-control" id="overview" rows="2"></textarea>
                                 </div>
                             </div>
-                        </div>                       
-                        <button type="submit" class="btn btn-success float-right" routerLink="/chcekout/payment">SAVE Product</button>
+                        </div>
+                        <button type="submit" class="btn btn-success float-right" routerLink="/chcekout/payment">SAVE
+                            Product</button>
                     </form>
                 </div>
             </div>
         </div>
     </ng-template>
-    <ng-container  *ngIf="isOpen; then addForm"></ng-container>
-</div>
-
-<div class="modal" tabindex="-1" role="dialog" *ngIf="isOpen">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p>Modal body text goes here.</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-        </div>
-    </div>
+    <ng-container *ngIf="isOpen; then addForm"></ng-container>
 </div>

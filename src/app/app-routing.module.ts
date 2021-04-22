@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
+import { AdminDashboardComponent } from './admin/admin-panel/admin-dashboard/admin-dashboard.component';
 import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
-import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
-import { AdminUsersComponent } from './admin/admin-users/admin-users.component';
+import { AdminProductsComponent } from './admin/admin-panel/admin-products/admin-products.component';
+import { AdminUsersComponent } from './admin/admin-panel/admin-users/admin-users.component';
 import { LoginComponent } from './components/+auth/login/login.component';
 import { SignupComponent } from './components/+auth/signup/signup.component';
 //import { ProductDetailsComponent } from './components/+product/product-details/product-details.component';
