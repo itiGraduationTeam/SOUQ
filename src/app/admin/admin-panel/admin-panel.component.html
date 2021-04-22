@@ -1,15 +1,14 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-3">
-            <div class="sidenav">
-                <input type="text" placeholder="Search..">
-                <div (click)="routerChangedHandler(ele.router)" *ngFor="let ele of adminChild">{{ele.label}}</div>
-            </div>
+        <!-- <div class="col-sm-3">
+            
+        </div> -->
+        <div class=" col-sm-3  sidenav">
+            <input type="text" placeholder="Search..">
+            <div (click)="routerChangedHandler(ele.router)" *ngFor="let ele of adminChild">{{ele.label}}</div>
         </div>
-        <div class="col-sm-9">
-            <div class="container">
+        <div class="col-sm-9 mx-auto " >
                 <router-outlet></router-outlet>
-            </div>
         </div>
     </div>
 </div>

@@ -55,7 +55,11 @@ user:any;
       catchError(err => { return throwError(err.message); })
     )}
 
-
+    removeUser(userID:any) {
+      return this._http.delete<UserData>(`http://localhost:8000/api/users/${userID}` ).pipe(
+        catchError(err => { return throwError(err.message); })
+      )
+    }
   logOut() {
     console.log("deleted")
     localStorage.removeItem("userToken");

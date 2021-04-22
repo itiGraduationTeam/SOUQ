@@ -18,7 +18,7 @@
                                 <img src="https://img.icons8.com/color/48/000000/administrator-male.png" alt="Boss"  class="rounded-circle mx-auto d-block">
                                 <div class="text-center">
                                     <h6>{{user['firstName']}} {{user['lastName']}}</h6>
-                                    <button type="button" class="btn btn-danger text-light">
+                                    <button type="button" class="btn btn-danger text-light" (click)="removeUser(user['_id'])">
                                         <i class="far fa-trash-alt"></i></button>
                                 </div>                       
                             </div>
@@ -36,7 +36,7 @@
                             </div>
                         </ng-template>
                         <div class="row">
-                            <h5 class="mx-auto"><a  href="javascript:void(0)" (click)="showRemainder()">Show all users</a></h5>
+                            <h5 class="mx-auto mt-3"><a  href="javascript:void(0)" (click)="showRemainder()">Show all users</a></h5>
                         </div>
                         <ng-container *ngIf="remainder; then remainderUsers;">
                         </ng-container>
@@ -44,13 +44,12 @@
                 </div>
             </div>
             <ng-template #selectedUser>
-                <div class="row mt-3">
-                    <div class="text-dark">
-                        <div class="card bg-light">
-                            <img src="" class="card-img-top">
+                <div class="col-12 row mt-3">
+                       <div class="col-sm-6 mx-auto pb-4">
+                        <div class="card   bg-light">
                             <img src="https://img.icons8.com/color/48/000000/administrator-male.png" alt="Boss"  class="rounded-circle mx-auto d-block">
                             <div class="">
-                                <!-- <h3 class="card-title text-center">{{selectedUser['firstName']}} </h3> -->
+                                <h3 class="card-title text-center">{{selectedUser}} </h3>
                             </div>
                             <div class="card-body">
                                 <h4 class="card-text">Email</h4>
@@ -60,8 +59,7 @@
                                 <p>Blablabla</p>
                             </div>
                         </div>
-        
-                    </div>
+                       </div>
                 </div>
             </ng-template>
             <ng-container *ngIf="select; then selectedUser;">

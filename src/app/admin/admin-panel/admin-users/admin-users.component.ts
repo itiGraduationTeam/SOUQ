@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserData } from 'src/Shared/class/user-data';
 import { AuthenticateService } from 'src/Shared/Services/authenticate.service';
 
 @Component({
@@ -11,7 +12,12 @@ export class AdminUsersComponent implements OnInit {
   remainder=false;
   select=false;
   usersList=[];
-  selectedUser:any;
+  selectedUser:UserData ={
+    email: "",
+     password: "",
+     firstName: "",
+     lastName: ""
+  };
   constructor(private authServ:AuthenticateService) { }
 
   ngOnInit(): void {
@@ -23,10 +29,24 @@ export class AdminUsersComponent implements OnInit {
       data=>{
         this.usersList=data;
         this.loading=false;
-        console.log("all users data: ",data[0]['firstName']);
+        console.log("all users data: ",data);
       },
       err=>{
         console.log(err);    
+      }
+    )
+  }
+  removeUser(id:any){
+    console.log("id: ",id);
+    
+    this.authServ.removeUser(id).subscribe(
+      data=>{
+        console.log("user deleted: ", data);
+        
+      },
+      err=>{
+        console.log("user not deleted: ",err);
+        
       }
     )
   }
