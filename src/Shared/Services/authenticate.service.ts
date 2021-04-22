@@ -1,5 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { UserData } from '../class/user-data';
 
 @Injectable({
@@ -11,7 +13,9 @@ private signUpUrl=`http://localhost:8000/api/users/register`;
 
 user:any;
   constructor(private _http:HttpClient) { }
-
+  getToken() {
+    return localStorage.getItem("userToken")
+  }
   signUp(user:any){
    return this._http.post<UserData>(this.signUpUrl,user).subscribe(
      data=>{
@@ -39,6 +43,18 @@ user:any;
       }
     )
   }
+  getAllUsers(): Observable<any> {
+    const options = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization:`Bearer ${this.getToken()}`
+      }),
+
+    };
+    return this._http.get<any>(`http://localhost:8000/api/users/`, options).pipe(
+      catchError(err => { return throwError(err.message); })
+    )}
+
 
   logOut() {
     console.log("deleted")
@@ -50,4 +66,6 @@ user:any;
   signInCheckout(user: UserData) {
     return this._http.post<UserData>(this.loginUrl, user)
   }
+
+
 }

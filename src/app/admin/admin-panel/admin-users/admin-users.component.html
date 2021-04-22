@@ -1,1 +1,71 @@
-<p>admin-users works!</p>
+<div class="container" style="margin-top: -150px;">
+    <div class="text-center ">
+        <h2>All Users</h2><br>
+    </div>
+    <ng-container *ngIf="loading; then spinner; else wrapper">
+    </ng-container>
+
+    <ng-template #spinner>
+        <app-spinner></app-spinner>
+    </ng-template>
+    <ng-template #wrapper>
+        <div class="row mt-1" id="team">
+            <div class="container">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm hoverUser" (click)="selectUser(user)" *ngFor="let user of usersList">
+                                <img src="https://img.icons8.com/color/48/000000/administrator-male.png" alt="Boss"  class="rounded-circle mx-auto d-block">
+                                <div class="text-center">
+                                    <h6>{{user['firstName']}} {{user['lastName']}}</h6>
+                                    <button type="button" class="btn btn-danger text-light">
+                                        <i class="far fa-trash-alt"></i></button>
+                                </div>                       
+                            </div>
+                        </div>
+                        <ng-template #remainderUsers>
+                            <div class="row">
+                                <div class="col-sm hoverUser">
+                                    <img src="https://img.icons8.com/color/48/000000/administrator-male.png" alt="Boss"  class="rounded-circle mx-auto d-block">
+                                    <div class="text-center">
+                                        <h6>Johnny Walker</h6>
+                                        <button type="button" class="btn btn-danger text-light">
+                                            <i class="far fa-trash-alt"></i></button>
+                                    </div>                       
+                                </div>
+                            </div>
+                        </ng-template>
+                        <div class="row">
+                            <h5 class="mx-auto"><a  href="javascript:void(0)" (click)="showRemainder()">Show all users</a></h5>
+                        </div>
+                        <ng-container *ngIf="remainder; then remainderUsers;">
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+            <ng-template #selectedUser>
+                <div class="row mt-3">
+                    <div class="text-dark">
+                        <div class="card bg-light">
+                            <img src="" class="card-img-top">
+                            <img src="https://img.icons8.com/color/48/000000/administrator-male.png" alt="Boss"  class="rounded-circle mx-auto d-block">
+                            <div class="">
+                                <!-- <h3 class="card-title text-center">{{selectedUser['firstName']}} </h3> -->
+                            </div>
+                            <div class="card-body">
+                                <h4 class="card-text">Email</h4>
+                                <p>Cart number</p>
+                                <p>Orders number</p>
+                                <p></p>
+                                <p>Blablabla</p>
+                            </div>
+                        </div>
+        
+                    </div>
+                </div>
+            </ng-template>
+            <ng-container *ngIf="select; then selectedUser;">
+            </ng-container>
+        </div>
+    </ng-template>
+</div>

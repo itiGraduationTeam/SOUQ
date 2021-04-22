@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AdminService } from 'src/Shared/Services/admin.service';
 import { AuthenticateService } from 'src/Shared/Services/authenticate.service';
 
 @Component({
@@ -17,15 +18,22 @@ export class LoginComponent implements OnInit {
   constructor(
     private router: Router,
     private formBuilder: FormBuilder,
-    private authLoginServ: AuthenticateService
+    private authLoginServ: AuthenticateService,
+    private adminServ:AdminService
   ) { }
 
   ngOnInit(): void {
     this.initForm();
+    
   }
   login() {
     this.authLoginServ.logIn(this.loginForm.value)
     console.log(this.loginForm.value)
+    this.adminServ.authAdmin().subscribe(
+      data=>console.log("admin auth:",data)
+      ,
+      err=> console.log("auth err: ",err)
+    )
 
   }
   logOut() {
