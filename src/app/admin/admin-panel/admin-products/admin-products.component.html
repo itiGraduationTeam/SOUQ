@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" style="margin-top: -140px;">
     <!-- table for show all products -->
     <div class="row ">
         <div class="col">
@@ -12,39 +12,42 @@
     </div>
     <ng-container *ngIf="loading; then spinner; else wrapper">
     </ng-container>
-    
-        <ng-template #spinner>
-            <app-spinner></app-spinner>
-        </ng-template>
-        <ng-template #wrapper>
-            <div class="row tableFixHead">
-            <table class="table table-hover " style="height: 20%;">
-                <thead>
+
+    <ng-template #spinner>
+        <app-spinner></app-spinner>
+    </ng-template>
+    <ng-template #wrapper>
+        <div class="row tableFixHead" style="height: 5%;">
+            <table class="table table-hover ">
+                <thead class="thead-dark">
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Stock</th>
-                        <th scope="col">Discount</th>
-                        <th scope="col">image</th>
-                        <th scope="col">#</th>
+                        <th scope="col" class="text-center">Name</th>
+                        <th scope="col" class="text-center">Price</th>
+                        <th scope="col" class="text-center">Stock</th>
+                        <th scope="col" class="text-center">Discount</th>
+                        <th scope="col" class="text-center">image</th>
+                        <th scope="col" class="text-center">#</th>
+                        <th scope="col" class="text-center">#</th>
+
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let pro of productList">
-                        <td>{{pro.name}}</td>
-                        <td>{{pro.price}}</td>
-                        <td>{{pro.countInStock}}</td>
-                        <td>{{pro.discount}}%</td>
-                        <td scope="col"><img [src]="pro.image[0]" alt="" class="rounded" width='50' height="50"></td>
-                        <td><button type="button" class="btn btn-danger text-light" (click)="removeProduct(pro.name)"><i
-                                    class="far fa-trash-alt"></i></button></td>
+                    <tr *ngFor="let prod of productList">
+                        <td class="text-center">{{prod.name}}</td>
+                        <td class="text-center">{{prod.price}}</td>
+                        <td class="text-center">{{prod.countInStock}}</td>
+                        <td class="text-center">{{prod.discount}}%</td>
+                        <td scope="col"><img [src]="prod.image[0]" alt="" class="rounded" width='50' height="50"></td>
+                        <td><button type="button" class="btn btn-danger text-light"
+                                (click)="removeProduct(prod.name)"><i class="far fa-trash-alt"></i></button></td>
+                        <td><button type="button" class="btn btn-primary text-light" (click)="openModalForm(prod)">
+                                <i class="far fa-edit"></i></button></td>
                     </tr>
                 </tbody>
             </table>
         </div>
-        </ng-template>
-    
+    </ng-template>
+
     <hr>
     <!-- for for add new product -->
     <ng-template #addForm>
@@ -142,5 +145,44 @@
             </div>
         </div>
     </ng-template>
+
+    <div class="modal" tabindex="-1" role="dialog" *ngIf="openModal==true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-center">Update Product Form</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeModal()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body p-3">
+                    <form [formGroup]="editForm" novalidate>
+                        {{editForm.invalid |json}}
+                        <!-- <form [formGroup]="loginForm" (ngSubmit)="login()"> -->
+
+                        <!-- {{loginForm.value |json}} -->
+                        <div class=" form-group">
+                            <label for="name">New Name:</label>
+                            <input type="text" formControlName="name" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label for="price">New Price:</label>
+                            <input type="number" formControlName="price" class="form-control" />
+                        </div>
+                        <div class=" form-group">
+                            <label for="discount">Discount:</label>
+                            <input type="number" formControlName="discount" class="form-control" />
+                        </div>
+                        
+                        <button type="submit"  class="btn btn-primary" (click)="editProduct()">Save Change</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                        click="closeModal()">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <ng-container *ngIf="isOpen; then addForm"></ng-container>
 </div>

@@ -46,6 +46,13 @@ export class ProductService {
       catchError(err => { return throwError(err.message); })
     )
   }
+  //edit product by name
+  editProduct(id: any,name:any,price:any,discount:any) {
+    let _url = `http://localhost:8000/api/products/${id}`;
+    return this._http.put<any>(_url,{ name: name, price: price ,discount:discount }).pipe(
+      catchError(err => { return throwError(err.message); })
+    )
+  }
   
   //function to get only all electronic product
   getElectronicProduct(): Observable<IProduct[]> {
