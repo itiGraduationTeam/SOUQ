@@ -7,9 +7,9 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./admin-panel.component.scss']
 })
 export class AdminPanelComponent implements OnInit {
-  adminChild = [{ label: 'Dashboard', router: "/" },
-  { label: 'Products', router: "products" },
-  { label: 'Users', router: "users" },]
+  adminChild = [{ label: 'Dashboard', router: "/" ,isActive:true},
+  { label: 'Products', router: "products",isActive:false },
+  { label: 'Users', router: "users" ,isActive:false},]
   openProductMenu = false;
   sideNavWidth = '250px';
   constructor(private router: Router, private activatedRouter: ActivatedRoute) { }

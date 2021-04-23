@@ -4,6 +4,7 @@ import { data } from 'jquery';
 import { FilterService } from 'src/Shared/Services/filter.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CartService } from 'src/Shared/Services/cart.service';
+import { LocalStorageService } from 'src/Shared/Services/local-storage.service';
 
 @Component({
   selector: 'app-header',
@@ -12,6 +13,7 @@ import { CartService } from 'src/Shared/Services/cart.service';
 })
 export class HeaderComponent implements OnInit {
   numberOfItemsInCart=0;
+  auth=false;
   SearchForm = this.formBuilder.group({
     search: ['', Validators.required],
   });
@@ -19,7 +21,8 @@ export class HeaderComponent implements OnInit {
     private router: Router,
     private filterServe: FilterService,
     private formBuilder: FormBuilder,
-    private cartServe:CartService
+    private cartServe:CartService,
+    private localStorage:LocalStorageService
       
     
   ) {}
@@ -46,6 +49,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.getCategories();
     this.getNumberOgCarts();
+    this.checkAuth();
   }
   ngAfterViewChecked(): void {
     // this.getNumberOgCarts();
@@ -172,5 +176,7 @@ export class HeaderComponent implements OnInit {
         
       }
     )
+  }
+  checkAuth(){
   }
 }

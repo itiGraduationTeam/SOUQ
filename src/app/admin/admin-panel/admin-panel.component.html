@@ -5,6 +5,7 @@
         </div> -->
         <div class=" col-sm-3  sidenav">
             <input type="text" placeholder="Search..">
+            <div ><a routerLink="/"><i class="fas fa-arrow-alt-circle-left"></i>Back To Home</a></div>
             <div (click)="routerChangedHandler(ele.router)" *ngFor="let ele of adminChild">{{ele.label}}</div>
         </div>
         <div class="col-sm-9 mx-auto " >

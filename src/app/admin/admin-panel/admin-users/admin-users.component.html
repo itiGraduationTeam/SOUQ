@@ -14,8 +14,8 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-sm hoverUser" (click)="selectUser(user)" *ngFor="let user of usersList">
-                                <img src="https://img.icons8.com/color/48/000000/administrator-male.png" alt="Boss"  class="rounded-circle mx-auto d-block">
+                            <div class="col-sm hoverUser"  *ngFor="let user of usersList">
+                                <img (click)="selectUser(user)" src="https://img.icons8.com/color/48/000000/administrator-male.png" alt="Boss"  class="rounded-circle mx-auto d-block">
                                 <div class="text-center">
                                     <h6>{{user['firstName']}} {{user['lastName']}}</h6>
                                     <button type="button" class="btn btn-danger text-light" (click)="removeUser(user['_id'])">
