@@ -29,7 +29,7 @@ user:any;
      }
    )
   }
-  logIn(user: UserData) {
+  logIn(user: any) {
     this._http.post<UserData>(this.loginUrl,user).subscribe(
       data=>{
         this.user=data
@@ -63,7 +63,6 @@ user:any;
   logOut() {
     console.log("deleted")
     localStorage.removeItem("userToken");
-    // this.loginListner.next(false)
     localStorage.removeItem("userData")
   }
 

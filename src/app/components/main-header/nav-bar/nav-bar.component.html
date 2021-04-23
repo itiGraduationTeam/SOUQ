@@ -5,6 +5,13 @@
 >
   <div class="row">
     <ul class="small-12 row">
+      <ng-template #adminPanel>
+        <button class="btn" (click)="navigateToAdmin()" >
+          <a href="javascript:void(0)" >Admin Panel<i class="fas fa-arrow-alt-circle-right"></i></a>
+        </button>
+      </ng-template>
+      <ng-container *ngIf="isAdminValidator; then adminPanel;">
+      </ng-container>
       <button
         (click)="navBarItemPress(item)"
         *ngFor="let item of navBarItems; let i = index"

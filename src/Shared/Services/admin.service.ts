@@ -15,8 +15,7 @@ export class AdminService {
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${this.getToken()}`,
-      }
-      
+      } 
     })
     
   }

@@ -31,7 +31,13 @@
     color: #f1f1f1;
     background-color: rgb(11, 124, 253);
   }
-  
+  .sidenav :active{
+    background-color: rgb(11, 124, 253);
+    color: #f1f1f1;
+  }
+  .back a:hover{
+    color: white;
+  }
   /* Main content */
   .main {
     // margin-left: 200px; /* Same as the width of the sidenav */
