@@ -30,7 +30,10 @@ export class LoginComponent implements OnInit {
     this.authLoginServ.logIn(this.loginForm.value)
     // console.log(this.loginForm.value)
     this.adminServ.authAdmin().subscribe(
-      data=>console.log("auth data:",data)
+      data=>{
+        console.log("auth data:",data);
+        this.router.navigate(['/']);
+      }
       ,
       err=> console.log("auth err: ",err)
     )
@@ -46,3 +49,5 @@ export class LoginComponent implements OnInit {
   initForm() {
   }
 }
+// https://github.com/sabrien96
+//https://www.upwork.com/freelancers/~01d9862d04784ade72

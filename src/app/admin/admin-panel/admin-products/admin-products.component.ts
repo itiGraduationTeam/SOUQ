@@ -52,7 +52,6 @@ export class AdminProductsComponent implements OnInit {
         this.productList = data;
         this.loading = false;
         // console.log("all data: ",this.productList);
-
       },
       err => {
         console.log("err from admin-products: ", err);
@@ -65,6 +64,8 @@ export class AdminProductsComponent implements OnInit {
   removeProduct(proName: any) {
     this.productServ.removeProduct(proName).subscribe(
       data => {
+                  // this.cartItems = this.cartItems.filter((ele: any) => ele.productId._id != item);
+            this.productList=this.productList.filter((ele:any)=>ele.name!=proName)
         console.log("result of remove product: ", data);
       },
       err => {
@@ -86,6 +87,7 @@ export class AdminProductsComponent implements OnInit {
           console.log("err from edit product: ", err);
         }
       )
+        this.closeModal();
   }
   addProduct() {
     let newData = this.addProductForm.value;

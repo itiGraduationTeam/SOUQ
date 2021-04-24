@@ -42,7 +42,7 @@ export class AdminUsersComponent implements OnInit {
     this.authServ.removeUser(id).subscribe(
       data=>{
         console.log("user deleted: ", data);
-        
+        this.usersList=this.usersList.filter((user:any)=>user._id!=id)
       },
       err=>{
         console.log("user not deleted: ",err);

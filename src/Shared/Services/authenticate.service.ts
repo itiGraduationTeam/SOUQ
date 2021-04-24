@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, throwError } from 'rxjs';
+import { Observable, Subject, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { UserData } from '../class/user-data';
 
@@ -11,6 +11,7 @@ export class AuthenticateService {
 private loginUrl=`http://localhost:8000/api/users/authenticate`;
 private signUpUrl=`http://localhost:8000/api/users/register`;
 
+private loginListner = new Subject<boolean>()
 user:any;
   constructor(private _http:HttpClient) { }
   getToken() {
@@ -19,23 +20,24 @@ user:any;
   signUp(user:any){
    return this._http.post<UserData>(this.signUpUrl,user).subscribe(
      data=>{
-       console.warn(data);
-       localStorage.setItem("userData",user);
-       
+       console.log("Register successfully: ",data);
      },
      err=>{
-       console.warn(err);
-       
-     }
+      console.log("Register failed: ",err);
+    }
    )
+  }
+  getLoginListner() {
+    return this.loginListner.asObservable()
   }
   logIn(user: any) {
     this._http.post<UserData>(this.loginUrl,user).subscribe(
       data=>{
         this.user=data
-        alert("you are login your token is: "+this.user.token)
+        // alert("you are login your token is: "+this.user.token)
+        this.loginListner.next(true)
         localStorage.setItem('userToken', this.user.token);
-        localStorage.setItem('userData',this.user);
+        localStorage.setItem('userId',this.user._id);
       },
       err=>{
         console.log(err);
@@ -55,6 +57,11 @@ user:any;
       catchError(err => { return throwError(err.message); })
     )}
 
+    getUserById(id:any): Observable<any> {
+      return this._http.get<any>(`http://localhost:8000/api/users/${id}`).pipe(
+        catchError(err => { return throwError(err.message); })
+      )}
+  
     removeUser(userID:any) {
       return this._http.delete<UserData>(`http://localhost:8000/api/users/${userID}` ).pipe(
         catchError(err => { return throwError(err.message); })
@@ -62,13 +69,12 @@ user:any;
     }
   logOut() {
     console.log("deleted")
+    this.loginListner.next(false)
     localStorage.removeItem("userToken");
-    localStorage.removeItem("userData")
+    localStorage.removeItem("userId")
   }
 
   signInCheckout(user: UserData) {
     return this._http.post<UserData>(this.loginUrl, user)
   }
-
-
 }

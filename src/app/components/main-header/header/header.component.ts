@@ -5,6 +5,8 @@ import { FilterService } from 'src/Shared/Services/filter.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CartService } from 'src/Shared/Services/cart.service';
 import { LocalStorageService } from 'src/Shared/Services/local-storage.service';
+import { AuthenticateService } from 'src/Shared/Services/authenticate.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -12,8 +14,11 @@ import { LocalStorageService } from 'src/Shared/Services/local-storage.service';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
+  private isLoginsub: Subscription = new Subscription;
+  isLogin: boolean = false;
   numberOfItemsInCart=0;
   auth=false;
+  username:string='';
   SearchForm = this.formBuilder.group({
     search: ['', Validators.required],
   });
@@ -22,7 +27,8 @@ export class HeaderComponent implements OnInit {
     private filterServe: FilterService,
     private formBuilder: FormBuilder,
     private cartServe:CartService,
-    private localStorage:LocalStorageService
+    private authServe:AuthenticateService
+    // private localStorage:LocalStorageService
       
     
   ) {}
@@ -47,13 +53,22 @@ export class HeaderComponent implements OnInit {
     'hairCare',
   ];
   ngOnInit(): void {
+    this.isLoginsub = this.authServe.getLoginListner().subscribe(isAuth => {
+      this.isLogin = isAuth;
+      console.log("islogin: ",this.isLogin);
+    },
+    err=>console.log(err)
+    
+    )
+    
     this.getCategories();
     this.getNumberOgCarts();
-    this.checkAuth();
+    this.getUserame();   
   }
-  ngAfterViewChecked(): void {
-    // this.getNumberOgCarts();
+  ngAfterViewInit(): void {
+    this.getNumberOgCarts();
   }
+  
   menuLisItems = [
     {
       id: 1,
@@ -84,6 +99,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnChanges(changes: any) {
     this.isVisible = changes.isVisible.currentValue;
+    // this.getUserame();
   }
   openNav() {
     this.isOpen = !this.isOpen;
@@ -177,6 +193,28 @@ export class HeaderComponent implements OnInit {
       }
     )
   }
-  checkAuth(){
+  getUserame(){
+    let id=localStorage.getItem("userId");
+    if(id){
+      this.authServe.getUserById(id).subscribe(
+        data=>{
+          this.username=`${data.firstName}-${data.firstName}`
+          this.auth=true;
+          console.log("user info: ",this.username);
+
+        },
+        err=>{
+          console.log(err);
+          this.auth=false;
+          this.username="";   
+        }
+      )
+    }
   }
+  ngOnDestroy(): void {
+    this.isLoginsub.unsubscribe()
+  }
+  logout() {
+    this.authServe.logOut()
+  }    
 }

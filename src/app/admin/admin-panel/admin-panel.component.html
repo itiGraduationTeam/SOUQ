@@ -1,14 +1,13 @@
-<div class="container-fluid">
+<div class="container">
     <div class="row">
-        <!-- <div class="col-sm-3">
-            
+        <!-- <div class="col-sm-3">    
         </div> -->
-        <div class=" col-sm-3  sidenav">
-            <input type="text" placeholder="Search..">
-            <div ><a routerLink="/"><i class="fas fa-arrow-alt-circle-left"></i>Back To Home</a></div>
+        <div class="col-md-2 col-sm-3 sidenav">
+            <input type="text" placeholder="Search.." class="mx-auto" style="width: 100%;">
+            <div ><a routerLink="/" style="color: white;"><i class="fas fa-arrow-alt-circle-left"></i>Home</a></div>
             <div (click)="routerChangedHandler(ele.router)" *ngFor="let ele of adminChild">{{ele.label}}</div>
         </div>
-        <div class="col-sm-9 mx-auto " >
+        <div class="col-md-10 col-md-9" style="left: 10rem;">
                 <router-outlet></router-outlet>
         </div>
     </div>
