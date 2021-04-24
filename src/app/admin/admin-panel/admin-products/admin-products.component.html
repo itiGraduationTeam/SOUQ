@@ -1,14 +1,12 @@
 <div class="container" style="margin-top: -140px;">
     <!-- table for show all products -->
     <div class="row ">
-        <div class="col">
-            <button type="button" class="btn btn-success text-light" (click)="openAddForm()">
+        <h4 class="row">List of Products
+            <button type="button" class="btn btn-success text-light ml-2" (click)="openAddForm()">
                 <i class="fas fa-plus-circle"></i>
             </button>
-        </div>
-        <div class="col">
-            <h4 class="row">List of Products</h4>
-        </div>
+        </h4>
+
     </div>
     <ng-container *ngIf="loading; then spinner; else wrapper">
     </ng-container>
@@ -57,70 +55,81 @@
                     <div class="row">
                         <h4 class="col text-success">Add New Product</h4>
                     </div>
-                    <form action="/action_page.php">
+                    <form [formGroup]="addProductForm" novalidate >
+                        {{addProductForm.value |json}}
+
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
                                     <label for="proname">Name*</label>
-                                    <input type="text" class="form-control" id="proName" name="proName">
+                                    <input type="text" formControlName="name" class="form-control" id="proName"
+                                        name="proName">
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
                                     <label for="price">Price</label>
-                                    <input type="number" class="form-control" id="price" name="price">
+                                    <input type="number" formControlName="price" class="form-control" id="price"
+                                        name="price">
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
-                                    <label for="price">Quantity</label>
-                                    <input type="number" class="form-control" id="qty" name="qty">
+                                    <label for="countInStock">Count In Stock</label>
+                                    <input type="number" formControlName="countInStock" class="form-control" id="countInStock"
+                                        name="countInStock">
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
-                                    <label for="price">Discount</label>
-                                    <input type="discount" class="form-control" id="discount" name="discount">
+                                    <label for="discount">Discount</label>
+                                    <input type="number" formControlName="discount" class="form-control" id="discount"
+                                        name="discount">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
-                                    <label for="brand">Brand</label>
-                                    <input type="text" class="form-control" id="brand" name="brand">
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="form-group">
-                                    <label for="category">Category</label>
-                                    <input type="text" class="form-control" id="category" name="category">
+                                    <label for="categories">Select Category</label>
+                                    <select class="form-control" formControlName="categories" id="categories"
+                                        [(ngModel)]="selectedOption" name="status" placeholder="select"
+                                        (ngModelChange)="subCateList()">
+                                        <option *ngFor="let cate of allCategories" [value]="cate.cateid">{{cate.name}}
+                                        </option>
+                                    </select>
+                                    <h4>
+                                        {{selectedOption}}
+                                    </h4>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
                                     <label for="subCategory">Sub Category</label>
-                                    <input type="text" class="form-control" id="subCategory" name="subCategory">
+                                    <select class="form-control" formControlName="subCategory" id="subCategory"
+                                        name="status" placeholder="select">
+                                        <ng-container *ngFor="let sub of allsubCategories">
+                                        <option  [value]="sub._id" *ngIf="allsubCategories !== '' ">{{sub.name}}</option>
+                                        </ng-container>
+                                    </select>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col">
-                                <div class="form-group">
-                                    <label for="color">Color</label>
-                                    <input type="text" class="form-control" id="color" name="color">
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="form-group">
-                                    <label for="baseMat">Base Material</label>
-                                    <input type="text" class="form-control" id="baseMat" name="baseMat">
-                                </div>
-                            </div>
+                           
+                            
                             <div class="col">
                                 <div class="form-group">
                                     <label for="rating">Rating</label>
-                                    <input type="text" class="form-control" id="rating" name="rating">
+                                    <input type="text" formControlName="rating" class="form-control" id="rating"
+                                        name="rating">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="image">Image path</label>
+                                    <input type="text" formControlName="image" class="form-control" id="image"
+                                        name="brand">
                                 </div>
                             </div>
                         </div>
@@ -128,24 +137,19 @@
                             <div class="col">
                                 <div class="form-group">
                                     <label for="description">Description</label>
-                                    <textarea class="form-control" id="description" rows="1"></textarea>
+                                    <textarea formControlName="description" class="form-control" id="description"
+                                        rows="1"></textarea>
                                 </div>
                             </div>
-                            <div class="col">
-                                <div class="form-group">
-                                    <label for="overview">Overview</label>
-                                    <textarea class="form-control" id="overview" rows="2"></textarea>
-                                </div>
-                            </div>
+                            
                         </div>
-                        <button type="submit" class="btn btn-success float-right" routerLink="/chcekout/payment">SAVE
-                            Product</button>
+                        <button type="submit" (click)="addProduct()" class="btn btn-success float-right">SAVE Product</button>
                     </form>
                 </div>
             </div>
         </div>
     </ng-template>
-
+    <!-- form modal to edit product -->
     <div class="modal" tabindex="-1" role="dialog" *ngIf="openModal==true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -173,8 +177,8 @@
                             <label for="discount">Discount:</label>
                             <input type="number" formControlName="discount" class="form-control" />
                         </div>
-                        
-                        <button type="submit"  class="btn btn-primary" (click)="editProduct()">Save Change</button>
+
+                        <button type="submit" class="btn btn-primary" (click)="editProduct()">Save Change</button>
                     </form>
                 </div>
                 <div class="modal-footer">
