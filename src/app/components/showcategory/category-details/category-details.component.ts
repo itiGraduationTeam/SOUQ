@@ -14,6 +14,7 @@ productList:any;
     this.filterServe.getProductBySubcategory(subName).subscribe(
       data=>{
         this.productList=data;
+        this.productList=this.productList.slice(0, 4);
         console.log("productList: ",this.productList);
       },
       err=>{
