@@ -49,6 +49,8 @@ import { AdminDashboardComponent } from './admin/admin-panel/admin-dashboard/adm
 import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
 import { AdminProductsComponent } from './admin/admin-panel/admin-products/admin-products.component';
 import { AdminUsersComponent } from './admin/admin-panel/admin-users/admin-users.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 @NgModule({
   declarations: [
     AppComponent,
@@ -106,6 +108,12 @@ import { AdminUsersComponent } from './admin/admin-panel/admin-users/admin-users
     ReactiveFormsModule,
     NgxUsefulSwiperModule,
     SlickCarouselModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the app is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    }),
     
   ],
   providers: [],
