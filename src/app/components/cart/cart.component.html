@@ -1,7 +1,73 @@
 <div class="container pt-3 ">
     <div class="row">
         <div class="col-md-8 col-sm-12">
-            <app-cart-item ></app-cart-item>
+            <div class="row">
+                <ng-template #emptyCart>
+                        <div class="container p-5">
+                            <p class="numberInCart">Shopping Cart ({{numOfcartItems}})</p>
+                            <div class="alert alert-warning">
+                                <p>Shopping cart is currently empty</p>
+                                <p>Add items to your cart and view them here before you checkout.
+                                    <a routerLink="/">Continue shopping!</a>
+                                </p>
+                              </div>
+                        </div>
+                </ng-template>
+                <ng-template #wrapper>
+                    <div class="container-fluid">
+                        <h4 class="mb-4">Shopping Cart ({{numOfcartItems}})</h4>
+                        <div class="card shadow mb-2" *ngFor="let item of cartItems">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-2">
+                                        <img [src]="item.productId.image[0]" alt="" data-toggle="popover"
+                                            title="{{item.productId.name}}" data-content="" class="card-img-bottom w-100 d-block">
+                                    </div>
+                                    <div class="col-10">
+                                        <p class="text-black-50">{{item.productId.name}}</p>
+                                        <div class="row">
+                                            <div class="col-9">
+                                                <p class="text-primary">{{item.productId.price}}EGP</p>
+                                            </div>
+                                            <form [formGroup]="cartForm">
+                                                <select class="form-control" formControlName="qty" name="qty"
+                                                    (ngModelChange)="changeQty(qty,item)">
+                                                   
+                                                    <option *ngFor="let count of item.productId.countInStock | numberToArray" 
+                                                    [selected]="count == item.quantity"
+                                                        [ngValue]="count">
+                                                        {{ count }}
+                                                    </option>
+                                                </select>
+                                            </form>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <p>Free shipping</p>
+                                                <p class="text-black-50">Color {{item.productId.color}}</p>
+                                                <p class="text-black-50">description</p>
+                                            </div>
+                                            <div class="col-6">
+                                                <h6 class="text-danger float-right">{{item.productId.countInStock}} of order in
+                                                    Stock
+                                                </h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dropdown-divider"></div>
+                                <button class="card-link" (click)="addToWishList(item)">Save for Later <i class="fas fa-heart"></i> </button>
+                                <button class="card-link text-danger" (click)="deletCart(item.productId._id)">Delete 
+                                    <i class="far fa-trash-alt text-danger"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+            
+                <div class="container-fluid" *ngIf="noCart; then emptyCart; else wrapper">
+                </div>
+            </div>
         </div>
         <div class="col-md-4 col-sm-12">
             <div class="card shadow mb-2">

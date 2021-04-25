@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SimpleChanges } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CartService } from 'src/Shared/Services/cart.service';
 import { LocalStorageService } from 'src/Shared/Services/local-storage.service';
@@ -12,34 +13,113 @@ export class CartComponent implements OnInit {
   numOfcartItems: number = 0;
   error: any;
   totalPrice: any = 0;
+  cartItems: any;
 
-  constructor(private cartService: CartService,
+  noCart = false;
+  wishList: any = [];
+  constructor(
+    private fb: FormBuilder,
+    private cartService: CartService,
     private localStorage:LocalStorageService,
     private router:Router
     ) { }
-
+    cartForm = this.fb.group({
+      qty: [0]
+  
+    })
+    get qty() {
+      return this.cartForm.get('qty');
+    }
+  
+    changeQty(formControl: any, item: any) {
+      this.addToCart(formControl.value, item)
+    }
+    addToCart(qty: any, item: any) {
+      this.cartService.addToCart(item.productId._id, qty).subscribe(
+        (data) => {
+          //console.log('qty :' + this.qty.value)
+          console.log(data)
+          this.error = ""
+          this.totalPrice += item.productId.price * qty;
+          localStorage.setItem('totalPrice', this.totalPrice.toString())
+          console.warn("totalPrice: ", this.totalPrice);
+  
+        },
+        err => this.error = "error"
+  
+      )
+    }
   ngOnInit(): void {
      this.getcarts();
     localStorage.setItem('totalPrice', this.totalPrice.toString())
   }
   getcarts() {
     this.cartService.getAllCarts().subscribe(
-      (cartItems) => {
-        var cartItem=[];
-        
-          cartItem = cartItems;
-      for (let i =0 ;i<cartItem.length;i++){
-        this.totalPrice+=cartItem[i].productId.price * cartItem[i].quantity;
-      }
+      (data) => {
+        this.cartItems = data;
+      
+        this.numOfcartItems = this.cartItems.length;
+       this.getTotalPrice();
       },
       (error) => this.error = error
     )
   }
 
+
+getTotalPrice(){
+  var carts=[];
+        
+  carts = this.cartItems;
+for (let i =0 ;i<carts.length;i++){
+this.totalPrice+=carts[i].productId.price * carts[i].quantity;
+}
+}
   ngAfterViewChecked(): void {
 
    
   }
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['carItem']) {
+      // this.currentItem = this.carItem;
+      // this.qty.setValue(this.currentItem.quantity)
+    }
+  }
+  deletCart(item: any) {
+    console.log("we try to delete")
+    this.cartService.deleteCart(item).subscribe(
+      (data) => {
+        this.error = ""
+      },
+      err => this.error = "error"
+    )
+    this.cartItems = this.cartItems.filter((ele: any) => ele.productId._id != item);
+    this.getTotalPrice();
+    this.numOfcartItems = Object.keys(this.cartItems).length;
+    if (this.numOfcartItems === 0) {
+      this.noCart = true;
+    }
+    else {
+      this.noCart = false;
+    }
+
+  }
+  addToWishList(item: any) {
+    var temp = this.localStorage.get("wishListItems");
+    // var username = this.localStorage.get("user")["username"];
+
+    if (temp) {
+      temp.push(item);
+      for (var i = 0; i < temp.length; i++)
+        this.wishList.push(temp[i]);
+
+      this.localStorage.set("wishListItems", this.wishList);
+    } else {
+      this.wishList.push(item);
+      this.localStorage.set("wishListItems", this.wishList);
+    }
+
+  }
+
   navigate(event:any){
     if(event==='checkout')
     {
