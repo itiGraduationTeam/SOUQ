@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { IProduct } from '../Interfaces/IProduct';
 import { catchError } from 'rxjs/operators';
@@ -23,10 +23,15 @@ export class ProductService {
     )
   }
   addProduct(product: any): Observable<IProduct> {
+    const options = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization:`Bearer ${this.getToken()}`
+      }),
 
-    return this._http.post<IProduct>(`http://localhost:8000/api/products`,
-      { ...product }
-    ).pipe(
+    };
+    return this._http.post<IProduct>(`http://localhost:8000/api/products/`,{ ...product },options).pipe(
+      
       catchError(err => { return throwError(err.message) })
     )
   }

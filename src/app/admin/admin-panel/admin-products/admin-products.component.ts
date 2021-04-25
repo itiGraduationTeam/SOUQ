@@ -23,15 +23,16 @@ export class AdminProductsComponent implements OnInit {
     discount: ['', Validators.required]
   });
   addProductForm = this.formBuilder.group({
-    name: [''],
-    price: [''],
-    countInStock: [''],
-    discount: [''],
-    categories: [''],
-    subCategory: [''],
-    image:[''],
-    rating: [''],
-    description: [''],
+    name: ['',Validators.required],
+    price: ['',Validators.required],
+    countInStock: ['',Validators.required],
+    discount: ['',Validators.required],
+    category: ['',Validators.required],
+    subcategory: ['',Validators.required],
+    image:this.formBuilder.array(['','','','']),
+    rating: ['',Validators.required],
+    description: ['',Validators.required],
+    overview:['',Validators.required]
   });
 
   constructor(private productServ: ProductService,
@@ -94,6 +95,7 @@ export class AdminProductsComponent implements OnInit {
     console.log("form value: ", newData);
     this.productServ.addProduct(newData).subscribe(
         data => {
+          this.isOpen=false;
           console.log("result of add product: ", data);
         },
         err => {

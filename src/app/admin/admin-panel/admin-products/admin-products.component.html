@@ -51,12 +51,15 @@
     <ng-template #addForm>
         <div class="row mt-3 mb-3">
             <div class="card shadow">
-                <div class="card-body">
+                <div class="card-header bg-success">
                     <div class="row">
-                        <h4 class="col text-success">Add New Product</h4>
+                        <h4 class="text-light mx-auto">Add New Product</h4>
                     </div>
-                    <form [formGroup]="addProductForm" novalidate >
-                        {{addProductForm.value |json}}
+                </div>
+                <div class="card-body">
+                    
+                    <form [formGroup]="addProductForm" novalidate>
+                        <!-- {{addProductForm.value |json}} -->
 
                         <div class="row">
                             <div class="col">
@@ -76,8 +79,8 @@
                             <div class="col">
                                 <div class="form-group">
                                     <label for="countInStock">Count In Stock</label>
-                                    <input type="number" formControlName="countInStock" class="form-control" id="countInStock"
-                                        name="countInStock">
+                                    <input type="number" formControlName="countInStock" class="form-control"
+                                        id="countInStock" name="countInStock">
                                 </div>
                             </div>
                             <div class="col">
@@ -91,8 +94,8 @@
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
-                                    <label for="categories">Select Category</label>
-                                    <select class="form-control" formControlName="categories" id="categories"
+                                    <label for="category">Select Category</label>
+                                    <select class="form-control" formControlName="category" id="category"
                                         [(ngModel)]="selectedOption" name="status" placeholder="select"
                                         (ngModelChange)="subCateList()">
                                         <option *ngFor="let cate of allCategories" [value]="cate.cateid">{{cate.name}}
@@ -105,31 +108,53 @@
                             </div>
                             <div class="col">
                                 <div class="form-group">
-                                    <label for="subCategory">Sub Category</label>
-                                    <select class="form-control" formControlName="subCategory" id="subCategory"
+                                    <label for="subcategory">Sub Category</label>
+                                    <select class="form-control" formControlName="subcategory" id="subcategory"
                                         name="status" placeholder="select">
                                         <ng-container *ngFor="let sub of allsubCategories">
-                                        <option  [value]="sub._id" *ngIf="allsubCategories !== '' ">{{sub.name}}</option>
+                                            <option [value]="sub._id" *ngIf="allsubCategories !== '' ">{{sub.name}}
+                                            </option>
                                         </ng-container>
                                     </select>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
-                           
-                            
-                            <div class="col">
-                                <div class="form-group">
+                                <div class="form-group col">
                                     <label for="rating">Rating</label>
                                     <input type="text" formControlName="rating" class="form-control" id="rating"
                                         name="rating">
                                 </div>
-                            </div>
-                            <div class="col">
-                                <div class="form-group">
-                                    <label for="image">Image path</label>
-                                    <input type="text" formControlName="image" class="form-control" id="image"
-                                        name="brand">
+                                <div class="form-group col">
+                                    <label for="rating">overview</label>
+                                    <input type="text" formControlName="overview" class="form-control" id="overview"
+                                        name="overview">
+                                </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <!-- <div formArrayName="alternativeEmails" *ngFor="let email of alternativeEmails.controls let i=index">
+                                    <label>Alternative email number {{i+1}}</label>
+                                    <input type="text" class="form-control" [formControlName]="i">
+                                    <button class="btn btn-primary float-right" (click)="removeEmail(i)">Remove this email</button>
+                                </div> -->
+                                <div class="form-group row" formArrayName="image">
+                                    <div class="form-group col">
+                                        <label>Image path1</label>
+                                        <input type="text" class="form-control col" [formControlName]="0">
+                                    </div>
+                                    <div class="form-group col">
+                                        <label>Image path2</label>
+                                        <input type="text" class="form-control col" [formControlName]="1">
+                                    </div>
+                                    <div class="form-group col">
+                                        <label>Image path3</label>
+                                        <input type="text" class="form-control col" [formControlName]="2">
+                                    </div>
+                                    <div class="form-group col">
+                                        <label>Image path4</label>
+                                        <input type="text" class="form-control col" [formControlName]="3">
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -141,9 +166,10 @@
                                         rows="1"></textarea>
                                 </div>
                             </div>
-                            
+
                         </div>
-                        <button type="submit" (click)="addProduct()" class="btn btn-success float-right">Save Product</button>
+                        <button type="submit" (click)="addProduct()" [disabled]="addProductForm.invalid" class="btn btn-success float-right">Save
+                            Product</button>
                     </form>
                 </div>
             </div>
@@ -153,8 +179,8 @@
     <div class="modal" tabindex="-1" role="dialog" *ngIf="openModal==true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header ">
-                    <h5 class="modal-title mx-auto">Update Product Form</h5>
+                <div class="modal-header bg-primary">
+                    <h5 class="modal-title mx-auto text-light">Update Product Form</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeModal()">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -177,7 +203,8 @@
                             <input type="number" formControlName="discount" class="form-control" />
                         </div>
 
-                        <button type="submit" class="btn btn-primary float-right" [disabled]='editForm.invalid' (click)="editProduct()">Save Change</button>
+                        <button type="submit" class="btn btn-primary float-right" [disabled]='editForm.invalid'
+                            (click)="editProduct()">Save Change</button>
                     </form>
                 </div>
                 <!-- <div class="modal-footer">
@@ -189,3 +216,8 @@
     </div>
     <ng-container *ngIf="isOpen; then addForm"></ng-container>
 </div>
+
+<!-- 
+    name:Magical Flavors Gummy Teeth Candy - 20 G
+    https://cf5.s3.souqcdn.com/item/2018/08/29/37/53/57/39/item_XXL_37535739_146245401.jpg
+ -->
