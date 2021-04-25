@@ -5,18 +5,33 @@
         <button (click)="openNav()">
           <i class="fas fa-bars icon"></i>
         </button>
-        <img class="logo" src="https://cf1.s3.souqcdn.com/public/style/img/en/souqAmazon-logo-v2-X2.png" />
+        <img
+          class="logo"
+          src="https://cf1.s3.souqcdn.com/public/style/img/en/souqAmazon-logo-v2-X2.png"
+        />
       </div>
     </div>
 
     <div class="col-5">
       <div class="header_search_form_container">
         <form [formGroup]="SearchForm" (ngSubmit)="searchPress(SearchForm)">
-          <input type="search" class="header_search_input" placeholder="What are you looking for?"
-            formControlName="search" (keyup.enter)="onEnterSearch(SearchForm)" />
+          <input
+            type="search"
+            class="header_search_input"
+            placeholder="What are you looking for?"
+            formControlName="search"
+            (keyup.enter)="onEnterSearch(SearchForm)"
+          />
 
-          <button type="submit" class="header_search_button trans_300" value="Submit">
-            <img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1560918770/search.png" alt="" />
+          <button
+            type="submit"
+            class="header_search_button trans_300"
+            value="Submit"
+          >
+            <img
+              src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1560918770/search.png"
+              alt=""
+            />
           </button>
         </form>
       </div>
@@ -24,9 +39,22 @@
     <div class="col-4">
       <div class="loginCart">
         <div class="btn-group dropdown">
-          <button type="button" class="btn dv dropdown-toggle toogle" data-toggle="dropdown" aria-haspopup="true"
-            aria-expanded="false">
-            Hello. Log In
+          <button
+            type="button"
+            class="btn dv dropdown-toggle toogle"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            <ng-template #login>
+              <p>Log In</p>
+            </ng-template>
+            <ng-template #userName>
+              <p>{{ username }}</p>
+            </ng-template>
+            <ng-container
+              *ngIf="auth; then userName; else login"
+            ></ng-container>
           </button>
           <div class="dropdown-menu dropdown-content">
             <div class="menu_btn_container">
@@ -37,23 +65,39 @@
                 </button>
               </div>
               <div>
-                <button class="signUp_noAccount sign_up" (click)="navigateToForm(1)">
+                <button
+                  class="signUp_noAccount sign_up"
+                  (click)="navigateToForm(1)"
+                >
                   Sign Up
                 </button>
               </div>
             </div>
             <div class="dropdown-divider"></div>
-            <div class="item_container" *ngFor="let item of menuLisItems; let i = index">
-              <a (click)="itemPress(item)" class="dropdown-item">{{ item.label }}
+            <div class="item_container">
+              <a
+                *ngFor="let item of menuLisItems; let i = index"
+                (click)="itemPress(item)"
+                class="dropdown-item"
+                >{{ item.label }}
+                <div
+                  *ngIf="i !== menuLisItems.length - 1 || auth"
+                  class="dropdown-divider"
+                ></div>
               </a>
-              <div *ngIf="i !== menuLisItems.length - 1" class="dropdown-divider"></div>
+
+              <a *ngIf="auth" (click)="logout()" class="dropdown-item"
+                >Logout
+              </a>
             </div>
           </div>
         </div>
 
         <div class="cart" (click)="navigateToCart()">
           <button class="cart_icon">
-            <div class="cart_count"><span>{{numberOfItemsInCart}}</span></div>
+            <div class="cart_count">
+              <span>{{ numberOfItemsInCart }}</span>
+            </div>
             <i class="fas fa-shopping-cart icon"></i>
           </button>
           <div class="cart_label">Cart</div>
@@ -68,21 +112,31 @@
         <button (click)="openNav()">
           <i class="fas fa-bars icon"></i>
         </button>
-        <img class="logo" src="https://cf1.s3.souqcdn.com/public/style/img/en/souqAmazon-logo-v2-X2.png" />
+        <img
+          class="logo"
+          src="https://cf1.s3.souqcdn.com/public/style/img/en/souqAmazon-logo-v2-X2.png"
+        />
       </div>
     </div>
     <div class="p-2 align-self-center">
       <div class="loginCart">
         <div class="btn-group dropdown">
-          <button type="button" class="btn dropdown-toggle toogle" data-toggle="dropdown" aria-haspopup="true"
-            aria-expanded="false">
+          <button
+            type="button"
+            class="btn dropdown-toggle toogle"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
             <ng-template #login>
               <p>Log In</p>
             </ng-template>
             <ng-template #userName>
-              <p>Log In</p>
+              <p>{{ username }}</p>
             </ng-template>
-            <ng-container *ngIf="auth then userName; else login"></ng-container>
+            <ng-container
+              *ngIf="auth; then userName; else login"
+            ></ng-container>
           </button>
           <div class="dropdown-menu dropdown-content">
             <div class="menu_btn_container">
@@ -93,16 +147,29 @@
                 </button>
               </div>
               <div>
-                <button class="signUp_noAccount sign_up" (click)="navigateToForm(1)">
+                <button
+                  class="signUp_noAccount sign_up"
+                  (click)="navigateToForm(1)"
+                >
                   Sign Up
                 </button>
               </div>
             </div>
             <div class="dropdown-divider"></div>
-            <div class="item_container" *ngFor="let item of menuLisItems; let i = index">
-              <a (click)="itemPress(item)" class="dropdown-item">{{ item.label }}
+            <div class="item_container">
+              <a
+                *ngFor="let item of menuLisItems; let i = index"
+                (click)="itemPress(item)"
+                class="dropdown-item"
+                >{{ item.label }}
+                <div
+                  *ngIf="i !== menuLisItems.length - 1 || auth"
+                  class="dropdown-divider"
+                ></div>
               </a>
-              <div *ngIf="i !== menuLisItems.length - 1" class="dropdown-divider"></div>
+              <a *ngIf="auth" (click)="logout()" class="dropdown-item"
+                >Logout
+              </a>
             </div>
           </div>
         </div>
@@ -113,24 +180,37 @@
         </div>
         <div class="cart" (click)="navigateToCart()">
           <button class="cart_icon">
-            <div class="cart_count"><span> {{numberOfItemsInCart}} </span></div>
+            <div class="cart_count">
+              <span> {{ numberOfItemsInCart }} </span>
+            </div>
             <i class="fas fa-shopping-cart icon"></i>
           </button>
         </div>
-
-       
-         
-        
       </div>
     </div>
     <div class="row d-flex" *ngIf="showSearch">
-      <div class="header_search_form_container" [ngClass]="{ 'hide-search': isVisible }">
+      <div
+        class="header_search_form_container"
+        [ngClass]="{ 'hide-search': isVisible }"
+      >
         <form [formGroup]="SearchForm" (ngSubmit)="searchPress(SearchForm)">
-          <input type="search" class="header_search_input" placeholder="What are you looking for?"
-            formControlName="search" (keyup.enter)="onEnterSearch(SearchForm)" />
+          <input
+            type="search"
+            class="header_search_input"
+            placeholder="What are you looking for?"
+            formControlName="search"
+            (keyup.enter)="onEnterSearch(SearchForm)"
+          />
 
-          <button type="submit" class="header_search_button small_search trans_300" value="Submit">
-            <img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1560918770/search.png" alt="" />
+          <button
+            type="submit"
+            class="header_search_button small_search trans_300"
+            value="Submit"
+          >
+            <img
+              src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1560918770/search.png"
+              alt=""
+            />
           </button>
         </form>
       </div>
