@@ -19,8 +19,21 @@ export class CartComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-
+     this.getcarts();
     localStorage.setItem('totalPrice', this.totalPrice.toString())
+  }
+  getcarts() {
+    this.cartService.getAllCarts().subscribe(
+      (cartItems) => {
+        var cartItem=[];
+        
+          cartItem = cartItems;
+      for (let i =0 ;i<cartItem.length;i++){
+        this.totalPrice+=cartItem[i].productId.price * cartItem[i].quantity;
+      }
+      },
+      (error) => this.error = error
+    )
   }
 
   ngAfterViewChecked(): void {
