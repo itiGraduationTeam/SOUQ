@@ -88,7 +88,9 @@ export class AuthenticateService {
     console.log("deleted")
     this.loginListner.next(false)
     localStorage.removeItem("userToken");
-    localStorage.removeItem("userId")
+    localStorage.removeItem("userId");
+    // localStorage.removeItem("wishList")
+
   }
 
   signInCheckout(user: UserData) {
