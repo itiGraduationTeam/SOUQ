@@ -49,7 +49,7 @@
                         </div>
                         <div class="form-group">
                             <label for="locationType">Location Type *</label>
-                            <select class="form-control" id="locationType">
+                            <select class="form-control" id="locationType" name="locationType">
                                 <option>Home</option>
                                 <option>Business</option>
                             </select>
@@ -58,9 +58,9 @@
 
                         <div class="form-group">
                             <label for="note">Shipping Note</label>
-                            <textarea class="form-control" id="note" rows="1"></textarea>
+                            <textarea class="form-control" id="note" rows="1" name="note"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary float-right" routerLink="/chcekout/payment">SAVE ADDRESS</button>
+                        <button type="submit" class="btn btn-primary float-right" (click)="SaveAddress()" routerLink="/chcekout/payment">SAVE ADDRESS</button>
                     </form>
                 </div>
             </div>
