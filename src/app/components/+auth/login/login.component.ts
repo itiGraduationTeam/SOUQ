@@ -27,17 +27,16 @@ export class LoginComponent implements OnInit {
     
   }
   login() {
-   let d= this.authLoginServ.logIn(this.loginForm.value)
+    this.authLoginServ.logIn(this.loginForm.value)
     console.log(this.loginForm.value)
-    this.adminServ.authAdmin().subscribe(
-      data=>{
-        console.log("auth data:",data);
-        this.router.navigate(['/']);
-      }
-      ,
-      err=> console.log("auth err: ",err)
-    )
-    console.log("err: ",d);
+    // this.adminServ.authAdmin().subscribe(
+    //   data=>{
+    //     console.log("auth data:",data);
+    //   }
+    //   ,
+    //   err=> console.log("auth err: ",err)
+    // )
+    this.router.navigate(['/']);
 
   }
   logOut() {

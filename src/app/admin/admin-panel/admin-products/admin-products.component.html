@@ -23,6 +23,7 @@
                         <th scope="col" class="text-center">Price</th>
                         <th scope="col" class="text-center">Stock</th>
                         <th scope="col" class="text-center">Discount</th>
+                        <th scope="col" class="text-center">Subcategory</th>
                         <th scope="col" class="text-center">image</th>
                         <th scope="col" class="text-center">#</th>
                         <th scope="col" class="text-center">#</th>
@@ -35,6 +36,8 @@
                         <td class="text-center">{{prod.price}}</td>
                         <td class="text-center">{{prod.countInStock}}</td>
                         <td class="text-center">{{prod.discount}}%</td>
+                        <td class="text-center">{{prod.subcategory}}</td>
+                        <td class="text-center">{{prod.categories}}</td>
                         <td scope="col"><img [src]="prod.image[0]" alt="" class="rounded" width='50' height="50"></td>
                         <td><button type="button" class="btn btn-danger text-light"
                                 (click)="removeProduct(prod.name)"><i class="far fa-trash-alt"></i></button></td>
@@ -112,7 +115,7 @@
                                     <select class="form-control" formControlName="subcategory" id="subcategory"
                                         name="status" placeholder="select">
                                         <ng-container *ngFor="let sub of allsubCategories">
-                                            <option [value]="sub._id" *ngIf="allsubCategories !== '' ">{{sub.name}}
+                                            <option [value]="sub.name" *ngIf="allsubCategories !== '' ">{{sub.name}}
                                             </option>
                                         </ng-container>
                                     </select>
