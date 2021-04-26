@@ -73,17 +73,17 @@ export class HeaderComponent implements OnInit {
     {
       id: 1,
       label: 'My Orders',
-      routerLink: '/user-properties',
+      routerLink: '/user-properties/orders',
     },
     {
       id: 2,
       label: 'My Addresses',
-      routerLink: '/user-properties',
+      routerLink: '/user-properties/shipping-address',
     },
     {
       id: 3,
       label: 'Wish Lists',
-      routerLink: '/user-properties',
+      routerLink: '/user-properties/wish-lists',
     },
     {
       id: 4,
@@ -111,7 +111,9 @@ export class HeaderComponent implements OnInit {
   }
 
   itemPress(item: any) {
-    this.router.navigate([item.routerLink]);
+    console.log("item pressed",item.id);
+    
+    this.router.navigate([item.routerLink,item.id]);
   }
   navigateToForm(index: any) {
     switch (index) {

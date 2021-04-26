@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { faGalacticSenate } from '@fortawesome/free-brands-svg-icons';
 
 @Component({
   selector: 'app-user-properties',
@@ -37,6 +38,7 @@ list=[
     isSelect:false
   }
 ]
+
   constructor(private router:Router, private activatedRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
