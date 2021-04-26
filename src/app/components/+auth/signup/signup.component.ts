@@ -11,9 +11,9 @@ import { AuthenticateService } from 'src/Shared/Services/authenticate.service';
 })
 export class SignupComponent implements OnInit {
   signUpData = new UserData('', '', '', '');
-
+   signUpErr=false;
   constructor(private formBuilder: FormBuilder,
-    private authSignUpServ:AuthenticateService,
+    private authServ:AuthenticateService,
     private router:Router
     ) { }
 
@@ -21,9 +21,19 @@ export class SignupComponent implements OnInit {
     this.initForm();
   }
   signUp(userData:UserData) {
-    this.authSignUpServ.signUp(this.signUpData);
-    console.log("result:",this.signUpData )
-    this.router.navigate(['/login'])
+    this.authServ.signUp(this.signUpData).subscribe(
+      data=>{
+        console.log("signUp data: ",data);
+            this.router.navigate(['/login'])
+      },
+      err=>{
+        this.signUpErr=true;
+        console.log("signUp err: ",err);
+
+      }
+    );
+    // console.log("result:",this.signUpData )
+    // this.router.navigate(['/login'])
   }
   initForm() {
   }

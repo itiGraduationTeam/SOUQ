@@ -50,29 +50,37 @@
               <p>Log In</p>
             </ng-template>
             <ng-template #userName>
-              <p>{{ username }}</p>
+              <p>Hello: {{ username }}</p>
             </ng-template>
             <ng-container
               *ngIf="auth; then userName; else login"
             ></ng-container>
           </button>
           <div class="dropdown-menu dropdown-content">
-            <div class="menu_btn_container">
-              <button (click)="navigateToForm(2)">Log In</button>
-              <div>
-                <button class="signUp_noAccount no_account">
-                  Don't have an account?
-                </button>
+            <ng-template #createAccount>
+              <div class="menu_btn_container">
+                <button (click)="navigateToForm(2)">Log In</button>
+                <div>
+                  <button class="signUp_noAccount no_account">
+                    Don't have an account?
+                  </button>
+                </div>
+                <div>
+                  <button
+                    class="signUp_noAccount sign_up"
+                    (click)="navigateToForm(1)">
+                    Sign Up
+                  </button>
+                </div>
               </div>
-              <div>
-                <button
-                  class="signUp_noAccount sign_up"
-                  (click)="navigateToForm(1)"
-                >
-                  Sign Up
-                </button>
+            </ng-template>
+
+            <ng-template #logOut>
+              <div class="menu_btn_container">
+                <button (click)="logout()">Logout</button>
               </div>
-            </div>
+            </ng-template>
+            <ng-container *ngIf="auth; then logOut; else createAccount" ></ng-container>
             <div class="dropdown-divider"></div>
             <div class="item_container">
               <a
@@ -139,22 +147,31 @@
             ></ng-container>
           </button>
           <div class="dropdown-menu dropdown-content">
-            <div class="menu_btn_container">
-              <button (click)="navigateToForm(2)">Log In</button>
-              <div>
-                <button class="signUp_noAccount no_account">
-                  Don't have an account?
-                </button>
+            <ng-template #createAccount>
+              <div class="menu_btn_container">
+                <button (click)="navigateToForm(2)">Log In</button>
+                <div>
+                  <button class="signUp_noAccount no_account">
+                    Don't have an account?
+                  </button>
+                </div>
+                <div>
+                  <button
+                    class="signUp_noAccount sign_up"
+                    (click)="navigateToForm(1)">
+                    Sign Up
+                  </button>
+                </div>
               </div>
-              <div>
-                <button
-                  class="signUp_noAccount sign_up"
-                  (click)="navigateToForm(1)"
-                >
-                  Sign Up
-                </button>
+            </ng-template>
+
+            <ng-template #logOut>
+              <div class="menu_btn_container">
+                <button (click)="logout()">Logout</button>
               </div>
-            </div>
+            </ng-template>
+            <ng-container *ngIf="auth; then logOut; else createAccount" ></ng-container>
+           
             <div class="dropdown-divider"></div>
             <div class="item_container">
               <a

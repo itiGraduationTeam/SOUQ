@@ -18,15 +18,19 @@ user:any;
     return localStorage.getItem("userToken")
   }
   signUp(user:any){
-   return this._http.post<UserData>(this.signUpUrl,user).subscribe(
-     data=>{
-       console.log("Register successfully: ",data);
-     },
-     err=>{
-      console.log("Register failed: ",err);
-    }
-   )
-  }
+   return this._http.post<UserData>(this.signUpUrl,user).pipe(
+    catchError(err => { return throwError(err.message); })
+  )}
+
+  //  .subscribe(
+  //    data=>{
+  //      console.log("Register successfully: ",data);
+  //    },
+  //    err=>{
+  //     console.log("Register failed: ",err);
+  //   }
+  //  )
+  
   getLoginListner() {
     return this.loginListner.asObservable()
   }

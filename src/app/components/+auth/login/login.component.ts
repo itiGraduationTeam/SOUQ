@@ -27,8 +27,8 @@ export class LoginComponent implements OnInit {
     
   }
   login() {
-    this.authLoginServ.logIn(this.loginForm.value)
-    // console.log(this.loginForm.value)
+   let d= this.authLoginServ.logIn(this.loginForm.value)
+    console.log(this.loginForm.value)
     this.adminServ.authAdmin().subscribe(
       data=>{
         console.log("auth data:",data);
@@ -37,6 +37,7 @@ export class LoginComponent implements OnInit {
       ,
       err=> console.log("auth err: ",err)
     )
+    console.log("err: ",d);
 
   }
   logOut() {

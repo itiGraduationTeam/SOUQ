@@ -16,9 +16,9 @@ import { Subscription } from 'rxjs';
 export class HeaderComponent implements OnInit {
   private isLoginsub: Subscription = new Subscription;
   isLogin: boolean = false;
-  numberOfItemsInCart=0;
-  auth=false;
-  username:string='';
+  numberOfItemsInCart = 0;
+  auth = false;
+  username: string = '';
   SearchForm = this.formBuilder.group({
     search: ['', Validators.required],
   });
@@ -26,12 +26,12 @@ export class HeaderComponent implements OnInit {
     private router: Router,
     private filterServe: FilterService,
     private formBuilder: FormBuilder,
-    private cartServe:CartService,
-    private authServe:AuthenticateService
+    private cartServe: CartService,
+    private authServe: AuthenticateService
     // private localStorage:LocalStorageService
-      
-    
-  ) {}
+
+
+  ) { }
   @Input()
   isVisible = false;
   isOpen = false;
@@ -55,20 +55,20 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.isLoginsub = this.authServe.getLoginListner().subscribe(isAuth => {
       this.isLogin = isAuth;
-      console.log("islogin: ",this.isLogin);
+      console.log("islogin: ", this.isLogin);
     },
-    err=>console.log(err)
-    
+      err => console.log(err)
+
     )
-    
+
     this.getCategories();
-    this.getNumberOgCarts();
-    this.getUserame();   
+    this.getNumberOfCarts();
+    this.getUserame();
   }
   ngAfterViewInit(): void {
-    this.getNumberOgCarts();
+    this.getNumberOfCarts();
   }
-  
+
   menuLisItems = [
     {
       id: 1,
@@ -123,7 +123,7 @@ export class HeaderComponent implements OnInit {
         break;
     }
   }
-  navigateToCart(){
+  navigateToCart() {
     this.router.navigate(['/shopping_cart']);
   }
   showHideSearch() {
@@ -182,31 +182,31 @@ export class HeaderComponent implements OnInit {
       this.search(form.value.search);
     }
   }
-  getNumberOgCarts(){
+  getNumberOfCarts() {
     this.cartServe.getAllCarts().subscribe(
-      data=>{
-        this.numberOfItemsInCart=Object.keys(data).length;
+      data => {
+        this.numberOfItemsInCart = Object.keys(data).length;
       },
-      err=>{
+      err => {
         console.log(err);
-        
+
       }
     )
   }
-  getUserame(){
-    let id=localStorage.getItem("userId");
-    if(id){
+  getUserame() {
+    let id = localStorage.getItem("userId");
+    if (id) {
       this.authServe.getUserById(id).subscribe(
-        data=>{
-          this.username=`${data.firstName}-${data.firstName}`
-          this.auth=true;
-          console.log("user info: ",this.username);
+        data => {
+          this.username = `${data.firstName}-${data.firstName}`
+          this.auth = true;
+          console.log("user info: ", this.username);
 
         },
-        err=>{
+        err => {
           console.log(err);
-          this.auth=false;
-          this.username="";   
+          this.auth = false;
+          this.username = "";
         }
       )
     }
@@ -215,6 +215,8 @@ export class HeaderComponent implements OnInit {
     this.isLoginsub.unsubscribe()
   }
   logout() {
+    this.auth = false;
+    this.username = "";
     this.authServe.logOut()
-  }    
+  }
 }

@@ -7,6 +7,14 @@
             </a>
           </div>
     </div>
+    <ng-template #err>
+        <div class="row pt-1">
+            <div class="alert alert-danger col-md-6 mx-auto col-sm-6 text-center">
+                <p >This accound is already exist</p>
+            </div>
+        </div>
+    </ng-template>
+    <ng-container *ngIf="signUpErr then err "></ng-container>
     <div class="row pt-1">
         <div class="col-md-6 mx-auto col-sm-8">
             <div class="card">
@@ -63,7 +71,7 @@
                             </small>
                         </div>
                         <button [disabled]="firstName.invalid || email.invalid || lastName.invalid || password.invalid"
-                            type="submit" class=" btn-block">
+                            type="submit" class="btn-block">
                             <h4>Create an account</h4>
                         </button>
                         <p class="p-3" >
