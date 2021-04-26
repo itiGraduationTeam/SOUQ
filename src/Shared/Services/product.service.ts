@@ -30,7 +30,11 @@ export class ProductService {
       }),
 
     };
-    return this._http.post<IProduct>(`http://localhost:8000/api/products/`,{ ...product },options).pipe(
+    return this._http.post<IProduct>(`http://localhost:8000/api/products/`,{ ...product },{headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization:`Bearer ${this.getToken()}`
+    })}
+    ).pipe(
       
       catchError(err => { return throwError(err.message) })
     )

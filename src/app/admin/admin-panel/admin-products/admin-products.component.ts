@@ -75,19 +75,32 @@ export class AdminProductsComponent implements OnInit {
     )
     console.log("from admin products: ", proName);
   }
-  //remove product by name
+  
+  openModalForm(prod: any) {
+    this.selectedProduct = prod;
+    console.log("selected product: ", this.selectedProduct._id);
+    this.openModal = true;
+  }
   editProduct() {
     let newData = this.editForm.value;
-    console.log("form value: ", newData);
+    // console.log("form value: ", newData);
     this.productServ.editProduct(this.selectedProduct._id,
       newData.name, newData.price, newData.discount).subscribe(
         data => {
-          console.log("result of edit product: ", data);
+          this.productList.filter(
+            (oldProd:any,i:any)=>{
+              if(oldProd['_id']===this.selectedProduct['_id']){
+                 return (this.productList[i]=data);
+              }
+             
+            }
+          )
         },
         err => {
           console.log("err from edit product: ", err);
         }
       )
+     
         this.closeModal();
   }
   addProduct() {
@@ -133,11 +146,7 @@ export class AdminProductsComponent implements OnInit {
 
 
   }
-  openModalForm(prod: any) {
-    this.selectedProduct = prod;
-    console.log("selected product: ", this.selectedProduct._id);
-    this.openModal = true;
-  }
+  
   closeModal() {
     this.openModal = false;
   }
