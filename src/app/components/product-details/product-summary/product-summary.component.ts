@@ -16,11 +16,12 @@ export class ProductSummaryComponent implements OnInit {
   @Input() currentProduct:any;
   error:any;
   addedItem=false;
+  lenght:number=0;
   constructor(
     private filterService:FilterService,
     private cartService:CartService,
     private router:Router,
-    private localStorage:LocalStorageService
+    private localStorage:LocalStorageService,
     ) { }
   option:IOptions[]=[{
     options:[],
@@ -45,6 +46,11 @@ export class ProductSummaryComponent implements OnInit {
     
       }
     );
+
+    //get initial cart lenght
+      this.cartService.getCartLenght().subscribe(
+        value=>this.lenght=value
+      );
   }
   increasePriceValue(price: any) {
     var temp = this.localStorage.get("totalPrice");
@@ -72,8 +78,7 @@ export class ProductSummaryComponent implements OnInit {
        this.router.navigate(['/signUp']);
         
       }
-
     )
+    this.cartService.changeCartLenght(this.lenght+1);
   }
-
 }

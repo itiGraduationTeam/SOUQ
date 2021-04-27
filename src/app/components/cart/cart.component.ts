@@ -17,66 +17,76 @@ export class CartComponent implements OnInit {
 
   noCart = false;
   wishList: any = [];
+  lenght: number = 0;
   constructor(
     private fb: FormBuilder,
     private cartService: CartService,
-    private localStorage:LocalStorageService,
-    private router:Router
-    ) { }
-    cartForm = this.fb.group({
-      qty: [0]
-  
-    })
-    get qty() {
-      return this.cartForm.get('qty');
-    }
-  
-    changeQty(formControl: any, item: any) {
-      this.addToCart(formControl.value, item)
-    }
-    addToCart(qty: any, item: any) {
-      this.cartService.addToCart(item.productId._id, qty).subscribe(
-        (data) => {
-          //console.log('qty :' + this.qty.value)
-          console.log(data)
-          this.error = ""
-          this.totalPrice += item.productId.price * qty;
-          localStorage.setItem('totalPrice', this.totalPrice.toString())
-          console.warn("totalPrice: ", this.totalPrice);
-  
-        },
-        err => this.error = "error"
-  
-      )
-    }
+    private localStorage: LocalStorageService,
+    private router: Router
+  ) { }
+  cartForm = this.fb.group({
+    qty: [0]
+
+  })
+  get qty() {
+    return this.cartForm.get('qty');
+  }
+
+  changeQty(formControl: any, item: any) {
+    this.addToCart(formControl.value, item)
+  }
+
+  addToCart(qty: any, item: any) {
+    this.cartService.addToCart(item.productId._id, qty).subscribe(
+      (data) => {
+        //console.log('qty :' + this.qty.value)
+        console.log(data)
+        this.error = ""
+        this.totalPrice += item.productId.price * qty;
+        localStorage.setItem('totalPrice', this.totalPrice.toString())
+        console.warn("totalPrice: ", this.totalPrice);
+
+      },
+      err => this.error = "error"
+
+    )
+    this.cartService.changeCartLenght(this.lenght+1);
+    
+  }
   ngOnInit(): void {
-     this.getcarts();
+    this.getcarts();
     localStorage.setItem('totalPrice', this.totalPrice.toString())
+    this.cartService.getCartLenght().subscribe(   
+      value => {
+        console.log("value: ",value);
+        this.lenght = value
+      }
+    )
   }
   getcarts() {
     this.cartService.getAllCarts().subscribe(
       (data) => {
         this.cartItems = data;
-      
+
         this.numOfcartItems = this.cartItems.length;
-       this.getTotalPrice();
+        this.getTotalPrice();
       },
       (error) => this.error = error
     )
   }
 
 
-getTotalPrice(){
-  var carts=[];
-        
-  carts = this.cartItems;
-for (let i =0 ;i<carts.length;i++){
-this.totalPrice+=carts[i].productId.price * carts[i].quantity;
-}
-}
+  getTotalPrice() {
+    var carts = [];
+
+    carts = this.cartItems;
+    for (let i = 0; i < carts.length; i++) {
+      this.totalPrice += carts[i].productId.price * carts[i].quantity;
+    }
+  }
   ngAfterViewChecked(): void {
 
-   
+
   }
   ngOnChanges(changes: SimpleChanges) {
     if (changes['carItem']) {
@@ -92,9 +102,19 @@ this.totalPrice+=carts[i].productId.price * carts[i].quantity;
       },
       err => this.error = "error"
     )
+  // decrease cart item lenght
+ 
+  if(this.lenght>0){
+    this.cartService.changeCartLenght(this.lenght-1);
+  }
+  else{
+    this.cartService.changeCartLenght(0);
+  }
     this.cartItems = this.cartItems.filter((ele: any) => ele.productId._id != item);
     this.getTotalPrice();
     this.numOfcartItems = Object.keys(this.cartItems).length;
+
+    //check cart lenght;
     if (this.numOfcartItems === 0) {
       this.noCart = true;
     }
@@ -117,18 +137,9 @@ this.totalPrice+=carts[i].productId.price * carts[i].quantity;
       this.wishList.push(item);
       this.localStorage.set("wishListItems", this.wishList);
     }
-
   }
-
-  navigate(event:any){
-    if(event==='checkout')
-    {
-        this.router.navigate(['/checkout/shipping'])
-     
-    }
-    else if(event==='signin'){
-      this.router.navigate(['/login'])
-    }
+  navigate() {
+   
+      this.router.navigate(['/checkout/shipping'])
   }
-  
 }

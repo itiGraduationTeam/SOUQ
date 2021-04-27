@@ -16,7 +16,8 @@ import { Subscription } from 'rxjs';
 export class HeaderComponent implements OnInit {
   private isLoginsub: Subscription = new Subscription;
   isLogin: boolean = false;
-  numberOfItemsInCart = 0;
+  
+  lenghtOfItems:number=0;
   auth = false;
   username: string = '';
   SearchForm = this.formBuilder.group({
@@ -37,7 +38,6 @@ export class HeaderComponent implements OnInit {
   isOpen = false;
   showSearch = false;
   categeories: any;
-
   subCategeories = [
     'menWear',
     'womenWear',
@@ -53,20 +53,31 @@ export class HeaderComponent implements OnInit {
     'hairCare',
   ];
   ngOnInit(): void {
+    //check user login or not 
     this.isLoginsub = this.authServe.getLoginListner().subscribe(isAuth => {
       this.isLogin = isAuth;
       console.log("islogin: ", this.isLogin);
     },
       err => console.log(err)
-
     )
-
+//check cart item lenght;
+    this.cartServe.getCartLenght().subscribe(
+      value=>{
+        console.log("value lenght is: ",value);
+        
+        this.lenghtOfItems=value
+      }
+    );
+    console.log("inital lenght is: ",this.lenghtOfItems);
+    
     this.getCategories();
-    this.getNumberOfCarts();
+    // this.getNumberOfCarts();
     this.getUserame();
   }
   ngAfterViewInit(): void {
     this.getNumberOfCarts();
+    console.log("listen to cart lenght: ",this.lenghtOfItems);
+    
   }
 
   menuLisItems = [
@@ -185,13 +196,9 @@ export class HeaderComponent implements OnInit {
     }
   }
   getNumberOfCarts() {
-    this.cartServe.getAllCarts().subscribe(
-      data => {
-        this.numberOfItemsInCart = Object.keys(data).length;
-      },
-      err => {
-        console.log(err);
-
+    this.cartServe.getCartLenght().subscribe(
+      value => {
+        this.lenghtOfItems =value
       }
     )
   }

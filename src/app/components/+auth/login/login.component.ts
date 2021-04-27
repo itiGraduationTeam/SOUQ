@@ -29,6 +29,7 @@ export class LoginComponent implements OnInit {
   login() {
     this.authLoginServ.logIn(this.loginForm.value)
     console.log(this.loginForm.value)
+    
     // this.adminServ.authAdmin().subscribe(
     //   data=>{
     //     console.log("auth data:",data);
