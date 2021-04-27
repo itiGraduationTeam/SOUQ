@@ -12,7 +12,7 @@ export class AuthenticateService {
 
   private loginUrl = `http://localhost:8000/api/users/authenticate`;
   private signUpUrl = `http://localhost:8000/api/users/register`;
-  private checkOutUrl = `http://localhost:8000/api/users/registerCheckOut`;
+  // private checkOutUrl = `http://localhost:8000/api/users/registerCheckOut`;
 
   private loginListner = new Subject<boolean>()
   user: any;
@@ -26,11 +26,11 @@ export class AuthenticateService {
     )
   }
   
-  SaveAddress(user: any) {
-    return this._http.post<UserData>(this.checkOutUrl, user).pipe(
-      catchError(err => { return throwError(err.message); })
-    )
-  }
+  // SaveAddress(user: any) {
+  //   return this._http.post<UserData>(this.checkOutUrl, user).pipe(
+  //     catchError(err => { return throwError(err.message); })
+  //   )
+  // }
 
 
 

@@ -43,7 +43,7 @@ export class CartComponent implements OnInit {
         console.log(data)
         this.error = ""
         this.totalPrice += item.productId.price * qty;
-        localStorage.setItem('totalPrice', this.totalPrice.toString())
+        // localStorage.setItem('totalPrice', this.totalPrice)
         console.warn("totalPrice: ", this.totalPrice);
 
       },
@@ -78,11 +78,12 @@ export class CartComponent implements OnInit {
 
   getTotalPrice() {
     var carts = [];
-
+    this.totalPrice=0;
     carts = this.cartItems;
     for (let i = 0; i < carts.length; i++) {
       this.totalPrice += carts[i].productId.price * carts[i].quantity;
     }
+    localStorage.setItem("totalPrice",this.totalPrice);
   }
   ngAfterViewChecked(): void {
 

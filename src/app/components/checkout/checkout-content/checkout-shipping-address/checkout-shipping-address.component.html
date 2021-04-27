@@ -10,57 +10,46 @@
                             <span class="float-right"> Egypt</span>
                         </div>
                     </div>
-                    <form action="/action_page.php">
+                    <form [formGroup]="shippingForm">
+                        {{shippingForm.value|json}}
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
                                     <label for="firstName">First Name*</label>
-                                    <input type="text" class="form-control" id="firstName" name="firstName">
+                                    <input type="text" formControlName="firstName" class="form-control" id="firstName" name="firstName">
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
                                     <label for="lastName">Last Name*</label>
-                                    <input type="text" class="form-control" id="lastName" name="lastName">
+                                    <input type="text" formControlName="lastName" class="form-control" id="lastName" name="lastName">
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="governorate">Governorate*</label>
-                            <input type="text" class="form-control" id="governorate" name="governorate">
+                            <label for="mobileNumber">mobileNumber*</label>
+                            <input type="number" formControlName="mobileNumber" class="form-control" id="mobileNumber" name="mobileNumber">
                         </div>
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
                                     <label for="city">City*</label>
-                                    <input type="text" class="form-control" id="city" name="city">
+                                    <input type="text" formControlName="city" class="form-control" id="city" name="city">
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
-                                    <label for="area">Area</label>
-                                    <input type="text" class="form-control" id="area" name="area">
+                                    <label for="country">Country</label>
+                                    <input type="text" formControlName="country" class="form-control" id="country" name="country">
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="street">Street Name/No. *</label>
-                            <input type="text" class="form-control" id="street" name="street">
+                            <label for="address">Address*</label>
+                            <input type="text" formControlName="address" class="form-control" id="address" name="address">
                         </div>
-                        <div class="form-group">
-                            <label for="locationType">Location Type *</label>
-                            <select class="form-control" id="locationType" name="locationType">
-                                <option>Home</option>
-                                <option>Business</option>
-                            </select>
-                        </div>
-
-
-                        <div class="form-group">
-                            <label for="note">Shipping Note</label>
-                            <textarea class="form-control" id="note" rows="1" name="note"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary float-right" (click)="SaveAddress()" routerLink="/chcekout/payment">SAVE ADDRESS</button>
+                                             
+                       <button type="submit" [disabled]="shippingForm.invalid" class="btn btn-primary float-right" (click)="addOrder()">SAVE ADDRESS</button>
                     </form>
                 </div>
             </div>

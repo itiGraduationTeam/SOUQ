@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthenticateService } from 'src/Shared/Services/authenticate.service';
+import { CheckoutOrderService } from 'src/Shared/Services/checkout-order.service';
 
 @Component({
   selector: 'app-checkout-shipping-address',
@@ -12,31 +13,27 @@ export class CheckoutShippingAddressComponent implements OnInit {
   shippingForm = this.formBuilder.group({
     firstName: ['', Validators.required],
     lastName: ['', Validators.required],
-    governorate: ['', Validators.required],
+    mobileNumber: ['', Validators.required],
     city: ['', Validators.required],
-    area: ['', Validators.required],
-    street: ['', Validators.required],
-    locationType:['', Validators.required],
-    note:['']
+    country: ['', Validators.required],
+    address: ['', Validators.required],
 
   });
-  constructor(private formBuilder: FormBuilder, private router: Router, private authServ: AuthenticateService,) { }
+  constructor(private formBuilder: FormBuilder,
+     private router: Router, 
+     private orderServe: CheckoutOrderService) { }
 
   ngOnInit(): void {
     this.initForm();
   }
 
-  SaveAddress() {
-    let d = this.authServ.SaveAddress(this.shippingForm).subscribe(
-      data => {
-        console.log("SaveAddress data:", data);
-        this.router.navigate(['/payment']);
-      },
-      err => {
-        console.log("SaveAddress err: ", err);
-      }
-    );
-    // console.log("err: ", d);
+  addOrder() {
+    let price=localStorage.getItem("totalPrice");
+
+   let obj={clientInfo:this.shippingForm.value,totalPrice:price}
+     this.orderServe.createOrder(obj).subscribe();
+     this.router.navigate(['/checkout/payment']);
+// console.log(this.shippingForm.value);
 
   }
   initForm() {
