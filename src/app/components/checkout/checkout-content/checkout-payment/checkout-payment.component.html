@@ -1,10 +1,77 @@
 <div class="container">
     <div class="row">
-        <div class="col-sm-6">
+        <!--<div class="col-sm-6">
             <div class="card shadow">
                 <div class="card-body">                  
                 </div>
             </div>
+        </div>-->
+
+
+        <div class="col-md-6">
+            <!-- <div class="row">
+            <div class="col">
+                <h6>SHOPPING CART</h6>
+            </div>
+            <div class="col">
+                <a routerLink='/shopping_cart'>Back to cart</a>
+            </div>
+        </div> -->
+            <div class="card">
+                <div class="card shadow">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-2">
+                                <img src="https://cf1.s3.souqcdn.com/public/style/img/en/souqAmazon-logo-v2-X2.png" alt="" data-toggle="popover" data-content=""
+                                    class="card-img-bottom w-100 d-block">
+                            </div>
+                            <div class="col-10">
+                                <p class="text-black">Thank you for using our services, you will recieve your order with in a week.</p>
+                            </div>
+                            <!-- <div class="row pl-5">
+                                <p class="text-primary">price EGP</p>
+
+                                <form [formGroup]="cartForm">
+                                    <select class="form-control" formControlName="qty" name="qty"
+                                        (ngModelChange)="changeQty(qty,item)">
+                                        <option *ngFor="let count of item.productId.countInStock | numberToArray"
+                                            [ngValue]="count">
+                                            {{ count }}
+                                        </option>
+                                    </select>
+                                </form>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="row">
+                        <!-- <div class="col">
+                        Item(s):
+                    </div> -->
+                        <div class="col">
+                            Total price:
+
+                        </div>
+                        <div class="col">
+                            <p class="text-primary">price EGP</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div> 
+
+        <div class="col-md-4">
+            <div class="row">
+                <div class="col">
+                    <h6>SHOPPING CART</h6>
+                </div>
+                <div class="col">
+                    <a routerLink='/shopping_cart'>Back to cart</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
 </div>

@@ -24,7 +24,7 @@ export class CheckoutContentComponent implements OnInit {
     switch (tagNumber) {
 
       case 1:
-        this.router.navigate(['shipping-address'], {
+        this.router.navigate(['shipping'], {
           relativeTo: this.activeRoute,
         });
         break;

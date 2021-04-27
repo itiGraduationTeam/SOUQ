@@ -23,7 +23,7 @@ export class CheckoutShippingAddressComponent implements OnInit {
      this.authServ.SaveAddress(this.shippingData).subscribe(
       data => {
         console.log("SaveAddress data:", data);
-        this.router.navigate(['/payment']);
+        // this.router.navigate(['/payment']);
       },
       err => {
         this.signUpErr=true;

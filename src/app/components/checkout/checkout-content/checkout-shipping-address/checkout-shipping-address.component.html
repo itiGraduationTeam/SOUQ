@@ -10,7 +10,8 @@
                             <span class="float-right"> Egypt</span>
                         </div>
                     </div>
-                    <form action="/action_page.php" #shippingForm="ngForm" novalidate (ngSubmit)="SaveAddress(shippingData)">
+                    <form action="/action_page.php" #shippingForm="ngForm" novalidate
+                        (ngSubmit)="SaveAddress(shippingData)">
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
@@ -23,7 +24,7 @@
                                 <div class="form-group">
                                     <label for="lastName">Last Name*</label>
                                     <input type="text" class="form-control" id="lastName" name="lastName"
-                                    #lastName="ngModel" [(ngModel)]="shippingData.lastName" required>
+                                        #lastName="ngModel" [(ngModel)]="shippingData.lastName" required>
                                 </div>
                             </div>
                         </div>
@@ -32,21 +33,21 @@
                         <div class="form-group">
                             <label for="governorate">Governorate*</label>
                             <input type="text" class="form-control" id="governorate" name="governorate"
-                            #governorate="ngModel" [(ngModel)]="shippingData.governorate" required>
+                                #governorate="ngModel" [(ngModel)]="shippingData.governorate" required>
                         </div>
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
                                     <label for="city">City*</label>
-                                    <input type="text" class="form-control" id="city" name="city"
-                                    #city="ngModel" [(ngModel)]="shippingData.city" required>
+                                    <input type="text" class="form-control" id="city" name="city" #city="ngModel"
+                                        [(ngModel)]="shippingData.city" required>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
                                     <label for="area">Area</label>
-                                    <input type="text" class="form-control" id="area" name="area"
-                                    #area="ngModel" [(ngModel)]="shippingData.area" required>
+                                    <input type="text" class="form-control" id="area" name="area" #area="ngModel"
+                                        [(ngModel)]="shippingData.area" required>
                                 </div>
                             </div>
                         </div>
@@ -54,13 +55,13 @@
 
                         <div class="form-group">
                             <label for="street">Street Name/No. *</label>
-                            <input type="text" class="form-control" id="street" name="street"
-                            #street="ngModel" [(ngModel)]="shippingData.street" required>
+                            <input type="text" class="form-control" id="street" name="street" #street="ngModel"
+                                [(ngModel)]="shippingData.street" required>
                         </div>
                         <div class="form-group">
                             <label for="locationType">Location Type *</label>
-                            <select class="form-control" id="locationType" name="locationType"
-                            #locationType="ngModel" [(ngModel)]="shippingData.locationType" required>
+                            <select class="form-control" id="locationType" name="locationType" #locationType="ngModel"
+                                [(ngModel)]="shippingData.locationType" required>
                                 <option>Home</option>
                                 <option>Business</option>
                             </select>
@@ -69,13 +70,13 @@
 
                         <div class="form-group">
                             <label for="note">Shipping Note</label>
-                            <textarea class="form-control" id="note" rows="1" name="note"
-                            #note="ngModel" [(ngModel)]="shippingData.note" required></textarea>
+                            <textarea class="form-control" id="note" rows="1" name="note" #note="ngModel"
+                                [(ngModel)]="shippingData.note" required></textarea>
                         </div>
 
-
-                        <button type="submit" class="btn btn-primary float-right" routerLink="payment">SAVE
+                        <button type="submit" class="btn btn-primary float-right" routerLink='/checkout/payment'>SAVE
                             ADDRESS</button>
+                           
                     </form>
                 </div>
             </div>
@@ -89,7 +90,7 @@
                     <a routerLink='/shopping_cart'>Back to cart</a>
                 </div>
             </div>
-            <div class="card">
+            <!-- <div class="card">
                 <div class="card-body">
                     <div class="row">
                         <div class="col-2">
@@ -100,9 +101,9 @@
                             <p class="text-black-50">item.productId.name</p>
                         </div>
                         <div class="row pl-5">
-                            <p class="text-primary">price EGP</p>
+                            <p class="text-primary">price EGP</p> -->
 
-                            <!-- <form [formGroup]="cartForm">
+            <!-- <form [formGroup]="cartForm">
                                 <select class="form-control" formControlName="qty" name="qty"
                                     (ngModelChange)="changeQty(qty,item)">
                                     <option *ngFor="let count of item.productId.countInStock | numberToArray"
@@ -111,7 +112,7 @@
                                     </option>
                                 </select>
                             </form> -->
-                        </div>
+            <!-- </div>
                     </div>
                 </div>
                 <div class="card-footer">
@@ -124,7 +125,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>-->
         </div>
     </div>
 </div>
