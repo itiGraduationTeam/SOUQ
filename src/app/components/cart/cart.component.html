@@ -30,6 +30,8 @@
                                                 <p class="text-primary">{{item.productId.price}}EGP</p>
                                             </div>
                                             <form [formGroup]="cartForm">
+                                             
+                                                <span>{{item.quantity}}</span>
                                                 <select class="form-control" formControlName="qty" name="qty"
                                                     (ngModelChange)="changeQty(qty,item)">
                                                    

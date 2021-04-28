@@ -37,20 +37,33 @@ export class CartComponent implements OnInit {
   }
 
   addToCart(qty: any, item: any) {
+    console.log("item . qte =",item.quantity)
+    let disPrice= item.productId.price * item.quantity;
+    let incPrice= (item.productId.price * qty)
+    console.log("disprice",disPrice);
+    console.log("incPrics",incPrice);
+    if(this.totalPrice>disPrice)
+    this.totalPrice =(this.totalPrice-disPrice)+incPrice;
+    else
+    this.totalPrice =(disPrice-this.totalPrice)+incPrice;
+    console.log("total price qty",this.totalPrice)
+    localStorage.setItem('totalPrice', this.totalPrice)
     this.cartService.addToCart(item.productId._id, qty).subscribe(
       (data) => {
-        //console.log('qty :' + this.qty.value)
-        console.log(data)
+        //this.cartItems=data;
+     //   console.log('qty  data:' + this.cartItems)
+        //console.log(data)
         this.error = ""
-        this.totalPrice += item.productId.price * qty;
-        // localStorage.setItem('totalPrice', this.totalPrice)
-        console.warn("totalPrice: ", this.totalPrice);
+      
+       // this.getTotalPrice(); 
+       
+      //  console.warn("totalPrice: ", this.totalPrice);
 
       },
       err => this.error = "error"
 
     )
-    this.cartService.changeCartLenght(this.lenght+1);
+    this.cartService.changeCartLenght(this.lenght+qty);
     
   }
   ngOnInit(): void {
@@ -91,7 +104,7 @@ export class CartComponent implements OnInit {
   }
   ngOnChanges(changes: SimpleChanges) {
     if (changes['carItem']) {
-      // this.currentItem = this.carItem;
+      //this.currentItem = this.carItem;
       // this.qty.setValue(this.currentItem.quantity)
     }
   }
@@ -118,6 +131,8 @@ export class CartComponent implements OnInit {
     //check cart lenght;
     if (this.numOfcartItems === 0) {
       this.noCart = true;
+      this.totalPrice=0;
+      localStorage.setItem("totalPrice","0");
     }
     else {
       this.noCart = false;
