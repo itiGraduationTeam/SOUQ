@@ -32,6 +32,7 @@ export class CheckoutShippingAddressComponent implements OnInit {
     let price=localStorage.getItem("totalPrice");
 
    let obj={clientInfo:this.shippingForm.value,totalPrice:price}
+   
      this.orderServe.createOrder(obj).subscribe();
      this.router.navigate(['/checkout/payment']);
 // console.log(this.shippingForm.value);

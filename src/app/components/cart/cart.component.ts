@@ -42,10 +42,12 @@ export class CartComponent implements OnInit {
     let incPrice= (item.productId.price * qty)
     console.log("disprice",disPrice);
     console.log("incPrics",incPrice);
+
     if(this.totalPrice>disPrice)
     this.totalPrice =(this.totalPrice-disPrice)+incPrice;
     else
     this.totalPrice =(disPrice-this.totalPrice)+incPrice;
+
     console.log("total price qty",this.totalPrice)
     localStorage.setItem('totalPrice', this.totalPrice)
     this.cartService.addToCart(item.productId._id, qty).subscribe(
@@ -63,8 +65,8 @@ export class CartComponent implements OnInit {
       err => this.error = "error"
 
     )
-    this.cartService.changeCartLenght(this.lenght+qty);
-    
+
+    this.cartService.changeCartLenght(this.lenght+(qty-1)); 
   }
   ngOnInit(): void {
     this.getcarts();
@@ -99,9 +101,8 @@ export class CartComponent implements OnInit {
     localStorage.setItem("totalPrice",this.totalPrice);
   }
   ngAfterViewChecked(): void {
-
-
   }
+
   ngOnChanges(changes: SimpleChanges) {
     if (changes['carItem']) {
       //this.currentItem = this.carItem;
@@ -142,7 +143,6 @@ export class CartComponent implements OnInit {
   addToWishList(item: any) {
     var temp = this.localStorage.get("wishListItems");
     // var username = this.localStorage.get("user")["username"];
-
     if (temp) {
       temp.push(item);
       for (var i = 0; i < temp.length; i++)
@@ -155,7 +155,6 @@ export class CartComponent implements OnInit {
     }
   }
   navigate() {
-   
       this.router.navigate(['/checkout/shipping'])
   }
 }
