@@ -52,7 +52,19 @@ cartLenght=new Subject<number>();
       catchError(err => { return throwError(err.message); })
     )}
 
+ // clear cart
+ clearCart(){
+  const options = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization:`Bearer ${this.getToken()}`
+    })
 
+  };
+  this._url="http://localhost:8000/api/cart/clear"
+  return this._http.delete<any>(this._url, options).pipe(
+    catchError(err => { return throwError(err.message); })
+  )}
     //to get all carts
   getAllCarts() {
     this._url = "http://localhost:8000/api/cart/getcart"

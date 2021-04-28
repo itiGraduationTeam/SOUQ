@@ -20,6 +20,7 @@ export class CheckoutShippingAddressComponent implements OnInit {
     address: ['', Validators.required],
 
   });
+  clientInfo:any;
   constructor(private formBuilder: FormBuilder,
      private router: Router, 
      private orderServe: CheckoutOrderService) { }
@@ -35,7 +36,9 @@ export class CheckoutShippingAddressComponent implements OnInit {
      this.orderServe.createOrder(obj).subscribe();
      this.router.navigate(['/checkout/payment']);
 // console.log(this.shippingForm.value);
+this.clientInfo =this.shippingForm.value;
 
+localStorage.setItem('clientInfo', JSON.stringify(this.clientInfo));
   }
   initForm() {
   }
