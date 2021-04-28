@@ -75,8 +75,7 @@ export class ProductSummaryComponent implements OnInit {
         this.addedItem=true;
       },
       err => {
-       this.router.navigate(['/signUp']);
-        
+       this.router.navigate(['/signUp']);      
       }
     )
     this.cartService.changeCartLenght(this.lenght+1);

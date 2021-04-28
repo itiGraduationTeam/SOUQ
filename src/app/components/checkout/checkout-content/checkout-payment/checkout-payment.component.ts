@@ -57,11 +57,11 @@ localStorage.setItem('clientInfo', "");
     this.router.navigate(['/']);
 
   }
+
   backToCart(){
     this.router.navigate(['shopping_cart']);
   }
   getOrderById(){
-    
     let userId=localStorage.getItem("userId");
     console.log("userid in check out is ",userId);
     this.totalPrice=localStorage.getItem("totalPrice");
