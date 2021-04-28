@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticateService } from 'src/Shared/Services/authenticate.service';
+import { CheckoutOrderService } from 'src/Shared/Services/checkout-order.service';
 import { ProductService } from 'src/Shared/Services/product.service';
 
 @Component({
@@ -11,12 +12,15 @@ export class AdminDashboardComponent implements OnInit {
 
   productList: any;
   usersList: any;
-
-  constructor(private productServ: ProductService, private authServ: AuthenticateService) { }
+   orders:any;
+  constructor(
+    private orderServe :CheckoutOrderService,
+    private productServ: ProductService, private authServ: AuthenticateService) { }
 
   ngOnInit(): void {
     this.getAllProduct();
     this.getAllUsers();
+    this.getAllOrders();
   }
 
   getAllProduct() {
@@ -32,7 +36,23 @@ export class AdminDashboardComponent implements OnInit {
       }
     )
   }
+getAllOrders(){
+   
+  this.orderServe.getAllOrders().subscribe(
+    (data:any)=>{
+    let listOrders=data;
+    this.orders=listOrders.length;
+    console.log("nmber of order admin",this.orders);
+    
 
+    
+    },
+    err=>{
+      console.log(err);
+      
+    }
+  )
+}
   getAllUsers() {
     this.authServ.getAllUsers().subscribe(
       data => {
