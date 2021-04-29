@@ -54,6 +54,7 @@ export class AuthenticateService {
         this.loginListner.next(true)
         localStorage.setItem('userToken', this.user.token);
         localStorage.setItem('userId', this.user._id);
+        location.href="/"
       },
       err => {
         console.log(err);
