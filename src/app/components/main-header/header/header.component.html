@@ -7,6 +7,7 @@
         </button>
         <img
           class="logo"
+          (click)="go()"
           src="https://cf1.s3.souqcdn.com/public/style/img/en/souqAmazon-logo-v2-X2.png"
         />
       </div>
@@ -104,7 +105,7 @@
         <div class="cart" (click)="navigateToCart()">
           <button class="cart_icon">
             <div class="cart_count">
-              <span>{{ lenghtOfItems }}</span>
+              <span></span>
             </div>
             <i class="fas fa-shopping-cart icon"></i>
           </button>
@@ -121,6 +122,7 @@
           <i class="fas fa-bars icon"></i>
         </button>
         <img
+        (click)="go()"
           class="logo"
           src="https://cf1.s3.souqcdn.com/public/style/img/en/souqAmazon-logo-v2-X2.png"
         />
@@ -198,7 +200,7 @@
         <div class="cart" (click)="navigateToCart()">
           <button class="cart_icon">
             <div class="cart_count">
-              <span> {{ lenghtOfItems }} </span>
+              <span>  </span>
             </div>
             <i class="fas fa-shopping-cart icon"></i>
           </button>

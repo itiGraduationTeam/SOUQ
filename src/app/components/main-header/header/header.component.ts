@@ -52,6 +52,9 @@ export class HeaderComponent implements OnInit {
     'skinCare',
     'hairCare',
   ];
+  go(){
+    this.router.navigate(['/']);
+  }
   ngOnInit(): void {
     //check user login or not 
     this.isLoginsub = this.authServe.getLoginListner().subscribe(isAuth => {
@@ -60,6 +63,7 @@ export class HeaderComponent implements OnInit {
     },
       err => console.log(err)
     )
+    
 //check cart item lenght;
     this.cartServe.getCartLenght().subscribe(
       value=>{
