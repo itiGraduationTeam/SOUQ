@@ -30,6 +30,7 @@
     "angular-slick": "0.0.0",
     "bootstrap": "^4.6.0",
     "bootstrap-icons": "^1.4.1",
+    "firebase": "^9.6.6",
     "jquery": "^3.6.0",
     "ngx-slick-carousel": "^0.5.1",
     "ngx-useful-swiper": "^10.0.1",
